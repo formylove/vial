@@ -1,0 +1,7 @@
+<s:debug></s:debug>
+  <s:if test="#parameters.type[0] =='essay'">   
+<jsp:include page="../manager/essayEditor.jsp" />
+  </s:if>
+  <s:if test="#parameters.type[0] =='opus'">   
+<%@include file="../manager/opusEditor.jsp" %>
+  </s:if>

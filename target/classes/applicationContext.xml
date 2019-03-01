@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+		http://www.springframework.org/schema/websocket  http://www.springframework.org/schema/websocket/spring-websocket.xsd
+        ">
+	 <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	 <aop:aspectj-autoproxy/>
+	<context:component-scan base-package="ink.moshuier.silken.service,ink.moshuier.silken.aspect">
+		<context:include-filter type="annotation" 
+		expression="org.aspectj.lang.annotation.Aspect"/>
+	</context:component-scan>
+	 <context:component-scan base-package="ink.moshuier.silken.action"/>
+	 <context:component-scan base-package="ink.moshuier.silken.common"/>
+	 <context:component-scan base-package="ink.moshuier.silken.dao"/>
+	 <context:component-scan base-package="ink.moshuier.silken.entity"/>
+	 <context:component-scan base-package="ink.moshuier.silken.service"/>
+	<bean id="ehCacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+		p:configLocation="classpath:ehcache.xml"
+		p:shared="false" />
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheCacheManager"
+		p:cacheManager-ref="ehCacheManager" > 
+	</bean>
+</beans>
+

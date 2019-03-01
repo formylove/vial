@@ -1,0 +1,125 @@
+
+\u009f\u009f 这个字符很像树
+html等页面资源文件需要放在根目录或者webcontent根目录下,
+浏览器访问无需加webcontent路径
+web.xml中配置无需加webcontent路径,如pages/jsp/login.jsp("/"可加可不加)
+struts配置:/pages/jsp/hello.jsp(/必须的)
+不支持struts,web.xml热部署
+io相对路径:String path = "webcontent/web-inf/hi.html";
+filter相对路径,不要把跟路径src加上:ink.moshuier.silken.action.filter.AccessFilter
+content-root大小写不能错,可以省略斜线
+网址中加几个斜杠不影响http://localhost:8080/VNB///pages/jsp/hi.html
+网址区分大小写
+actionsupport的action类有execute()函数的话默认执行execute,除非删掉
+设置properties 编码:window-->preferences -->General  -->Content Types ，然后选择Java Properties File
+actionsupport只能执行excute()函数，去掉 
+2.3.4struts包不许执行excute，而2.3.16需要
+jsp资源位置以WebRoot为根目录,如js/jquery-validate.js
+html资源需要使用相对目录,如../../js/bootstrap.css
+js库的使用也要求按顺序放入,jquery最前,其他在后.引用与使用要有先后顺序
+页面元素显示有问题,可能是html版本问题,将<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">改成<!DOCTYPE HTML >就好了
+js正则表达式：//形式，/需要转义，“”形式‘“需要转义
+<input type="file" onchange="ajaxUpload('file',$('#loading'));" id="file" name="file" accept=".jpg,.jpeg,.png,.gif" style="display:none;"> id name 都得设为file后台才能获得值
+private String fileFileName ; // 我也不知道怎么获得的额
+input file 用之前要清空$('#'+she).prop('outerHTML', $('#'+she).prop('outerHTML'));
+为什么每次执行结果不一样？1先前结果影响2网络传输事件影响3并发  $('img[name=target]').eq(1).load(function()）
+Map<String, String> nation = (new MsgConstants()).ISO31661ALPHA3;静态函数块必须新建实例或调用函数或静态函数中调用才会生效
+struts 用get获取action的值，用set设置action的值
+#request.dynastys == dynasty ongl 表达式
+修改服务器编码方式，双击服务器，点击open configuration，选择common标签修改
+s:select disabled="true"
+<s:set name="list" value="{'eeeee','ddddd','ccccc','bbbbb','aaaaa'}"></s:set>
+<s:property value="#request.list"/>
+输出结果[eeeee, ddddd, ccccc, bbbbb, aaaaa]
+UPDATE genre SET id=8,name='谍战片',type='movie' 不成立
+$('#'+me).prop("checked") == val true 和 "true"不相等
+ajax 的回调函数是非阻塞的，先执行下面函数，在回调
+getRequestURI短，getRequestURL长，返回stringbuffer
+rewirte 方法调用:actionName!methodName?param=...
+validate只能一次绑定一个
+404错误页面的struts标签无效，因为没有经过struts 过滤器过滤，加上<dispatcher>ERROR</dispatcher>
+window.open('链接地址','_blank')
+_blank参数可以去掉或者修改为_self让链接在当前窗口打开
+timestamp设置默认值为CURRENT_TIMESTAMP才能插入式更新 `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+"0>        <p id=\"salutation\">XX, 感谢你注册夜网</p> ".replaceAll(Salutation_Reg, "xuyang, 感谢你注册夜网")),replaceALL才生效，用于正则表达式
+ $('.qtip  form[name=login_form]').submit(function() {}事件可以绑定多个函数，多次执行
+ org.apache.struts2.json.JSONException: java.lang.reflect.InvocationTargetException
+ json返回类型，如果异常，返回html就会出现这个错误提示
+ action,函数名get慎用啊啊啊。getDeviceDetails，否则struts将他返回值作为响应的内容
+ /iBlog/ajaxloginAction!gainDeviceDetails.action urlrewirte完成url的部分匹配替换，未匹配部分不变
+ <result name="activated" type="redirectAction">hpAction!load</result> result 的一个用法
+ 配置struts，global-results要放在global-exception-mappings以及所有引用前
+  点击a标签，先执行绑定时间，后打开链接
+${user.register_date.year + 1900}-${user.register_date.month + 1}注意timestamp时间
+//           	   //autocomplete 绑定
+//           	   $("input[type=email]").mailAutoComplete();
+格式不合适
+<script type="text/javascript" src="js/autocomplete/jquery.mailAutoComplete-4.0.js"></script>
+Accept:application/json, text/javascript, */*; q=0.01
+Accept-Encoding:gzip, deflate
+Accept-Language:zh-CN,zh;q=0.8
+Connection:keep-alive
+Content-Length:31
+Content-Type:application/x-www-form-urlencoded; charset=UTF-8
+Cookie:night_user_id=3; JSESSIONID=90880E47779F563AA7D4DE0DDA48E848
+cookie值包含在了request里
+include-coda 会为每个jsp添加
+<s:set name="importParams" value="'generalessay.css|comment|end'" scope="request"/> 加单引号
+去上下文：打开左侧服务器配置，server.xml文件中<Context docBase="iBlog" path="" reloadable="true" source="org.eclipse.jst.jee.server:iBlog"/></Host>
+将path清空，并将端口该文80
+	192.168.1.102	hachi.space host修改无需重启立即生效
+schemaLocation引入顺序会导致错误
+不生成class文件，将eclipse设为build automaticly
+jar报最好来自同一版本的Struts包里
+classpath单机可访问,web context web容器下访问
+hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect要设置准确，不然无法自动生成表
+Caused by: org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: ink.moshuier.silken.entity.gallery.item.Scenery.nation in ink.moshuier.silken.entity.gallery.Nation.sceneries
+@OneToMany(targetEntity=Scenery.class,mappedBy="nationality")，mapped by 用的是主表字段名称，而非表名称(就是你来的意思)
+<s:updownselect name="nations" list="@ink.moshuier.silken.common.MsgConstants@AUTHORITY" listKey="key" listValue="value"/>
+key值必须为非中文
+	@Column(name = "[from]")
+	private Date from;
+	@Temporal(TemporalType.DATE )
+	@Column(name = "[to]")
+	private Date to;
+	from mysql 接受不了！ to，over struts 接受不了！！！
+<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+把这行换成：
+<property name="hibernate.dialect">org.hibernate.dialect.MySQDialect</property>
+C:\ProgramData\MySQL\MySQL Server 5.5\data\iblog 删除底层文件强制删除表
+直接删掉不可以，因为注册表中信息没有删除
+java.lang.reflect.InvocationTargetException  json传回的json格式错误
+trantion 解决方案是重启
+ WARN MultiPartRequest:60 - Unable to parse request，超时，设置server.xml在里边加入了disableUploadTimeout="false"一句，超时或者过大。
+<form id="movie-editor" action="manager/music/save/"  enctype="multipart/form-data" method="post"> 设置enctype才可以上传文件
+<s:set value="essay.comments" var="comments"/> 默认范围为request
+<s:set value="essay.comments" var="comments"/>
+ <s:property value="#comments[0].content"/> 默认action
+ <s:property value="#ttt"/>按道理说可以显示了啊。其实暗藏玄机，就是这时候他把abc当成变量来取值，而不是看成字符串。所以要想看成字符串必须加单引号。<s:set name="ttt" value="’abc‘" />
+ scope 可选属性，指定新变量被放置的范围，可以接受application,session,request,page,action 这5个值 没有指定默认是Stack Context中.在JSP中：使用#开头的Ognl表达式，比如<s:property value="#name"/>会调用ActionContext.get("name")方法。注意：如果某标签的属性默认不作为Ognl表达式解析，则需要使用%{}把表达式括起来，于是就会出现类似“%{#name}的表达式”。
+ <s:property value="@ink.moshuier.silken.common.TimeManager@getTimeDif(#comment.create_date,#comment.create_time)"/>
+ 加#号才能识别为变量
+ .feedback.item-wrapper:hover .helper a{
+	visibility:visible;
+}
+hover 修饰hover响应事件的范围,后面用来定位,hover只对可见元素有用
+值栈对象不加#
+public JSONObject getJComments() //get 函数命名一定要讲究啊啊啊 啊,getjComments是错的Cookie c = new Cookie("night_user_id","");
+			c.setMaxAge(0);
+			c.setPath("/");//不设置路径无法保存设置的cookie
+	essay 包含	<%@ include file="../snippets/comments.jsp"%> 包含<jsp:include page="./PlainEditor.jsp"/>,相对位置以essay为准
+	<%@ include file以当前为准,<jsp:include page以当顶层
+	<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/navigator.jsp" %> 不要弄反,变量定义有顺序
+<c:if test="${not empty str}"> 判断字符串为空
+((Long)essayDao.getSession().createQuery(hql).uniqueResult()).intValue();
+if($("#demo").length) 判断是否存在
+$(this).data("id");}).get().join() get()获得js对象
+<s:iterator value="musics" id="m" status="st">
+${st.index}
+</s:iterater> 这样使用可以的
+audio#music_0 是dom对象  jQuery.fn.jQuery.init[1] jquery对象
+($('#classes').length 判断获得dom是否为空
+ ContextLoader.getCurrentWebApplicationContext();  获得spring上下文
+ width只是指content,不包括padding
+ intValue是对象方法,parseInt,valueOf是静态方法
