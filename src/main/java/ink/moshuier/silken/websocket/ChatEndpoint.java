@@ -89,7 +89,7 @@ public class ChatEndpoint {
 
 		// ÿ���յ��ͻ�����Ϣʱ�Զ������÷���
 		@OnMessage
-		public void incoming(String message,EndpointConfig config)
+		public void incoming(String message,Session  config)
 		{
 			JSONObject jMsg =  JSONObject.fromObject(message);
 			jMsg.accumulate("time", TimeManager.getNowNoYear());

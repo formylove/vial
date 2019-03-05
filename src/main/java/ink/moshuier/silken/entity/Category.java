@@ -29,6 +29,8 @@ public class Category {
 	public Category(int id){
 		this.id = id;
 	}
+	public Category(){
+	}
 	public Integer getId() {
 		return id;
 	}

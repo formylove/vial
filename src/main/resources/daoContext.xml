@@ -19,7 +19,7 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close"
 		p:driverClass="com.mysql.jdbc.Driver"
-		p:jdbcUrl="jdbc:mysql://hachi.space:3306/iBlog3"
+		p:jdbcUrl="jdbc:mysql://127.0.0.1:3306/iBlog"
 		p:user="root"
 		p:password="222000"
 		p:maxPoolSize="2000"

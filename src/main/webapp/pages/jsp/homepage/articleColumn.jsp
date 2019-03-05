@@ -23,9 +23,9 @@
 						<span>
 									<%
 									Essay e = null;
-									Object es = request.getAttribute("essays");
-									if(es != null){
-										e = ((List<Essay>)es).get(0);
+										List<Essay> es = (List<Essay>)request.getAttribute("essays");
+									if(es != null && ((List) es).size()>0){
+										e = es.get(0);
 									String subtitle = e.getSubtitle();
 									if(!StrUtils.isEmpty(subtitle))
 									{

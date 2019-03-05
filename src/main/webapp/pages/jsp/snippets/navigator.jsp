@@ -1,3 +1,4 @@
+	<%@page pageEncoding="UTF-8"%>
 	<%@taglib prefix="s" uri="/struts-tags"%>
 	<%@page import="org.springframework.web.context.WebApplicationContext" %>
 	<%@page import="org.springframework.web.context.support.WebApplicationContextUtils" %>
