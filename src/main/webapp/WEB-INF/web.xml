@@ -63,7 +63,7 @@
 	<url-pattern>*.jsp</url-pattern>
 	<el-ignored>false</el-ignored>
 	<scripting-invalid>false</scripting-invalid>
-	<default-content-type>text/html; charset=UTF-8</default-content-type>
+		<default-content-type>text/html;charset=UTF-8</default-content-type>
 	</jsp-property-group>
 
 <!-- 	<jsp-property-group> -->

@@ -9,7 +9,7 @@ io相对路径:String path = "webcontent/web-inf/hi.html";
 filter相对路径,不要把跟路径src加上:ink.moshuier.silken.action.filter.AccessFilter
 content-root大小写不能错,可以省略斜线
 网址中加几个斜杠不影响http://localhost:8080/VNB///pages/jsp/hi.html
-网址区分大小写
+path区分大小写
 actionsupport的action类有execute()函数的话默认执行execute,除非删掉
 设置properties 编码:window-->preferences -->General  -->Content Types ，然后选择Java Properties File
 actionsupport只能执行excute()函数，去掉 

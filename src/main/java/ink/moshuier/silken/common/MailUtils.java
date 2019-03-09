@@ -17,7 +17,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class MailUtils {
 	static private String MyMail = "ansyx@163.com"; 
-	static private String PASSWORD="a54417522";
+	static private String PASSWORD="a54417523";
 	static private final String SUBJECT="ҹ���ʺż���";
 	static private final String Salutation_Reg="(?<=id=\"salutation\">)[^<]+(?=</p>)";
 	static private final String Href_Reg = "(?<=href=\")[^\"]*(?=\")";

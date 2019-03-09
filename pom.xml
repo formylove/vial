@@ -27,6 +27,11 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>repo2</id>
+            <name>Mirror from Maven Repo2</name>
+            <url>http://repo2.maven.org/maven2/</url>
+        </repository>
     </repositories>
 
     <build>
@@ -231,6 +236,12 @@
         <version>2.12.4</version>
         <scope>test</scope>
     </dependency>
+    <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springmodules/spring-modules-cache &ndash;&gt;-->
+    <!--<dependency>-->
+        <!--<groupId>org.springmodules</groupId>-->
+        <!--<artifactId>spring-modules-cache</artifactId>-->
+        <!--<version>0.8</version>-->
+    <!--</dependency>-->
 
 </dependencies>
 </project>
