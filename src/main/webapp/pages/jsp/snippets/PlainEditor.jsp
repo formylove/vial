@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="ink.moshuier.silken.entity.User" %>
 		<div class="comment-editor">
 				<a href="javascript:;" class="avatar-wrapper" id="commentAvatarHolder" rel="nofollow">

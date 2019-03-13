@@ -27,20 +27,20 @@
 				</ul>
 
 			</div>
-			
-				<div class="head-search">
-					<form class="search-form" action="/search/" id="headSearchForm">
-						<input class="search-input" name="q" autocomplete="off" type="text">
-						<button class="search-btn" type="submit">
-							<span class="icon-search"></span>
-						</button>
-					</form>
-				</div>	
+			<%--搜索栏--%>
+				<%--<div class="head-search">--%>
+					<%--<form class="search-form" action="/search/" id="headSearchForm">--%>
+						<%--<input class="search-input" name="q" autocomplete="off" type="text">--%>
+						<%--<button class="search-btn" type="submit">--%>
+							<%--<span class="icon-search"></span>--%>
+						<%--</button>--%>
+					<%--</form>--%>
+				<%--</div>	--%>
 		<%if(loginedUser == null){ %>
-		<!-- logged-out-wrapper -->
-			<div style="display: block;" class="logged-out-wrapper" id="loggedOutWrapper" >
-				<a href="javascript:;" rel="nofollow" class="ln-top-login"> 注册/登录 </a>
-			</div>
+		<!-- logged-out-wrapper todo -->
+			<%--<div style="display: block;" class="logged-out-wrapper" id="loggedOutWrapper" >--%>
+				<%--<a href="javascript:;" rel="nofollow" class="ln-top-login"> 注册/登录 </a>--%>
+			<%--</div>--%>
 			<!-- logged-out-wrapper -->
 			<div class="logged-in-wrapper hidden" id="loggedInWrapper">
 			<a href="javascript:;" rel="nofollow" class="ln-message" id="lnMessage">

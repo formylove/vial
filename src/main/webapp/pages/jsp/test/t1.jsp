@@ -63,7 +63,7 @@ population:<input type="text" title="人口" name="population"/>
 <script type="text/javascript">
 function forHtml(){
 	$.ajax({
-		url:'hachi.space/t.action?method:t2',
+		url:baseUrl + '/t.action?method:t2',
 		type:'post',
 		dataType:'html',
 		success:function(data){

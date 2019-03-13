@@ -1,4 +1,5 @@
- <div class="essay-author-wrapper clearfix">
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="essay-author-wrapper clearfix">
 				<div class="essay-author">
 					<p class="title">
 						文章作者

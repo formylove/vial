@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="../snippets/hidden_box.jsp"/>
 <%@ include file="../snippets/navigator.jsp" %>
-<div style="text-align:center;">
+<div style="text-align:center;margin-top: 100px">
 <div>亲爱的<a style="color:red">${param.nick_name}</a>，还差一步，请激活你的帐号</div>
 <br>
 <div>系统已发送了一封激活邮件到您的邮箱：<a style="color:red">${param.email}</a></div>

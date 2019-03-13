@@ -1,4 +1,5 @@
 <%@ page import="ink.moshuier.silken.entity.essay.Essay,ink.moshuier.silken.common.StrUtils,ink.moshuier.silken.common.Log"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>   
 <!DOCTYPE html>
 <html>

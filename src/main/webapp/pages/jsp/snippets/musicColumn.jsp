@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="ink.moshuier.silken.entity.User" %>
 <div class="essay-music">
 <div class="vol-tracklist" id="luooPlayerPlaylist">

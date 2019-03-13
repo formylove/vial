@@ -1,4 +1,4 @@
-<%@page pageEncoding="UTF-8"%>
+<%@page pageEncoding="UTF-8" %>
 <div class="footer">
 	<div class="foot-ct clearfix">
 		<div class="about-wrapper">
@@ -22,7 +22,7 @@
 				<a href="http://weibo.com/myazurelove" target="_blank" class="icon-sns-weibo"></a>
 				<a href="http://www.zhihu.com/people/Tyrioni" target="_blank" class="icon-sns-zhihu"></a>
 			</div>
-			<p class="icp">© 2019 ⚘ 树</p>
+			<p class="icp">© <s:property value="@ink.moshuier.silken.common.TimeManager@getCurrentYear()"/> ⚘ <s:property value="#sitename"/><s:property value="#sitename"/> </p>
 			<p class="slogan">
 				<span class="icon-slogan"></span>
 			</p>

@@ -1,4 +1,5 @@
-		<div class="essay-share">
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="essay-share">
 				<a href="javascript:;" >
 					<span id="like" class="icon-essay-fav"  onclick="like('essay','${essay.id}');" style="margin-right:5px;" ></span>
 					<span id="liked" class="icon-essay-faved hidden"  onclick="undoLike('essay','${essay.id}');" style="margin-right:5px;" ></span>

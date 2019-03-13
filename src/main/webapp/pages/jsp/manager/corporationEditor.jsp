@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <div class="easyui-panel" title="公司" style="width: 760px; height: 1085px">
 <div title="" style="padding-top: 10px;padding-left: 10px">

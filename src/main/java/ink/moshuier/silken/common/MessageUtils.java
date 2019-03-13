@@ -6,26 +6,32 @@ import java.util.ResourceBundle;
 public class MessageUtils {
 	public static String getMessageFromDbInfo(String key){
 		
-		ResourceBundle rb=ResourceBundle.getBundle("dbinfo");
+		ResourceBundle rb=ResourceBundle.getBundle("strings/dbinfo");
 		
 		return decode(rb.getString(key));
 	}
 	public static String getMessageFromPrompt(String key){
 		
-		ResourceBundle rb=ResourceBundle.getBundle("prompt");
+		ResourceBundle rb=ResourceBundle.getBundle("strings/prompt");
 		
 		return decode(rb.getString(key));
 	}
 	public static String getMessageFromError(String key){
 		
-		ResourceBundle rb=ResourceBundle.getBundle("error");
+		ResourceBundle rb=ResourceBundle.getBundle("strings/error");
 		
 		return decode(rb.getString(key));
 	}
 	public static String getMessageFromUrl(String key){
 		
-		ResourceBundle rb=ResourceBundle.getBundle("url");
+		ResourceBundle rb=ResourceBundle.getBundle("strings/url");
 		
+		return decode(rb.getString(key));
+	}
+	public static String getConfig(String key){
+
+		ResourceBundle rb=ResourceBundle.getBundle("strings/configs");
+
 		return decode(rb.getString(key));
 	}
 

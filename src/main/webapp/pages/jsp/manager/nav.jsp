@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <div class="easyui-accordion" id="rightside-nav" style="width:200px;height:400px;">
 		<div title="内容" data-options="iconCls:'icon-edit'" style="overflow:auto;padding:10px;">
 			<ul class="easyui-tree">

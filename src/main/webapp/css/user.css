@@ -414,12 +414,12 @@ body,div,p,blockquote,ul,li,a,span,i,em,strong,h1,h2,h3,h4,h5,h6,form,fieldset,l
 }
 
 body {
-    font: 13px/22px Verdana,'Î¢ÈíÑÅºÚ','Microsoft YaHei',Helvetica,Arial;
+    font: 13px/22px Verdana,'Î¢ï¿½ï¿½ï¿½Åºï¿½','Microsoft YaHei',Helvetica,Arial;
     color: #2d2d2d
 }
 
 h1,h2,h3,h4 {
-    font: 13px/1.5 Verdana,'Î¢ÈíÑÅºÚ','Microsoft YaHei',Helvetica,Arial;
+    font: 13px/1.5 Verdana,'Î¢ï¿½ï¿½ï¿½Åºï¿½','Microsoft YaHei',Helvetica,Arial;
     font-weight: 400
 }
 
@@ -1117,7 +1117,7 @@ input::-moz-selection,textarea::-moz-selection,.btn-positive::-moz-selection {
 .footer {
     background: #222;
     border-top: 1px solid #111;
-    margin-top: 90px;
+    margin-top: 300px;
     padding: 35px 0;
     width: 100%
 }

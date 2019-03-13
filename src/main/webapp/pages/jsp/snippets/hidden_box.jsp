@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- back to top -->
 <div id="backTop">&nbsp;</div> 
 <!-- back to top End-->
@@ -60,14 +61,15 @@
 		</div>
 	</form>
 </div>
-<div class="dialog-login-oauth">
-	<div class="platforms">
-		<a href="login/oauth/site/weibo" class="icon-open-weibo" rel="nofollow"></a>
-		<a href="login/oauth/site/douban" class="icon-open-douban" rel="nofollow">
-		</a>
-		<a href="login/oauth/site/qq" class="icon-open-qq" rel="nofollow"></a>
-	</div>
-</div>
+	<%--第三方账号登陆--%>
+<%--<div class="dialog-login-oauth">--%>
+	<%--<div class="platforms">--%>
+		<%--<a href="login/oauth/site/weibo" class="icon-open-weibo" rel="nofollow"></a>--%>
+		<%--<a href="login/oauth/site/douban" class="icon-open-douban" rel="nofollow">--%>
+		<%--</a>--%>
+		<%--<a href="login/oauth/site/qq" class="icon-open-qq" rel="nofollow"></a>--%>
+	<%--</div>--%>
+<%--</div>--%>
 
 </div>
 <!--                         注册                                                  -->
@@ -100,11 +102,11 @@
 			<input type="password" class="input-passport" name="psw_conf" autocomplete="off" required="" placeholder="8-16个字符">
 		</div>
 
-		<div class="rule-wrapper">
-			<input type="checkbox" name="rule" checked="" required="">
-			 同意夜网的
-			 <a target="_blank" href="term/">《使用协议》</a>
-		</div>
+		<%--<div class="rule-wrapper">--%>
+			<%--<input type="checkbox" name="rule" checked="" required="">--%>
+			 <%--同意夜网的--%>
+			 <%--<a target="_blank" href="term/">《使用协议》</a>--%>
+		<%--</div>--%>
 		<div>
 			<input type="submit" id="register_submit" style="width:100%" class="btn btn-positive btn-register-submit rounded" value="注册">
 			<span class="btn btn-positive btn-register-msg rounded"  name="error_placement2" style="display: none;"></span>

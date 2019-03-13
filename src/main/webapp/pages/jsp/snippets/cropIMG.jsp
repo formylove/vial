@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div id="cutArgs" class="hidden">
 <input type="text" id="x" name="x" >
 <input type="text" id="y" name="y" >

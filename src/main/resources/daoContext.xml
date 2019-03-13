@@ -16,16 +16,18 @@
 		<!-- 定义数据源Bean，使用C3P0数据源实现 -->
 	<!-- 并设置连接数据库的驱动、URL、用户名、密码，
 	连接池最大连接数、最小连接数、初始连接数等参数  -->
+	<context:property-placeholder location="classpath:strings/dbinfo.properties"/>
+
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close"
-		p:driverClass="com.mysql.jdbc.Driver"
-		p:jdbcUrl="jdbc:mysql://127.0.0.1:3306/iBlog"
-		p:user="root"
-		p:password="222000"
-		p:maxPoolSize="2000"
-		p:minPoolSize="2"
-		p:initialPoolSize="2"
-		p:maxIdleTime="20"/>
+		p:driverClass="${Driver}"
+		p:jdbcUrl="${jdbcUrl}"
+		p:user="${user}"
+		p:password="${password}"
+		p:maxPoolSize="${maxPoolSize}"
+		p:minPoolSize="${minPoolSize}"
+		p:initialPoolSize="${initialPoolSize}"
+		p:maxIdleTime="${maxIdleTime}"/>
 	<!-- 定义Hibernate的SessionFactory，并依赖注入数据源，注入上面定义的dataSource -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"

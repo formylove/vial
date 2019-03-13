@@ -21,7 +21,7 @@ CKEDITOR.editorConfig = function( config ) {
 []
 ];
 	config.filebrowserUploadUrl="ajax/upLoadImg4Editor";
-	config.baseHref = 'http://hachi.space/';
+	config.baseHref = baseUrl;
 	config.font_defaultLabel = 'Helvetica Neue';
 	 config.keystrokes = [
 	                      [ CKEDITOR.CTRL + 90 /*Z*/, 'undo' ],  //撤销

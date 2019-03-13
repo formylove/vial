@@ -42,13 +42,13 @@ public class LoginAction {
 	private String os;
 	private String token;
 	private int id;
-	//���ز���
+	//返回参数
 	private String nick_name;
 	private String motto;
 	private String message;
 	private String self = "true";
 	private boolean isGood = false;
-	//�޸��˻�
+	//修改账户
 	private String update_type;
 	private String qq;
 	private int level;
@@ -67,9 +67,9 @@ public class LoginAction {
 		if(message != null){
 			return MsgConstants.DONE;
 		}
-		message = "��¼�ɹ���";
+		message = "登录成功！";
 		user = userService.login(email.toLowerCase(),remember);
-		ChatEndpoint.activateSession(wSessionId, user);//��½�󼤻�session
+		ChatEndpoint.activateSession(wSessionId, user);//登陆后激活session
 		setPortrait(user.getPortrait());
 		setNick_name(user.getNick_name());
 		setMotto(user.getMotto());
@@ -82,9 +82,9 @@ public class LoginAction {
 		HttpServletRequest req = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		message = userService.registerDetect(nick_name,email, password, psw_conf,rule);
 		if(message != null){
-			return "done";
+			return MsgConstants.DONE;
 		}
-		message = "ע��ɹ���";
+		message = "注册成功！";
 		user = new User(nick_name, email.toLowerCase(), password,req);
 		userService.save(user);
 		MailUtils mailSender = new MailUtils();
@@ -98,16 +98,16 @@ public class LoginAction {
 	public String activate() {
 		user = userService.getUserByToken(token);
 		if(user == null || userService.isExpired(token)){
-			message = "���������ѹ���";
+			message = "activate expired";
 			return "expired";
 		}else{
-			if(!user.isEmail_val_flag()){//�Ѿ������
+			if(!user.isEmail_val_flag()){//已经激活过
 				user.setEmail_val_flag(true);
-				//���¼����־
+				//更新激活标志
 				userService.activate(token);
-				//��¼
+				//登录
 				userService.login(user, null);
-				//��ת����ҳ
+				//跳转到主页
 			}
 			return "activated";
 		}
@@ -133,7 +133,7 @@ public class LoginAction {
 	}
 	public String gainDeviceDetails(){
 		HttpServletResponse response=ServletActionContext.getResponse();
-		response.setHeader("Access-Control-Allow-Origin", "*");//���������������⣬���header�����÷�����֧��CORS��
+		response.setHeader("Access-Control-Allow-Origin", "*");//解决跨域请求的问题，这个header就是让服务器支持CORS的
 		HttpServletRequest request=ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		Record record = recordService.getRecordByToken(session.getId());
@@ -152,22 +152,22 @@ public class LoginAction {
 		User loginedUser = userService.getcurLoginUser(request);
 		user = userService.get(id);
 		if(null == loginedUser || (loginedUser.getId() != id && loginedUser.getAuthority() !=0)){
-				message = "���ȵ�¼�˻�";
+			message = "请先登录账户";
 		}else if("nick_name".equalsIgnoreCase(update_type)){
-				message = userService.valiName(nick_name);
-				user.setNick_name(nick_name);
+			message = userService.valiName(nick_name);
+			user.setNick_name(nick_name);
 		}else if("autoplay".equalsIgnoreCase(update_type)){
-				user.setAutoplay(autoplay);
+			user.setAutoplay(autoplay);
 		}else if("motto".equalsIgnoreCase(update_type)){
-				user.setMotto(motto);
+			user.setMotto(motto);
 		}else if("details".equalsIgnoreCase(update_type)){
 			if(!StrUtils.valiPhone(phone)){
-				message = "��������ȷ�ֻ���";
+				message = "请输入正确手机号";
 			}else if(!StringUtils.isNumeric(qq) || StringUtils.length(qq)>11 || StringUtils.length(qq)<5){
-				message = "��������ȷQQ��";
+				message = "请输入正确QQ号";
 			}else if(!StrUtils.simpleChar(wechat)){
-				message = "��������ȷ΢�ź�";
-				
+				message = "请输入正确微信号";
+
 			}else{
 				user.setGender(gender);
 				user.setQq(qq);
@@ -180,22 +180,22 @@ public class LoginAction {
 			}
 		}else if("password".equalsIgnoreCase(update_type)){
 			if(!StrUtils.simpleChar(password) || StrUtils.isEmpty(password) || password.length()<8 || password.length()>16 || !password.equals(user.getPassword())){
-				message = "ԭ�����������";
+				message = "原密码输入错误";
 			}else if(!StrUtils.simpleChar(newpassword) || StrUtils.isEmpty(newpassword) || newpassword.length()<8 || newpassword.length()>16){
-				message = "�����������8��16λ����ĸ���������";
-				}else if(!newpassword.equals(psw_conf)){
-				message = "�����������벻ͬ";
+				message = "新密码必须由8到16位的字母和数字组成";
+			}else if(!newpassword.equals(psw_conf)){
+				message = "两次输入密码不同";
 			}else{
 				user.setPassword(newpassword);
 			}
 		}else if("portrait".equalsIgnoreCase(update_type)){
 			if(!portrait.equals(user.getPortrait())){
-	    		ImageUtils.deleteImg(user.getPortrait());
-	    		portrait = ImageUtils.cut(portrait, w, h, x, y,ImageUtils.PORTRAIT);
-	    		user.setPortrait(portrait);
-	    	}
+				ImageUtils.deleteImg(user.getPortrait());
+				portrait = ImageUtils.cut(portrait, w, h, x, y,ImageUtils.PORTRAIT);
+				user.setPortrait(portrait);
+			}
 		}else if("binding".equalsIgnoreCase(update_type)){
-			
+
 		}
 		if(StrUtils.isEmpty(message)){
 			isGood = true;
@@ -203,8 +203,8 @@ public class LoginAction {
 		}
 		return MsgConstants.DONE;
 	}
-	
-	
+
+
 	public int getLevel() {
 		return level;
 	}
@@ -235,7 +235,7 @@ public class LoginAction {
 	public void setNewpassword(String newpassword) {
 		this.newpassword = newpassword;
 	}
- 	public String getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 	public void setPhone(String phone) {
@@ -262,7 +262,7 @@ public class LoginAction {
 	public String isLogined(){
 		return "success";
 	}
-	
+
 	public String getSelf() {
 		return self;
 	}
@@ -311,7 +311,7 @@ public class LoginAction {
 	public void setDevice(String device) {
 		this.device = device;
 	}
-	
+
 	@JSON(serialize=false)
 	public String getToken() {
 		return token;

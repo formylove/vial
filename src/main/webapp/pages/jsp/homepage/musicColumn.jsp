@@ -1,5 +1,6 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>   
-<%@page import="ink.moshuier.silken.entity.User" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="ink.moshuier.silken.entity.User" %>
 <s:if test="!musics.isEmpty">
 <div class="section-vol">
 			<div class="section-head clearfix">

@@ -1,7 +1,16 @@
 <%@ page import="ink.moshuier.silken.common.MessageUtils" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <base href="<%=MessageUtils.getMessageFromUrl("base")%>"/>
 <link rel="SHORTCUT ICON" href="img/icon/favicon.ico">
+<script type="text/javascript">
+ var baseUrl = '<%=MessageUtils.getMessageFromUrl("base")%>'
+ var defaultAvatar ="<%=MessageUtils.getMessageFromUrl("img.avatar")%>";
+ var defaultImgPath ="<%=MessageUtils.getMessageFromUrl("img.depot.page")%>";
+ var defaultProfilePath ="<%=MessageUtils.getMessageFromUrl("img.profile")%>";
+ var domain = baseUrl.substring(7);
+</script>
+<s:set name="sitename" value='@ink.moshuier.silken.common.MessageUtils@getConfig("web.name")'/>
 <%String importParams=(String)request.getAttribute("importParams");
 if(importParams!=null){
 if(importParams.indexOf("general")>=0){ %>
@@ -14,7 +23,7 @@ if(importParams.indexOf("general")>=0){ %>
 <script type="text/javascript" src="js/Akita/nav.js"></script>
 <script type="text/javascript" src="js/Akita/websocket.js"></script>
 <script type="text/javascript" src="js/cookie/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/artDialog/dialog-min.js"></script>
+<script type="text/javascript" src="js/artDialog/artDialog.js"></script>
 <link href="js/artDialog/ui-dialog.css" type="text/css" rel="stylesheet">
 <%}else{
 if(importParams.indexOf("jquery")>=0){ %>
@@ -28,9 +37,6 @@ if(importParams.indexOf("validate")>=0){ %>
 <%}
 if(importParams.indexOf("qtip")>=0){ %>
 <script type="text/javascript" src="js/qtip/jquery.qtip.min.js"></script>
-<%}
-if(importParams.indexOf("qtip")>=0){ %>
-<script type="text/javascript" src="js/artDialog/artDialog.js"></script>
 <%}
 if(importParams.indexOf("form")>=0){ %>
 <script type="text/javascript" src="js/form/jquery.form.js"></script>

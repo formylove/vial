@@ -183,12 +183,21 @@
         <version>1.2.17</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
-    <dependency>
-        <groupId>javax.mail</groupId>
-        <artifactId>javax.mail-api</artifactId>
-        <version>1.6.2</version>
-    </dependency>
-
+    <!--<dependency>-->
+        <!--<groupId>javax.mail</groupId>-->
+        <!--<artifactId>javax.mail-api</artifactId>-->
+        <!--<version>1.6.2</version>-->
+    <!--</dependency>-->
+    <dependency >
+        <groupId >javax.mail </groupId >
+        <artifactId >mail </artifactId >
+        <version >1.4.5 </version >
+    </dependency >
+    <dependency >
+        <groupId >com.sun.mail </groupId >
+        <artifactId >javax.mail </artifactId >
+        <version >1.5.4 </version >
+    </dependency >
     <!-- https://mvnrepository.com/artifact/org.htmlparser/sitecapturer -->
     <dependency>
         <groupId>org.htmlparser</groupId>
