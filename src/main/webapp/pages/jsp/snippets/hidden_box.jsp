@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- back to top -->
 <div id="backTop">&nbsp;</div> 
@@ -119,7 +120,7 @@
 <div class="account hidden">
 <div class="account-links rounded" id="accountLinks">
 			<a class="account-link link-uc" href="user/profile/${requestScope.loginedUser.id}" target="_blank" rel="nofollow">
-				<span class="icon-account"></span>我的落网
+				<span class="icon-account"></span>我的<s:property value="#sitename"/>网
 			</a>
 			<a class="account-link link-setting hidden" href="manager/" target="_blank" rel="nofollow">
 				<span class="icon-setting"></span>后台管理

@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 	private final int Max_Length = 10;
 	@Resource(name = "userDaoHibernate4")
 	private UserDao userDao;
-	
+
 	public UserServiceImpl() {
 	}
 
@@ -44,10 +44,10 @@ public class UserServiceImpl implements UserService {
 	public void persist(User user) {
 		userDao.persist(user);
 	}
-	
+
 	@Override
 	public void delete(int id) {
-		User n = get(id); 
+		User n = get(id);
 		delete(n);
 	}
 
@@ -91,84 +91,84 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userdao;
 	}
 	@Override
-	 public boolean hasRegistered(String email){
+	public boolean hasRegistered(String email){
 		User user = getUserByMail(email);
-		
+
 		return (user != null);
 	}
 	@Override
-	 public boolean hasUsed(String nick_name){
+	public boolean hasUsed(String nick_name){
 		String hql = "from User where nick_name = :nick_name and del_flag <> 1";
 		User user = (User)userDao.getSession().createQuery(hql)
 				.setString("nick_name", nick_name)
 				.setMaxResults(1)
 				.uniqueResult();
-		
+
 		return (user != null);
 	}
 	public String valiName(String nick_name){
 		String message = null;
 		if(!StrUtils.valiName(nick_name)){
-			message = "�ǳƱ���ֻ����Ӣ�����������Լ��»���";
+			message = "昵称必须只包含英文中文数字以及下划线";
 		}else if(hasUsed(nick_name)){
-			message = "�ǳ���ռ��";
+			message = "昵称已占用";
 		}else if(nick_name.length()>Max_Length){
-			message = "�ǳƲ�Ҫ̫����ι";
+			message = "昵称不要太长啊喂";
 		}
 		return message;
-		
-		
+
+
 	}
 	@Override
-	 public String loginDetect(String email,String password){
+	public String loginDetect(String email,String password){
 		email = email.trim();
 		String message = null;
 		if(!StrUtils.valiEmail(email)){
-			return "�����ʽ����";
+			return "邮箱格式错误";
 		}
 		if(!StrUtils.simpleChar(password)){
-			return "�������";
+			return "密码错误";
 		}
 		if(getUserByMail(email) == null){
-			return "����δע��";
+			return "邮箱未注册";
 		}
 		User user = getUserByMail(email);
 		if(!user.isEmail_val_flag()){
-			return "����δ����";
+			return "邮箱未激活";
 		}
 		if(password == null || !password.equals(user.getPassword())){
-			return "�������";
+			return "密码错误";
 		}
 		return null;
 	}
 	@Override
-	 public String registerDetect(String nick_name,String email,String password,String psw_conf,String rule){
+	public String registerDetect(String nick_name,String email,String password,String psw_conf,String rule){
 		email = email.trim();
 		if(!StringUtils.isNotEmpty(valiName(nick_name))){
 			return  valiName(nick_name);
 		}
 		if(!StrUtils.valiEmail(email)){
-			return "�����ʽ����";
+			return "邮箱格式错误";
 		}
 		if(getUserByMail(email) != null){
-			return "������ע��";
+			return "邮箱已注册";
 		}
 		if(!StrUtils.simpleChar(password)){
-			return "����ֻ�ܰ������ּ���ĸ";
+			return "密码只能包含数字及字母";
 		}
 		if(StrUtils.isEmpty(password) || password.length()<8 || password.length()>16){
-			return "���볤�ȱ�����8��16λ֮��";
+			return "密码长度必须在8到16位之间";
 		}
 		if(!password.equals(psw_conf)){
-			return "�����������벻ͬ";
+			return "两次输入密码不同";
 		}
 		if(StringUtils.isEmpty(rule)){
-			return "�����Ķ���ͬ��ҹ��ʹ��Э��";
+			return "请先阅读并同意夜网使用协议";
 		}
 		return null;
 	}
 	@Override
-	 public User valiAndLogin(String email,String password,String remember){
+	public User valiAndLogin(String email,String password,String remember){
 		User user = (User)userDao.getSession()
 				.createCriteria(User.class)
 				.add(Restrictions.eq("email", email))
@@ -182,37 +182,37 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-	 @Override
-	 public User getUserByMail(String email){
-		 email = email.trim();
-		 String hql = "from User where email = :email and del_flag <> 1";
-		 User user = (User)userDao.getSession().createQuery(hql)
-			.setString("email", email)
-			.setMaxResults(1)
-			.uniqueResult();
+	@Override
+	public User getUserByMail(String email){
+		email = email.trim();
+		String hql = "from User where email = :email and del_flag <> 1";
+		User user = (User)userDao.getSession().createQuery(hql)
+				.setString("email", email)
+				.setMaxResults(1)
+				.uniqueResult();
 		return user;
 	}
-	 @Override
-	 public User getUserByToken(String token){
-		 token = token.trim();
-		 String hql = "from User where token = :token and del_flag <> 1";
-		 User user = (User)userDao.getSession().createQuery(hql)
-				 .setString("token", token)
-				 .setMaxResults(1)
-				 .uniqueResult();
-		return user;
-	}
-	 @Override
-	 public boolean isExpired(String token){
+	@Override
+	public User getUserByToken(String token){
 		token = token.trim();
-		if(getDurationForRegister(token)>=24){//����24�Ѿ�����
+		String hql = "from User where token = :token and del_flag <> 1";
+		User user = (User)userDao.getSession().createQuery(hql)
+				.setString("token", token)
+				.setMaxResults(1)
+				.uniqueResult();
+		return user;
+	}
+	@Override
+	public boolean isExpired(String token){
+		token = token.trim();
+		if(getDurationForRegister(token)>=24){//等于24已经超了
 			return false;
 		}else{
 			return false;
 		}
 	}
-	 @Override
-	 public int getDurationForRegister(String token){
+	@Override
+	public int getDurationForRegister(String token){
 		token = token.trim();
 		String sql = "SELECT TIMESTAMPDIFF(HOUR,register_date,NOW()) duration FROM User WHERE token = :token";
 		int duration = (int)userDao.getSession().createSQLQuery(sql)
@@ -222,41 +222,41 @@ public class UserServiceImpl implements UserService {
 				.uniqueResult();
 		return duration;
 	}
-		@Override
-		 public boolean login(User user,String remember){
-			if(remember == null){
-				ActionContext.getContext().getSession().put("logined_user", user.getId());
-			}else{
-				HttpServletResponse res = (HttpServletResponse) ActionContext.getContext().get(StrutsStatics.HTTP_RESPONSE);
-				Cookie c = new Cookie("night_user_id",String.valueOf(user.getId()));
-				c.setMaxAge(Max_Age);
-				c.setPath("/");//������·���޷��������õ�cookie
-				res.addCookie(c);
-			}
-			return true;
-		}
-		 public User login(String email,String remember){
-			User user = getUserByMail(email);
-			login(user, remember);
-			return user;
-		}
-	 @Override
-	 public User logout(){
-		 //��õ�ǰ�û�
-		 	User curUser = null;
-		 	HttpServletRequest req = (HttpServletRequest) ActionContext.getContext().get(StrutsStatics.HTTP_REQUEST);
-		 	curUser = getcurLoginUser(req);
-		 	//ɾ����¼��Ϣ
-			ActionContext.getContext().getSession().put("logined_user", null);
+	@Override
+	public boolean login(User user,String remember){
+		if(remember == null){
+			ActionContext.getContext().getSession().put("logined_user", user.getId());
+		}else{
 			HttpServletResponse res = (HttpServletResponse) ActionContext.getContext().get(StrutsStatics.HTTP_RESPONSE);
-			Cookie c = new Cookie("night_user_id","");
-			c.setMaxAge(0);
-			c.setPath("/");
+			Cookie c = new Cookie("night_user_id",String.valueOf(user.getId()));
+			c.setMaxAge(Max_Age);
+			c.setPath("/");//不设置路径无法保存设置的cookie
 			res.addCookie(c);
+		}
+		return true;
+	}
+	public User login(String email,String remember){
+		User user = getUserByMail(email);
+		login(user, remember);
+		return user;
+	}
+	@Override
+	public User logout(){
+		//获得当前用户
+		User curUser = null;
+		HttpServletRequest req = (HttpServletRequest) ActionContext.getContext().get(StrutsStatics.HTTP_REQUEST);
+		curUser = getcurLoginUser(req);
+		//删掉登录信息
+		ActionContext.getContext().getSession().put("logined_user", null);
+		HttpServletResponse res = (HttpServletResponse) ActionContext.getContext().get(StrutsStatics.HTTP_RESPONSE);
+		Cookie c = new Cookie("night_user_id","");
+		c.setMaxAge(0);
+		c.setPath("/");
+		res.addCookie(c);
 		return curUser;
 	}
 	@Override
-	 public User getcurLoginUser(HttpServletRequest request){
+	public User getcurLoginUser(HttpServletRequest request){
 		User user = null;
 		Integer id = 0;
 		if(request!=null){
@@ -272,7 +272,7 @@ public class UserServiceImpl implements UserService {
 		if(user_id != null){
 			return get(Integer.parseInt(user_id));
 		}
-			return null;
+		return null;
 	}
 	@Override
 	public User getcurLoginUser(EndpointConfig config){

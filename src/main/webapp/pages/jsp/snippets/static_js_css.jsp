@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <base href="<%=MessageUtils.getMessageFromUrl("base")%>"/>
-<link rel="SHORTCUT ICON" href="img/icon/favicon.ico">
+<link rel="SHORTCUT ICON" href="img/icon/favicon.ico"  type="image/x-ico"/>
 <script type="text/javascript">
  var baseUrl = '<%=MessageUtils.getMessageFromUrl("base")%>'
  var defaultAvatar ="<%=MessageUtils.getMessageFromUrl("img.avatar")%>";
@@ -11,6 +11,8 @@
  var domain = baseUrl.substring(7);
 </script>
 <s:set name="sitename" value='@ink.moshuier.silken.common.MessageUtils@getConfig("web.name")'/>
+<s:set name="zhihu" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("zhihu")'/>
+<s:set name="weibo" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("weibo")'/>
 <%String importParams=(String)request.getAttribute("importParams");
 if(importParams!=null){
 if(importParams.indexOf("general")>=0){ %>

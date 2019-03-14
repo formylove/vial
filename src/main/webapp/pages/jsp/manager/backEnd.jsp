@@ -7,7 +7,7 @@
 <head>
 <s:set name="importParams" value="'general|common.css|easyui|manager.js|editor|Jcrop|upload.js|end'" scope="request"/>
 <jsp:include page="../snippets/static_js_css.jsp"/>
-<title>夜网后台管理系统</title>
+<title><s:property value="#sitename"/>网后台管理系统</title>
 </head>
 <body> 
 <%@ include file="../snippets/navigator.jsp" %>

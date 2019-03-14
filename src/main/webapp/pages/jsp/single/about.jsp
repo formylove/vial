@@ -16,7 +16,7 @@
 <br>
 <br>
 <div style="text-align:center;min-height:110px">
-世界角落，晚风吹起，你在哪里
+<s:property value='@ink.moshuier.silken.common.MessageUtils@getConfig("about.poet")'/>
 </div>
 <%@ include file="../snippets/footer.jsp" %>
 </body>

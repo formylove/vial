@@ -53,7 +53,8 @@
 		<div class="uc-nav rounded clearfix" style = "margin: 20px 0;">
 			<a href="javascript:void();" rel="nofollow" id="setting-base" class="nav-item tab-item actived">基础设置</a>
 			<a href="javascript:void();" rel="nofollow" id="setting-pwd" class="nav-item tab-item">修改密码</a>
-			<a href="javascript:void();" rel="nofollow" id="setting-sns" class="nav-item tab-item">社区绑定</a>
+			<%--todo--%>
+			<%--<a href="javascript:void();" rel="nofollow" id="setting-sns" class="nav-item tab-item">社区绑定</a>--%>
 		</div>
 		<div class="uc-ct">
 			<!-- setting-base -->

@@ -78,7 +78,7 @@ public class LoginAction {
 		isGood = true;
 		return MsgConstants.DONE;
 	}
-	public String register() {
+	public String register() {社区绑定
 		HttpServletRequest req = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		message = userService.registerDetect(nick_name,email, password, psw_conf,rule);
 		if(message != null){

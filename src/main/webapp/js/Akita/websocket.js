@@ -134,14 +134,15 @@ $(function(){
 		 }
 		 });
  }
-	 dg = dialog({
-		 fixed: true,
-		 title: '聊天',
-		 content:$('.common-dialog-wrapper:hidden').show(),//模块已被包裹,不显示
-		 onclose:function(){
-		 }
-	 });
-	 dg.show();
+ //todo
+	//  dg = dialog({
+	// 	 fixed: true,
+	// 	 title: '聊天',
+	// 	 content:$('.common-dialog-wrapper:hidden').show(),//模块已被包裹,不显示
+	// 	 onclose:function(){
+	// 	 }
+	//  });
+	//  dg.show();
  $("#msgSubmit").click(function(){
 	 if($.isNotEmpty($mb.val())){
 		 var target = $(".tab.current").attr("id").substring(4);

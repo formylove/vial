@@ -5,7 +5,7 @@
 	<%@page import="ink.moshuier.silken.service.UserService" %>
 	<%@page import="ink.moshuier.silken.entity.User" %>
 	<%
-	WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());  
+	WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(request.getSession().getServletContext());
 	UserService userService = (UserService) ctx.getBean("userService");  
 	User loginedUser = userService.getcurLoginUser(request);
 	request.setAttribute("loginedUser", loginedUser);
@@ -13,7 +13,7 @@
 	<div class="header">
 		<div class="header-ct">
 			<a href="" class="logo">
-				<span class="icon-logo"></span>树
+				<span class="icon-logo"></span><s:property value="#sitename"/>
 			</a>
 			<div class="nav" >
 				<ul class="clearfix">
@@ -38,13 +38,14 @@
 				<%--</div>	--%>
 		<%if(loginedUser == null){ %>
 		<!-- logged-out-wrapper todo -->
-			<%--<div style="display: block;" class="logged-out-wrapper" id="loggedOutWrapper" >--%>
-				<%--<a href="javascript:;" rel="nofollow" class="ln-top-login"> 注册/登录 </a>--%>
-			<%--</div>--%>
+			<div style="display: block;" class="logged-out-wrapper" id="loggedOutWrapper" >
+				<a href="javascript:;" rel="nofollow" class="ln-top-login"> 注册/登录 </a>
+			</div>
 			<!-- logged-out-wrapper -->
 			<div class="logged-in-wrapper hidden" id="loggedInWrapper">
 			<a href="javascript:;" rel="nofollow" class="ln-message" id="lnMessage">
-			<span class="icon-message"></span>
+				<%--todo--%>
+			<span class="icon-message" style="visibility: hidden;"></span>
 			</a>
 			<div class="account-more">
 			<a href="javascript:;" rel="nofollow" class="ln-account" >
@@ -59,8 +60,7 @@
 			</div>
 			<div class="logged-in-wrapper" id="loggedInWrapper" data-level ="<%=loginedUser.getAuthority()%>"
 				style="display: block;">
-				<a href="javascript:;" rel="nofollow" class="ln-message"
-					id="lnMessage"> <span class="icon-message"></span>
+				<a href="javascript:;" rel="nofollow" class="ln-message" id="lnMessage" style="visibility: hidden;"> <span class="icon-message"></span>
 				</a>
 				<div class="account-more">
 					<a href="javascript:;" rel="nofollow" class="ln-account" id="lnAccountMore">
