@@ -29,7 +29,7 @@ $(function(){
 	if($("input[name='document_details']")){
 		var type =$("input[name='document_details']").data("type");
 		var id = $("input[name='document_details']").val();
-		if($.cookie(type+"like") != undefined  && $.cookie(type+"like").indexOf("|"+id+"|")>=0){
+		if($.cookie(type+"like") != undefined  && $.cookie(type+"like").indexOf("|"+id+"|")>=0){//文章曾经点过赞改变点赞显示
 			document.getElementById("like").className="icon-essay-fav hidden";
 			document.getElementById("liked").className="icon-essay-faved";
 		}
@@ -156,6 +156,7 @@ $(function(){
 				//给表单绑定提交事件
 				if(!hasBinded){
 					$('form[name=login_form]').submit(function() {
+						$(".qtip #login_submit").text('登陆中，请耐心等待...');
 						$(this).ajaxSubmit({
 							type:"post",
 							dataType:'json',
@@ -177,6 +178,7 @@ $(function(){
 						return false;
 					});
 					$('form[name=register_form]').submit(function(event) {
+						$(".qtip #login_submit").text('注册中，请耐心等待...');
 						$(this).ajaxSubmit({
 							type:"post",
 							dataType:'json',

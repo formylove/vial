@@ -5,15 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>微信号</title>
-<%request.setAttribute("importParams", "jquery|common.css|Akita.js|end"); %>
+<%request.setAttribute("importParams", "general|common.css|end"); %>
 <jsp:include page="../snippets/static_js_css.jsp"/>
+    <jsp:include page="../snippets/hidden_box.jsp"/>
 </head>
 <body>
 <%@ include file="../snippets/navigator.jsp" %>
 <div style="text-align:center;">
 <img alt="ansyx1002" src="./img/QRcode/wechat_2.png">
 </div>
-<div style="text-align:center;">
+<div style="text-align:center;margin-top: 60px;">
 <font size="25px">微信号：ansyx1002</font>
 </div>
 <%@ include file="../snippets/footer.jsp" %>
