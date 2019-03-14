@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>微信号</title>
+<title>《使用协议》</title>
 <%request.setAttribute("importParams", "jquery|common.css|end"); %>
 <jsp:include page="../snippets/static_js_css.jsp"/>
 </head>
