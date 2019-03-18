@@ -5,7 +5,7 @@
 	<div class="top">
 				<div id="preview-pane" class="fleft margin-r-55">
 					<div id ="preview-container" class="preview-container-poster" onclick="$(file).click();">
-						<img src="<s:if test='poster.cover != null && poster.cover != ""'>img/depot/${poster.cover}</s:if><s:else>img/common/poster_default.jpg</s:else>" id="prevImg" class="cover-poster jcrop-preview" alt="Preview" />
+						<img src="<s:if test='poster.cover != null && poster.cover != ""'>${imageUrl}${poster.cover}</s:if><s:else>img/common/poster_default.jpg</s:else>" id="prevImg" class="cover-poster jcrop-preview" alt="Preview" />
 					</div>
 				</div>
 	</div>

@@ -79,7 +79,7 @@
 	    		<div class="fright">
 				<div id="preview-pane" class="fleft margin-r-55">
 					<div id ="preview-container" class="preview-container-horizontal" onclick="$(file).click();">
-						<img src="<s:if test='essay.cover != null && essay.cover != ""'>img/depot/${essay.cover}</s:if><s:else>img/common/horizontal_default.jpg</s:else>" id="prevImg" class="cover-horizontal jcrop-preview" alt="Preview" />
+						<img src="<s:if test='essay.cover != null && essay.cover != ""'>${imageUrl}${essay.cover}</s:if><s:else>img/common/horizontal_default.jpg</s:else>" id="prevImg" class="cover-horizontal jcrop-preview" alt="Preview" />
 					</div>
 				</div>
 				</div>

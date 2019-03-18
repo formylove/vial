@@ -13,7 +13,7 @@
 									</span>
 									<a href="javascript:;" rel="nofollow" class="trackname">${essay.music.name}</a>
 									<div class="artist">${essay.music.singer.name}</div>
-									<audio id="" src="/music/${essay.music.url}"  loop
+									<audio id="" src="${musicUrl}${essay.music.url}"  loop
 									<%if((User)request.getAttribute("loginedUser") ==null || ((User)request.getAttribute("loginedUser")).isAutoplay()){%>autoplay<%} %>></audio>
 								</div>
 								
@@ -41,7 +41,7 @@
 								</div>
 								<div class="track-detail rounded clearfix">
 									<div class="player-wrapper">
-										<img src="img/depot/${essay.music.cover}" alt="i/O" class="cover rounded">
+										<img src="${imageUrl}${essay.music.cover}" alt="i/O" class="cover rounded">
 										<p class="name">${essay.music.name}</p>
 										<p class="artist">艺人：${essay.music.singer.name}</p>
 										<p class="album">专辑：i/O</p>

@@ -2,7 +2,7 @@
 <%@page import="ink.moshuier.silken.entity.User" %>
 		<div class="comment-editor">
 				<a href="javascript:;" class="avatar-wrapper" id="commentAvatarHolder" rel="nofollow">
-					<img src='<%=request.getAttribute("loginedUser")!=null?"img/depot/"+((User)request.getAttribute("loginedUser")).getPortrait():"img/common/avatar.gif"%>' class="avatar rounded">
+					<img src='<%=request.getAttribute("loginedUser")!=null?"${imageUrl}"+((User)request.getAttribute("loginedUser")).getPortrait():"img/common/avatar.gif"%>' class="avatar rounded">
 				</a>
 				<div class="editor-wrapper">
 						<div class="editor rounded">

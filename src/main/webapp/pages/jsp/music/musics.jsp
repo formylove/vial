@@ -15,7 +15,7 @@
 <div class="vol-tracklist" id="luooPlayerPlaylist">
         <div class="player-large rounded clearfix" data-index="0">
             <div class="cover-wrapper">
-                <img src="img/depot/${musics[0].bcover }" class="cover rounded PLCover">
+                <img src="${imageUrl}${musics[0].bcover }" class="cover rounded PLCover">
             </div>
 
             <div class="player-ct" id="playerCt" style="display: block;">
@@ -77,12 +77,12 @@
 <s:iterator value="musics" id="m" status="st">
 		<li class="track-item rounded" id="track${m.id}">
 		<s:if test="#st.first">
-		<audio src="music/${m.url }" id = "music_${st.index}"  preload="auto"
+		<audio src="${musicUrl}${m.url }" id = "music_${st.index}"  preload="auto"
 		<%if((User)request.getAttribute("loginedUser") == null || ((User)request.getAttribute("loginedUser")).isAutoplay()){%>autoplay<%} %>
 		 data-index = "${st.index}" data-name="${m.name}" data-lyric="${m.lyric}" data-cover="${m.bcover}" data-singer = "${m.singer.name}"></audio>
 		</s:if>
 		<s:else>
-		<audio src="music/${m.url }" id="music_${st.index}" data-lyric="${m.lyric}" data-index = "${st.index}"  data-index = "${st.index}" data-name="${m.name}" data-cover="${m.bcover}" data-singer = "${m.singer.name}"></audio>
+		<audio src="${musicUrl}${m.url }" id="music_${st.index}" data-lyric="${m.lyric}" data-index = "${st.index}"  data-index = "${st.index}" data-name="${m.name}" data-cover="${m.bcover}" data-singer = "${m.singer.name}"></audio>
 		</s:else>
             <div class="track-wrapper clearfix">
 								<span class="btn-control btn-play">
@@ -101,7 +101,7 @@
                 </div>
                 <div class="track-detail rounded clearfix">
                     <div class="player-wrapper">
-                        <img src="img/depot/${m.bcover}" alt="${m.singer.name}" class="cover rounded">
+                        <img src="${imageUrl}${m.bcover}" alt="${m.singer.name}" class="cover rounded">
                         <p class="name">${m.bcover}</p>
                         <p class="artist ${empty m.singer.name?'hide':''}" >Artist: ${m.singer.name}</p>
                         <p class="album ${empty m.style?'hide':''}">Style: ${m.style}</p>
@@ -121,7 +121,7 @@
 
         <!-- player-follow -->
         <div class="player-follow clearfix" id="playerFollow">
-            <img src="img/depot/${musics[0].bcover}" class="cover " id="PFCover">
+            <img src="${imageUrl}${musics[0].bcover}" class="cover " id="PFCover">
             <div class="fleft">
                 <p class="name" id="PFName" title="${musics[0].name}">${musics[0].name}</p>
                 <p class="artist" id="PFArtist" title="${musics[0].singer.name}">${musics[0].singer.name}</p>

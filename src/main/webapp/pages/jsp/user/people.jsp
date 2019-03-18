@@ -17,7 +17,7 @@
 <!-- uc-head -->
 <div class="uc-head clearfix" style="border-bottom: 1px solid #E5E5E5; padding-bottom: 25px;">
 	<div class="avatar-wrapper" id="avatarEditWrapper">
-		<img src="img/depot/${user.portrait}" alt="${user.nick_name}" title="${user.nick_name}" class="avatar">
+		<img src="${imageUrl}${user.portrait}" alt="${user.nick_name}" title="${user.nick_name}" class="avatar">
 	</div>
 	<div class="uinfo">
 		<div class="clearfix">

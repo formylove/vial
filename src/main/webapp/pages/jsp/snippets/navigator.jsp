@@ -64,7 +64,7 @@
 				</a>
 				<div class="account-more">
 					<a href="javascript:;" rel="nofollow" class="ln-account" id="lnAccountMore">
-					<img src="img/depot/<%=loginedUser.getPortrait()%>" alt="<%=loginedUser.getNick_name()%>" class="avatar"> 
+					<img src="${imageUrl}<%=loginedUser.getPortrait()%>" alt="<%=loginedUser.getNick_name()%>" class="avatar">
 					&nbsp;<span><%=loginedUser.getNick_name()%></span>
 					</a>
 				</div>

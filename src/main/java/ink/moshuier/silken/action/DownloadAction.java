@@ -2,6 +2,7 @@ package ink.moshuier.silken.action;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ResourceBundle;
 
 import javax.annotation.Resource;
 
@@ -27,7 +28,7 @@ public class DownloadAction extends ActionSupport{
 			music = musicService.get(id);
 			mime = ServletActionContext.getServletContext().getMimeType(music.getUrl());
 			targetName = music.getName();
-			InputStream is = ServletActionContext.getServletContext().getResourceAsStream("music/" + music.getUrl());//���λ��
+			InputStream is = ServletActionContext.getServletContext().getResourceAsStream(ResourceBundle.getBundle("music.path") + music.getUrl());//���λ��
 			return is;
 		}
 		return null;

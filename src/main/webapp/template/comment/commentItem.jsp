@@ -5,7 +5,7 @@ confirm('${message}');
 <s:elseif test="comment.floor == 1">
 <div class="item" data-floor="1" data-unit="${comment.unit}">
             <a href="user/profile/${comment.publisher.id}" class="avatar-wrapper" target="_blank">
-                <img src="img/depot/${comment.publisher.portrait }" alt="${comment.publisher.nick_name}" class="avatar rounded">
+                <img src="${imageUrl}${comment.publisher.portrait }" alt="${comment.publisher.nick_name}" class="avatar rounded">
             </a>
 <div class="item-wrapper">
                 <div class="helper">
@@ -44,7 +44,7 @@ confirm('${message}');
 <s:elseif test="comment.floor == 2">
            <div class="item" data-floor="2" data-unit="${comment.unit}">
             <a href="user/profile/${comment.publisher.id}" class="avatar-wrapper" target="_blank">
-                <img src="img/depot/${comment.publisher.portrait}" alt="${comment.publisher.nick_name}" class="avatar rounded">
+                <img src="${imageUrl}${comment.publisher.portrait}" alt="${comment.publisher.nick_name}" class="avatar rounded">
             </a>
             <div class="item-wrapper feedback">
                 <a href="user/profile/${comment.publisher.id}" class="username" target="_blank">${comment.publisher.nick_name}</a>
@@ -73,7 +73,7 @@ confirm('${message}');
 <s:else>
            <div class="item" data-floor="${comment.floor}" data-unit="${comment.unit}">
             <a href="user/profile/${comment.publisher.id}" class="avatar-wrapper" target="_blank">
-                <img src="img/depot/${comment.publisher.portrait}" alt="${comment.publisher.nick_name}" class="avatar rounded">
+                <img src="${imageUrl}${comment.publisher.portrait}" alt="${comment.publisher.nick_name}" class="avatar rounded">
             </a>
             <div class="item-wrapper feedback">
                 <a href="user/profile/${comment.publisher.id}" class="username" target="_blank">${comment.publisher.nick_name}</a>

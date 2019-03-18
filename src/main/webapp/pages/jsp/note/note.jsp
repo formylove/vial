@@ -23,7 +23,7 @@
 			
 			</script>
 		<div class="event-head clearfix">
-			<img src="img/depot/${opus.cover}" alt="${note.title}" class="poster rounded">
+			<img src="${imageUrl}${opus.cover}" alt="${note.title}" class="poster rounded">
 			<div class="event-meta">
 				<h1 style="font-size: 24px;">${note.title}</h1>
 				<!-- note meta -->

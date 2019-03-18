@@ -11,7 +11,7 @@
 <s:iterator value="comments.{?#this.floor == 1  && #this.del_flag == false}" var="comment" status="st">
         <div class="item" data-floor="1" data-unit="${comment.unit}">
             <a href="user/profile/${comment.publisher.id}" class="avatar-wrapper" target="_blank">
-                <img src="img/depot/${comment.publisher.portrait }" alt="${comment.publisher.nick_name}" class="avatar rounded">
+                <img src="${imageUrl}${comment.publisher.portrait }" alt="${comment.publisher.nick_name}" class="avatar rounded">
             </a>
 			<div class="item-wrapper">
                 <div class="helper">
@@ -50,7 +50,7 @@
 <s:iterator value="comments.{?#this.unit == #comment.unit && #this.floor != 1 && #this.del_flag == false}" var="commentIN" status="st">
                     <div class="item" data-floor="${commentIN.floor}" data-unit="${commentIN.unit}">
             <a href="user/profile/${commentIN.publisher.id}" class="avatar-wrapper" target="_blank">
-                <img src="img/depot/${commentIN.publisher.portrait}" alt="${commentIN.publisher.nick_name}" class="avatar rounded">
+                <img src="${imageUrl}${commentIN.publisher.portrait}" alt="${commentIN.publisher.nick_name}" class="avatar rounded">
             </a>
             <div class="item-wrapper feedback">
                 <a href="user/profile/${commentIN.publisher.id}" class="username" target="_blank">${commentIN.publisher.nick_name}</a>

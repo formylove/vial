@@ -66,7 +66,7 @@ public class ImageAction {
 		PrintWriter out =response.getWriter();
 		String callback =ServletActionContext.getRequest().getParameter("CKEditorFuncNum");
 		out.println("<script type=\"text/javascript\">");
-		out.println("window.parent.CKEDITOR.tools.callFunction("+ callback + ",'" +"img/depot/"+ imgName + "','')");
+		out.println("window.parent.CKEDITOR.tools.callFunction("+ callback + ",'" + ink.moshuier.silken.common.MessageUtils.getMessageFromUrl("img.url")+ imgName + "','')");
 		out.println("</script>");
 		return null;
 	}

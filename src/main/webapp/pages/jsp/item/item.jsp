@@ -39,7 +39,7 @@ id:  ${nation !=null?nation.id:"" }
 	 ${genre !=null?genre.id:"" }
 	 ${category !=null?category.id:"" }
 <br>
-<%-- <audio src="music/${music.url }"  controls="controls" autoplay> --%>
+<%-- <audio src="${musicUrl}${music.url }"  controls="controls" autoplay> --%>
 <!-- Your browser does not support the audio element. -->
 <!-- </audio> -->
 </div>

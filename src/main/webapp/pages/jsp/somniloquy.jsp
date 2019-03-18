@@ -111,7 +111,7 @@ function showImg(){
 </script>
 </head>
 <body>
-<a class="nav-back" href="http://www.luoo.net/music/">
+<a class="nav-back" href="${base}music/">
 				<i class="icon-back"></i>
 				返回期刊首页
 			</a>

@@ -12,11 +12,11 @@
 		
 <div class="section-ct clearfix">
 				<div class="vol-item-lg">
-					<audio id="music_0" data-order="0" src="music/${musics[0].url }" 
+					<audio id="music_0" data-order="0" src="${musicUrl}${musics[0].url }"
 					<%if(request.getAttribute("loginedUser") != null && ((User)request.getAttribute("loginedUser")).isAutoplay()){%>autoplay<%} %>
 					></audio>
 					<a href="javascript:void(0);" class="cover-wrapper cover-wrapper-lg">
-						<img src="img/depot/${musics[0].bcover }" alt="${musics[0].name }" class="cover-lg rounded">
+						<img src="${imageUrl}${musics[0].bcover }" alt="${musics[0].name }" class="cover-lg rounded">
 						<span class="icon-play-lg" style="opacity: 0;"></span>
 						<div class="play-btn-mask" style="opacity: 0;"></div>
 					</a>
@@ -26,9 +26,9 @@
 					<s:iterator value="musics" id="m" status="st">
 					<s:if test="#st.index != 0">
 					<div class="vol-item">
-					<audio id="music_<s:property value='st.index'/>" src="music/${m.url}"  data-order="${st.index}"></audio>
+					<audio id="music_<s:property value='st.index'/>" src="${musicUrl}${m.url}"  data-order="${st.index}"></audio>
 						<a href="javascript:void(0);" class="cover-wrapper">
-							<img src="img/depot/${m.bcover }" alt="${m.name }" class="cover rounded">
+							<img src="${imageUrl}${m.bcover }" alt="${m.name }" class="cover rounded">
 							<span class="icon-play" style="opacity: 0;"></span>
 							<div class="play-btn-mask" style="opacity: 0;"></div>
 						</a>

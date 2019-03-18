@@ -8,7 +8,7 @@
 				</div>
 				<div class="section-ct">
 					<div class="clearfix">
-						<img src="img/depot/${essays[0].cover }"  class="cover rounded">
+						<img src="${imageUrl}${essays[0].cover }"  class="cover rounded">
 						<div class="title">
 							<div class="align-fix">
 								<div>
@@ -64,7 +64,7 @@
 					<s:if test="#st.index != 0">
 						<div class="essay-item">
 							<a href="essay/${es.id }" class="cover-wrapper">
-								<img src="img/depot/${es.cover }" alt="${es.title }" class="cover rounded">
+								<img src="${imageUrl}${es.cover }" alt="${es.title }" class="cover rounded">
 							</a>
 							<div class="meta rounded">
 								<p class="title"><a class="ln-title" href="essay/${es.id }" title="${es.title }">${es.title }</a></p>

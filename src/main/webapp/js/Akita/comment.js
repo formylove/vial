@@ -174,7 +174,7 @@ function buildComments(comments){
 		if(c.floor == 1){
 			curBase = $("#base").clone(true).removeClass("hide").removeAttr("id");
 			curBase.attr("data-unit",c.unit).find(".avatar-wrapper").attr("href",defaultProfilePath+c.publisher)
-			.find(".avatar").attr("src",defaultImgPath+c.portrait);
+			.find(".avatar").attr("src",imageUrl+c.portrait);
 			curBase.find(".username").attr("href",defaultProfilePath+c.publisher).html(c.name).after((c.motto!=null?"，"+c.motto:""));
 			curBase.find(".the-comment").text(c.content);
 			curBase.find(".helper.clearfix").prepend(c.time).find(".ln-comment-from").text("来自  "+c.device)
@@ -186,7 +186,7 @@ function buildComments(comments){
 			}
 			curUpper = $("#upper").clone(true).removeClass("hide").removeAttr("id");
 			curUpper.attr("data-unit",c.unit).attr("data-floor",c.floor).find(".avatar-wrapper")
-			.attr("href",defaultProfilePath+c.publisher).find(".avatar").attr("src",defaultImgPath+c.portrait);
+			.attr("href",defaultProfilePath+c.publisher).find(".avatar").attr("src",imageUrl+c.portrait);
 			var $me = curUpper.find(".item-wrapper:first-child").attr("href",defaultProfilePath+c.publisher).text(c.name);
 			if(c.floor > 2){
 				var $span = $("<span></span>").addClass("reply")

@@ -15,7 +15,7 @@
 <div class="container" style="min-height: 221px;">	
 		
 				<div class="essay-banner clearfix">
-					<img src="img/depot/${cat.cover }" alt="${cat.desc }" class="cover">
+					<img src="${imageUrl}${cat.cover }" alt="${cat.desc }" class="cover">
 					<div class="meta">
 						<a href="javascript:void(0);" class="title">${cat.desc }</a>
 						<span class="quote-before"></span>&nbsp;<span class="content">${cat.profile }</span>&nbsp;<span class="quote-after"></span>
@@ -30,7 +30,7 @@
 				<s:iterator value="essays" id="ess" status="st">
 							<div class="item">
 								<a href="essay/${ess.id}/" target="_blank" class="cover-wrapper">
-									<img class="cover rounded" src="img/depot/${ess.cover}" alt="${ess.title }"/>
+									<img class="cover rounded" src="${imageUrl}${ess.cover}" alt="${ess.title }"/>
 								</a>
 								<div class="essay-wrapper">									
 									<a href="essay/${ess.id}/" title="<s:property value="#ess.title"/>" class="title"  target="_blank" style="margin-top:0;">

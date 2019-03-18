@@ -21,7 +21,7 @@
 	<div class="avatar-wrapper" id="avatarEditWrapper">
 		<input type="file" onchange="ajaxUpload('file');" id="file" name="file" accept=".jpg,.jpeg,.png,.gif" style="display:none;">
 		<%@ include file="../snippets/cropPortrait.jsp" %>
-		<img src="img/depot/${user.portrait}" alt="${user.nick_name}" class="avatar">
+		<img src="${imageUrl}${user.portrait}" alt="${user.nick_name}" class="avatar">
 		<a href="javascript:;" rel="nofollow" class="ln-edit-avatar" id="lnEditAvatar" onclick="$(file).click();">修改头像</a>
 	</div>
 	<div class="uinfo">

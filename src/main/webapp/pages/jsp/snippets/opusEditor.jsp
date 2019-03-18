@@ -16,7 +16,7 @@
 				</div>
 				<div id="preview-pane" class="fleft margin-r-55">
 					<div id ="preview-container" class="preview-container-note" >
-						<img src="<s:if test="opus.cover != null">img/depot/${opus.cover}</s:if><s:else>img/note/review_default.jpg</s:else>" id="prevImg" class="cover-note jcrop-preview" alt="Preview" />
+						<img src="<s:if test="opus.cover != null">${imageUrl}${opus.cover}</s:if><s:else>img/note/review_default.jpg</s:else>" id="prevImg" class="cover-note jcrop-preview" alt="Preview" />
 					</div>
 				</div>
 				<div class="fleft width-70">

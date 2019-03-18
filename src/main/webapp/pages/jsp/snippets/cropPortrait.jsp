@@ -14,7 +14,7 @@ var option0 = {
 		dataType:'json',
 		async:false,
 		success: function(data) {
-					$(".avatar").attr("src",defaultImgPath+data.portrait);
+					$(".avatar").attr("src",imageUrl+data.portrait);
 			}
 		};
 var option1 = {

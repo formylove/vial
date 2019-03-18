@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <div class="player-large rounded clearfix">
-<audio src="music/${music.url }" autoplay></audio>
+<audio src="${musicUrl}${music.url }" autoplay></audio>
             <div class="cover-wrapper">
                 <img src="${music.cover }" class="cover rounded PLCover">
             </div>

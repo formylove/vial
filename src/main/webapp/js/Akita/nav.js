@@ -4,13 +4,13 @@ function showSiblings($me){
 	$myFather.siblings().show();
 }
 function setNav(data){
-	$(".logged-in-wrapper .ln-account").html("<img src='img/depot/"+data.portrait+"' alt='"+data.nick_name+"' class='avatar'>&nbsp;<span>" + data.nick_name+"</span>");
+	$(".logged-in-wrapper .ln-account").html("<img src='" + imageUrl + data.portrait + "' alt='" + data.nick_name+"' class='avatar'>&nbsp;<span>" + data.nick_name+"</span>");
 	$(".link-uc").attr("href",defaultProfilePath+data.id);
 	if(data.level == 0){
 		$(".link-setting").removeClass("hidden");
 	}
 	if($("#commentAvatarHolder")){
-		$("#commentAvatarHolder").find("img").attr("src",defaultImgPath + data.portrait);
+		$("#commentAvatarHolder").find("img").attr("src",imageUrl + data.portrait);
 	}
 }
 function clearNav(){

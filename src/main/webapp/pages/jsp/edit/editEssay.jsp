@@ -37,7 +37,7 @@ width:100px;
 				<div class="fleft">
 				<div id="preview-pane" class="fleft margin-r-55">
 					<div id ="preview-container" class="preview-container-essay" >
-						<img src="<s:if test="essay.profile != null  && essay.profile != ''">img/depot/${essay.profile}</s:if><s:else>img/essay/essay_default.jpg</s:else>" id="prevImg" class="cover-essay jcrop-preview" alt="Preview" />
+						<img src="<s:if test="essay.profile != null  && essay.profile != ''">${imageUrl}${essay.profile}</s:if><s:else>img/essay/essay_default.jpg</s:else>" id="prevImg" class="cover-essay jcrop-preview" alt="Preview" />
 					</div>
 				</div>
 				</div>

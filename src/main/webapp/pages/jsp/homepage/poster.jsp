@@ -4,7 +4,7 @@
 			<s:iterator value="posters" id="poster">
 				<li>
 			    	<a href="${empty poster.url?'javascript:void(0);':poster.url }" title="${poster.desc }" target="_blank">
-			    	<img src="img/depot/${poster.cover }" alt="${poster.desc }" class="round-poster"></a>
+			    	<img src="${imageUrl}${poster.cover }" alt="${poster.desc }" class="round-poster"></a>
 			    </li>
 			</s:iterator>
 				</ul>

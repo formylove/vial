@@ -44,10 +44,10 @@ function setPlayer(){
 	
 	$lPlayer.data("index",index);
 	$lPlayer.find(".PLTrackname").attr("title",name).text(name);
-	$lPlayer.find(".PLCover").attr("src",defaultImgPath + cover);
+	$lPlayer.find(".PLCover").attr("src",imageUrl + cover);
 	$lPlayer.find(".lyric-ct").html($.isNotEmpty(lyric)?lyric:"<div class='margin-t-20'><p style='margin: 60px auto; text-align: center;'><a href='javascript:;' class='btn btn-positive btn-add-lyric'>未添加歌词</a></p></div>");//
 	$sPlayer.find("#PFName").attr("title",name).text(name);
-	$sPlayer.find("#PFCover").attr("src",defaultImgPath + cover);
+	$sPlayer.find("#PFCover").attr("src",imageUrl + cover);
 	if($.isNotEmpty(artist)){
 		$lPlayer.find(".PLArtist").attr("title",artist).text(artist).show();
 		$sPlayer.find("#PFArtist").attr("title",artist).text(artist).show();

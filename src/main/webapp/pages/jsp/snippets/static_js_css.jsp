@@ -5,8 +5,8 @@
 <link rel="SHORTCUT ICON" href="img/icon/favicon.ico"  type="image/x-ico"/>
 <script type="text/javascript">
  var baseUrl = '<%=MessageUtils.getMessageFromUrl("base")%>'
+ var imageUrl ="<%=MessageUtils.getMessageFromUrl("img.url")%>";
  var defaultAvatar ="<%=MessageUtils.getMessageFromUrl("img.avatar")%>";
- var defaultImgPath ="<%=MessageUtils.getMessageFromUrl("img.depot.page")%>";
  var defaultProfilePath ="<%=MessageUtils.getMessageFromUrl("img.profile")%>";
  var domain = baseUrl.substring(7);
 </script>

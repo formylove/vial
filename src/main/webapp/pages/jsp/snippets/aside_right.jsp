@@ -10,7 +10,7 @@
 					<s:iterator value="categories" id="cag" status="st">
 						<div class="item">
 							<a href="essays/1/${cag.id}" title="${cag.name}" class="cover-wrapper">
-								<img src="img/depot/${cag.tcover}" alt="${cag.name}" class="essay-cover rounded">
+								<img src="${imageUrl}${cag.tcover}" alt="${cag.name}" class="essay-cover rounded">
 							</a>
 							<div class="info">
 								<a href="essays/1/${cag.id}" title="${cag.name}" class="title">${cag.name}</a>

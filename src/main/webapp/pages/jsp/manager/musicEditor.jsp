@@ -9,7 +9,7 @@
 			<input type="hidden" name="music.id" id="id"  value="<s:if test='music==null'>0</s:if><s:else>${music.id}</s:else>">
 			<input type="hidden" name=cover id="cover" value="${music.cover}">
 			<input type="hidden" name="music.cover" id="profile_backup" value="${music.cover}">
-			<input type="hidden" name="music.url" id="url_backup" value="${music.url}">
+			<input type="hidden" name="music.url" id="url_backup" value="${musicUrl}">
 			<input type="hidden" name="music.favor_cnt" id="favor_cnt" value="<s:if test="essay==null">0</s:if><s:else>${music.favor_cnt}</s:else>">
 			<div class="clearfix">
 			<div class="fleft">
@@ -84,7 +84,7 @@
 	    		<div class="fright">
 				<div id="preview-pane" class="fleft margin-r-55">
 					<div id ="preview-container" class="preview-container-horizontal"  onclick="$(file).click();">
-						<img src="<s:if test='music.cover != null && music.cover != ""'>img/depot/${music.cover}</s:if><s:else>img/common/horizontal_default.jpg</s:else>" id="prevImg" class="cover-horizontal jcrop-preview" alt="Preview" />
+						<img src="<s:if test='music.cover != null && music.cover != ""'>${imageUrl}${music.cover}</s:if><s:else>img/common/horizontal_default.jpg</s:else>" id="prevImg" class="cover-horizontal jcrop-preview" alt="Preview" />
 					</div>
 				</div>
 				</div>
