@@ -5,21 +5,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>My gf is as nice as my mum</title>
-<s:set name="importParams" value="'general|ZeroClipboard.js|end'" scope="request"/>
+<title>嚯!</title>
+<s:set name="importParams" value="'general|ZeroClipboard.js|common.css|end'" scope="request"/>
 <jsp:include page="../snippets/static_js_css.jsp"/>
+<jsp:include page="../snippets/hidden_box.jsp"/>
 </head>
 <body onload="clipboard('clip_button')">
 	<%@ include file="../snippets/navigator.jsp"%>
-	<div style="text-align: center;">
-		<h1>报错信息：
-<%-- 		<s:property value="exception.message" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn" id="clip_button" value="将异常信息加入剪切板"> --%>
-		</h1>
+	<div style="text-align: left;">
+		<h1 style="font-size: 20px;">报错信息：</h1>
+		<s:property value="exception.message" />
+<%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn" id="clip_button" value="将异常信息加入剪切板">--%>
+
 		<br>
 		<br>
-		<textarea rows="80" cols="130" spellcheck="false" id="stacktrace">
-		 <s:property value="exceptionStack"/>   
-		</textarea>
+		 <s:property value="exceptionStack"/>
 	</div>
 	<%@ include file="../snippets/footer.jsp"%>
 </body>

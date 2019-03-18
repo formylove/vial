@@ -6,6 +6,7 @@
 <input type="text" id="h" name="h" >
 </div>
 <script type="text/javascript">
+
 var classType = getClass('prevImg',/cover-\w+/);
 var jcrop_api,
 boundx,
@@ -47,6 +48,7 @@ function updatePreview(c)
     });
   }
 }
+//file input onchange时调用 onchange="ajaxUpload('file');" 直接获取file input所选择的文件
 function ajaxUpload(she){
 	$.ajaxFileUpload(
 	{url:'ajax/image/upLoadImg',
@@ -121,5 +123,8 @@ function setImg(url){
 		setImg($('#imgUrl').val());
 	}
 	}
+function getClass(me,reg){
+    return $('#'+me).attr("class").match(reg)[0];
+}
 </script>
 

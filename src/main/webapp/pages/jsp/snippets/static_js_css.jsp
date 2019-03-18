@@ -13,6 +13,8 @@
 <s:set name="sitename" value='@ink.moshuier.silken.common.MessageUtils@getConfig("web.name")'/>
 <s:set name="zhihu" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("zhihu")'/>
 <s:set name="weibo" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("weibo")'/>
+<s:set name="imageUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("img.url")'/>
+<s:set name="musicUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("music.url")'/>
 <%String importParams=(String)request.getAttribute("importParams");
 if(importParams!=null){
 if(importParams.indexOf("general")>=0){ %>

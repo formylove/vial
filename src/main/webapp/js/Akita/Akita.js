@@ -164,9 +164,7 @@ function detectAreaVal(me,she,emptyClass,availClass){
 function setCheckbox(me,val){
     $('#'+me).val(val);
 }
-function getClass(me,reg){
-    return $('#'+me).attr("class").match(reg)[0];
-}
+
 function showCoupleForCheckbox(me,she,val){
     if($('#'+me).prop("checked") == Boolean(val)){
         $('#'+she).removeClass("hidden");

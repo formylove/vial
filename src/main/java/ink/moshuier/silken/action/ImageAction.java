@@ -18,18 +18,20 @@ import ink.moshuier.silken.common.MsgConstants;
 import ink.moshuier.silken.service.ImageService;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.json.annotations.JSON;
 
 /**
  * @author Administrator
  *
  */
 public class ImageAction {
-	private File upload; // �ļ�
-	private File file ; // �ļ�
-	private String fileFileName ; // ��Ҳ��֪����ô��õĶ�
-	private String imgName; // �ļ�
-	private String uploadContentType; // �ļ�����
-	private String uploadFileName; // �ļ���
+	private File upload; // 文件
+
+	private File file ; // 文件
+	private String fileFileName ; // 我也不知道怎么获得的额
+	private String imgName; // 文件
+	private String uploadContentType; // 文件类型
+	private String uploadFileName; // 文件名
 	private String filesize;
 	private String filetype;
 	private String filedim;
@@ -62,10 +64,10 @@ public class ImageAction {
 		response.setCharacterEncoding("utf-8");
 		imgName = ImageUtils.saveImage4Editor(upload, uploadFileName);
 		PrintWriter out =response.getWriter();
-		String callback =ServletActionContext.getRequest().getParameter("CKEditorFuncNum");   
-		out.println("<script type=\"text/javascript\">");  
-		out.println("window.parent.CKEDITOR.tools.callFunction("+ callback + ",'" +"img/depot/"+ imgName + "','')");   
-		out.println("</script>");  
+		String callback =ServletActionContext.getRequest().getParameter("CKEditorFuncNum");
+		out.println("<script type=\"text/javascript\">");
+		out.println("window.parent.CKEDITOR.tools.callFunction("+ callback + ",'" +"img/depot/"+ imgName + "','')");
+		out.println("</script>");
 		return null;
 	}
 
@@ -85,7 +87,7 @@ public class ImageAction {
 	public void setImgName(String imgName) {
 		this.imgName = imgName;
 	}
-
+	@JSON(serialize=false)
 	public File getFile() {
 		return file;
 	}
