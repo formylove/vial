@@ -34,31 +34,31 @@
 	    		<tr>
 	    			<td>国别:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="nation" name="corporation.nation.id" data-options="url:'ajax/manager/nation/tree',method:'get'" >
+	    			<input class="easyui-combotree" id="nation" name="corporation.nation.id" data-options="url:'${base}ajax/manager/nation/tree',method:'get'" >
 	    			 </td>
 	    		</tr>
 	    		<tr>
 	    			<td>总部:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="headquarters" name="corporation.headquarters.id" data-options="url:'ajax/manager/city/tree',method:'get'" >
+	    			<input class="easyui-combotree" id="headquarters" name="corporation.headquarters.id" data-options="url:'${base}ajax/manager/city/tree',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>
 	    			<td>创始:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="founder" name="corporation.founder.id" data-options="url:'ajax/manager/figure/tree/domain/商业',method:'get'" >
+	    			<input class="easyui-combotree" id="founder" name="corporation.founder.id" data-options="url:'${base}ajax/manager/figure/tree/domain/商业',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>
 	    			<td>董事:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="chairman" name="corporation.chairman.id" data-options="url:'ajax/manager/figure/tree/domain/商业',method:'get'" >
+	    			<input class="easyui-combotree" id="chairman" name="corporation.chairman.id" data-options="url:'${base}ajax/manager/figure/tree/domain/商业',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>
 	    			<td>CEO:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="CEO" name="corporation.CEO.id" data-options="url:'ajax/manager/figure/tree/domain/商业',method:'get'" >
+	    			<input class="easyui-combotree" id="CEO" name="corporation.CEO.id" data-options="url:'${base}ajax/manager/figure/tree/domain/商业',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>

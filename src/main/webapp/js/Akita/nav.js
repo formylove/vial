@@ -237,7 +237,7 @@ $(function(){
 					$(".link-setting").removeClass("hidden");
 				}
 				$(".link-logout").click(function(){
-					theUrl = 'ajax/logout/';
+					theUrl = baseUrl + 'ajax/logout/';
 					xmlHttp = new XMLHttpRequest();
 					xmlHttp.open( "GET", theUrl, false );
 					xmlHttp.send( null );

@@ -33,19 +33,19 @@
 	    		<tr>
 	    			<td>优先级:</td>
 	    			<td>
-	    			<s:select cssClass="easyui-combobox" id="precedence" name="music.precedence" list="#{0:'0',1:'1',2:'2',3:'3'}" listKey="key" listValue="value"></s:select>
+	    			<s:select cssStyle="width: 40px;" cssClass="easyui-combobox" id="precedence" name="music.precedence" list="#{0:'0',1:'1',2:'2',3:'3'}" listKey="key" listValue="value"></s:select>
 	    			</td>
 	    		</tr>
 	    		<tr>
 	    			<td>国家:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="nation" name="music.nation.id" data-options="url:'ajax/manager/nation/tree',method:'get'" >
+	    			 <input class="easyui-combotree" id="nation" name="music.nation.id" data-options="url:'${base}ajax/manager/nation/tree',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>
 	    			<td>歌手:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="singer" name="music.singer.id" data-options="url:'ajax/manager/figure/tree/domain/娱乐圈',method:'get'" >
+	    			 <input class="easyui-combotree" id="singer" name="music.singer.id" data-options="url:'${base}ajax/manager/figure/tree/domain/娱乐圈',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>

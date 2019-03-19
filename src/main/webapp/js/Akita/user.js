@@ -1,5 +1,5 @@
 $(function(){
-	$nickForm = $("<form></form>").attr("action","ajax/login/update").attr("id","nick_name_form")
+	$nickForm = $("<form></form>").attr("action",baseUrl + "ajax/login/update").attr("id","nick_name_form")
 	.prepend("<span id='name_error_placement' style='color:red'></span>")
 	.prepend($("<input type='text' name='nick_name' id='nick_name' placeholder='新的昵称'>"))
 	.prepend($("<input type='hidden' name='id' value='"+$("#userId").val()+"'>"))
@@ -208,7 +208,7 @@ $(function(){
 	});
 	$("#chkAutoplay").click(function(){
 		$.ajax({
-			url:"ajax/login/update",
+			url:baseUrl + "ajax/login/update",
 			data:{autoplay:$(this).is(":checked"),id:$("#userId").val(),update_type:"autoplay"}
 		});
 	});

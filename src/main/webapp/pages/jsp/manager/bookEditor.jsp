@@ -52,13 +52,13 @@
 	    		<tr>
 	    			<td>作者:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="author_directior" name="opus.author_directior.id" data-options="url:'/ajax/manager/figure/tree/domain/娱乐圈',method:'get'" />
+	    			<input class="easyui-combotree" id="author_directior" name="opus.author_directior.id" data-options="url:'${base}ajax/manager/figure/tree/domain/娱乐圈',method:'get'" />
 </td>
 	    		</tr>
 	    		<tr>
 	    			<td>出版:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="pictures" name="opus.pictures.id" data-options="url:'/ajax/manager/corporation/tree/industry/影视',method:'get'"/>
+	    			<input class="easyui-combotree" id="pictures" name="opus.pictures.id" data-options="url:'${base}ajax/manager/corporation/tree/industry/影视',method:'get'"/>
 	    			</td>
 	    		</tr>
 	    		<tr>

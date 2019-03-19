@@ -52,22 +52,22 @@
 	    		<tr>
 	    			<td>国家:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="nation" name="opus.nation.id" data-options="url:'ajax/manager/nation/tree',method:'get'" >
+	    			 <input class="easyui-combotree" id="nation" name="opus.nation.id" data-options="url:'${base}ajax/manager/nation/tree',method:'get'" >
 	    			<td>
 	    		</tr>
 	    		
 	    		<tr>
 	    			<td>导演:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="author_directior" name="opus.author_directior.id" data-options="url:'/ajax/manager/figure/tree/domain/娱乐圈',method:'get'" />
+	    			<input class="easyui-combotree" id="author_directior" name="opus.author_directior.id" data-options="url:'${base}ajax/manager/figure/tree/domain/娱乐圈',method:'get'" />
 </td>
 	    		</tr>
 	    		<tr>
 	    			<td>演员:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="protagonists0" name="opus.protagonists[0].id" data-options="url:'/ajax/manager/figure/tree/domain/娱乐圈',method:'get'" style="width: 120px;"/>
-	    			<input class="easyui-combotree" id="protagonists1" name="opus.protagonists[1].id" data-options="url:'/ajax/manager/figure/tree/domain/娱乐圈',method:'get'"  style="width: 120px;"/>
-	    			<input class="easyui-combotree" id="protagonists2" name="opus.protagonists[2].id" data-options="url:'/ajax/manager/figure/tree/domain/娱乐圈',method:'get'"  style="width: 120px;"/>
+	    			<input class="easyui-combotree" id="protagonists0" name="opus.protagonists[0].id" data-options="url:'${base}ajax/manager/figure/tree/domain/娱乐圈',method:'get'" style="width: 120px;"/>
+	    			<input class="easyui-combotree" id="protagonists1" name="opus.protagonists[1].id" data-options="url:'${base}ajax/manager/figure/tree/domain/娱乐圈',method:'get'"  style="width: 120px;"/>
+	    			<input class="easyui-combotree" id="protagonists2" name="opus.protagonists[2].id" data-options="url:'${base}ajax/manager/figure/tree/domain/娱乐圈',method:'get'"  style="width: 120px;"/>
 	    			<input name = "controller_protagonists_演员" class="easyui-numberspinner" value="<c:out value='${fn:length(opus.protagonists)}'></c:out>" style="width:50px;" data-options="
                 				min:0,  
                 				max:3,  
@@ -78,7 +78,7 @@
 	    		<tr>
 	    			<td>制片:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="pictures" name="opus.pictures.id" data-options="url:'/ajax/manager/corporation/tree/industry/影视',method:'get'"/>
+	    			<input class="easyui-combotree" id="pictures" name="opus.pictures.id" data-options="url:'${base}ajax/manager/corporation/tree/industry/影视',method:'get'"/>
 	    			</td>
 	    		</tr>
 	    		<tr>

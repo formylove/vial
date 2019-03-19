@@ -23,12 +23,12 @@
 	    		</tr>
 	    		<tr>
 	    			<td>类别:</td>
-	    			<td><s:select list="@ink.moshuier.silken.service.impl.CategoryServiceImpl@getAll()" listKey="id" listValue="name" id="category" name="essay.category.id" cssClass="easyui-combobox"></s:select></td>
+	    			<td><s:select cssStyle="width: 60px;" list="@ink.moshuier.silken.service.impl.CategoryServiceImpl@getAll()" listKey="id" listValue="name" id="category" name="essay.category.id" cssClass="easyui-combobox"></s:select></td>
 	    		</tr>
 	    		<tr>
 	    			<td>音乐:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="music" name="essay.music.id" data-options="url:'ajax/manager/music/tree',method:'get'" >
+	    			<input class="easyui-combotree" id="music" name="essay.music.id" data-options="url:'${base}ajax/manager/music/tree',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>

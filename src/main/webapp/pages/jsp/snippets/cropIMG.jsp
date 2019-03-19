@@ -51,7 +51,7 @@ function updatePreview(c)
 //file input onchange时调用 onchange="ajaxUpload('file');" 直接获取file input所选择的文件
 function ajaxUpload(she){
 	$.ajaxFileUpload(
-	{url:'ajax/image/upLoadImg',
+	{url:baseUrl + 'ajax/image/upLoadImg',
 	dataType:'json',
 	fileElementId:she,
 	type:'post',

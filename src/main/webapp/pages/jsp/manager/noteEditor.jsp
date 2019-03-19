@@ -13,11 +13,11 @@
 	    		<tr>
 	    			<td>作品:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="opus" name="note.opus.id" data-options="url:'/ajax/manager/opus/tree/',method:'get'" />
+	    			<input class="easyui-combotree" id="opus" name="note.opus.id" data-options="url:'${base}ajax/manager/opus/tree/',method:'get'" />
 					</td>
 	    			<td>音乐:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="music" name="note.music.id" data-options="url:'ajax/manager/music/tree',method:'get'" ></td>
+	    			<input class="easyui-combotree" id="music" name="note.music.id" data-options="url:'${base}ajax/manager/music/tree',method:'get'" ></td>
 	    		</tr>
 					
 	    		<tr>

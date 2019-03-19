@@ -74,7 +74,6 @@
    <from>user/setting/?$</from> 
    <to>/loginAction!userSetting.action</to>
 </rule>
-
 <rule>
    <from>download/([a-zA-Z]+)/([0-9]+)/?$</from> 
    <to>/downloadAction.action?type=$1&amp;id=$2</to>

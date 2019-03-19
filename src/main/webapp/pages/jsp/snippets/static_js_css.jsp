@@ -15,6 +15,7 @@
 <s:set name="weibo" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("weibo")'/>
 <s:set name="imageUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("img.url")'/>
 <s:set name="musicUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("music.url")'/>
+<s:set name="base" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("base")'/>
 <%String importParams=(String)request.getAttribute("importParams");
 if(importParams!=null){
 if(importParams.indexOf("general")>=0){ %>
@@ -132,7 +133,7 @@ if(session.getAttribute("hasDeviceDetail") == null){%>
   		if(parser != null){ 
   		r = parser.getResult(); 
   		$.ajax({ 
-  			url:$("base").attr("href") + 'ajax/ua/', 
+  			url:baseUrl + 'ajax/ua/',
   			type:'post', 
   			data:{"browser":r.browser.name + ' ' + r.browser.major,"device":r.device.model + ' ' + r.device.type + ' ' + r.device.vendor,"os":r.os.name + ' ' + r.os.version,} 
   		}); 

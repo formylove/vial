@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 		<div class="comment-wrapper">
-		<jsp:include page="./PlainEditor.jsp"/>
+<%@ include file="./PlainEditor.jsp" %>
 <a class="hide" name="commentAnchor"></a>
 		<span id="commentSortText">最新评论</span>
 		<span class="icon-sort-menu">▼</span>
@@ -88,7 +88,7 @@
 </s:iterator>
 
                 </div>
-<s:include value="./cPagination.jsp" ></s:include>
+<%@ include file="./cPagination.jsp" %>
 			</div>
 			</div>
 		

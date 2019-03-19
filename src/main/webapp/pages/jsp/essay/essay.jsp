@@ -1,14 +1,15 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
 <title><s:property value="essay.title"/></title>
 <s:set name="importParams" value="'general|essay.css|content.css|agent.js|musicPlayer.js|comment|end'" scope="request"/>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp" %>
 </head>
 <body>
 <%@ include file="../snippets/navigator.jsp" %>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp"%>
 <input type="hidden" id="append_id" name="document_details" data-type="essay" value="${essay.id}">
 <div class="container ct-sm" style="min-height: 221px;">	
 		<nav class="article-nav">
@@ -23,7 +24,7 @@
 			<jsp:include page="../snippets/essayMeta.jsp"/>
 				<!-- 音乐 -->
 		<s:if test="essay.music != null">
-		<jsp:include page="../snippets/musicColumn.jsp"></jsp:include>
+		<%@ include file="../snippets/musicColumn.jsp"%>
 			</s:if>
 
 				<!-- 文章内容 -->
@@ -41,7 +42,7 @@
 			<jsp:include page="../snippets/userColumn.jsp"/>
 			</s:if>
 	</div>	
-<jsp:include page="../snippets/comments.jsp"/>
+<%@ include file="../snippets/comments.jsp"%>
 		
 		</div>
 		

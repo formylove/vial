@@ -39,7 +39,7 @@ function updateAxis(c)
 
 function ajaxUpload(she){
 	$.ajaxFileUpload(
-	{url:'ajax/image/upLoadImg',
+	{url:'${base}ajax/image/upLoadImg',
 	dataType:'json',
 	fileElementId:she,
 	type:'post',

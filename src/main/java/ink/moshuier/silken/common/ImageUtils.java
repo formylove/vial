@@ -44,6 +44,7 @@ public class ImageUtils {
 	static public final String POSTER = "poster";
 	static public final String MUSIC = "music";
 	static public String saveImageFromUrl(String imgUrl){
+		imgUrl = imgUrl.toLowerCase();
 		String localName = null;
 		try {
 			//实例化url
@@ -108,7 +109,8 @@ public class ImageUtils {
 	}
 
 	static public String saveImage(File image,String org_name,String realPath) throws IOException{
-		String localName = UUID.randomUUID().toString();
+		org_name = org_name.toLowerCase();
+		String localName = UUID.randomUUID().toString().toLowerCase();
 		localName = localName + FileUtils.getFileSuffix(org_name);
 		File folder = new File(realPath);
 		if(!folder.exists()){
@@ -124,7 +126,7 @@ public class ImageUtils {
 		return ImageUtils.saveImage(image, org_name, realPath);
 	}
 
-	static public String cut(String cover,float width,float height,float x,float y) {
+	static public String cut(String cover,int width,int height,int x,int y) {
 		String simpleType = getSimpleType(cover);
 		String processedName = null;
 		try {
@@ -133,7 +135,7 @@ public class ImageUtils {
 					cover = saveImageFromUrl(cover);
 				}
 				String sourcePath = baseRealPath + tempPath + cover;
-				processedName = cutGif(sourcePath, (int)x, (int)y,(int)width, (int)height);
+				processedName = cutGif(sourcePath, x, y,width, height);
 			}else{
 				if(cover.indexOf("http")>=0 || cover.indexOf("https")>=0 || cover.indexOf("www.")>=0){
 					URL url = new URL(cover);
@@ -141,7 +143,7 @@ public class ImageUtils {
 					connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)");
 					processedName = cut(new BufferedInputStream(connection.getInputStream()),simpleType,width,height,x,y);
 				}else{
-					FileInputStream fis = new FileInputStream(new File(baseRealPath + tempPath+cover));
+					FileInputStream fis = new FileInputStream(new File(baseRealPath + tempPath + cover));
 					processedName = cut(new BufferedInputStream(fis),simpleType,width,height,x,y);
 				}
 			}
@@ -156,41 +158,47 @@ public class ImageUtils {
 		return null;
 	}
 
-	static public String cut(String cover,float width,float height,float x,float y,String type){
-		String processedName =  cut( cover, width, height, x, y);
+	static public String cut(String cover,float w,float h,float x,float y,String type){
+	    float width =(int)w;
+		String processedName =  cut( cover, (int)w, (int)h, (int)x, (int)y);
+		if(width == 0){
+		    File img= new File(baseRealPath + tempPath + cover);
+            width = getImgWidth(img)[0];
+        }
+		deleteTemp(cover);
 		try {
 			if(FileUtils.getFileSuffix(processedName).equalsIgnoreCase(".gif")){
 
 			}else if(type.equals(POSTER)){
-				Thumbnails.of(baseRealPath+depotPath+processedName)
+				Thumbnails.of(depotPath+processedName)
 						.scale(1000/width)
-						.toFile(baseRealPath+depotPath+processedName);
+						.toFile(depotPath+processedName);
 			}else if(type.equals(PORTRAIT)){//正方形
-				Thumbnails.of(baseRealPath+depotPath+processedName)
+				Thumbnails.of(depotPath+processedName)
 						.scale(110/width)
-						.toFile(baseRealPath+depotPath+processedName);
+						.toFile(depotPath+processedName);
 			}else if(type.equals(NHORIZONTAL)){
-				Thumbnails.of(baseRealPath+depotPath+processedName)
+				Thumbnails.of(depotPath + processedName)
 						.scale(220/width)
-						.toFile(baseRealPath+depotPath+processedName);
+						.toFile(depotPath + processedName);
 			}else if(type.equals(NVERTICAL)){
-				Thumbnails.of(baseRealPath+depotPath+processedName)
+				Thumbnails.of(depotPath+processedName)
 						.scale(120/width)
-						.toFile(baseRealPath+depotPath+processedName);
+						.toFile(depotPath+processedName);
 			}else if(type.equals(MUSIC)){
-				Thumbnails.of(baseRealPath+depotPath+processedName)
+				Thumbnails.of(depotPath+processedName)
 						.scale(1f)
-						.toFile(baseRealPath+depotPath+generateIsoName(processedName,BIG));
-				Thumbnails.of(baseRealPath+depotPath+processedName)
+						.toFile(depotPath+generateIsoName(processedName,BIG));
+				Thumbnails.of(depotPath+processedName)
 						.scale(60/width)
-						.toFile(baseRealPath+depotPath+generateIsoName(processedName,THUMBNAIL));
-				Thumbnails.of(baseRealPath+depotPath+processedName)
+						.toFile(depotPath+generateIsoName(processedName,THUMBNAIL));
+				Thumbnails.of(depotPath+processedName)
 						.scale(220/width)
-						.toFile(baseRealPath+depotPath+processedName);
+						.toFile(depotPath+processedName);
 			}else if(type.equals(CATEGORY)){
-				Thumbnails.of(baseRealPath+depotPath+processedName)
+				Thumbnails.of(depotPath+processedName)
 						.scale(50/width)
-						.toFile(baseRealPath+depotPath+generateIsoName(processedName,THUMBNAIL));
+						.toFile(depotPath+generateIsoName(processedName,THUMBNAIL));
 			}
 
 		} catch (IOException e) {
@@ -201,7 +209,7 @@ public class ImageUtils {
 	static public String generateIsoName(String processedName,String suffix){
 		return processedName.substring(0, processedName.lastIndexOf("."))+"-"+suffix+FileUtils.getFileSuffix(processedName);
 	}
-	static public String cut(BufferedInputStream image,String picType,float width,float height,float x,float y) throws IOException{
+	static public String cut(BufferedInputStream image,String picType,int width,int height,int x,int y) throws IOException{
 		String sourcePath = null;
 		BufferedInputStream is = null;
 		ImageInputStream iis = null;
@@ -233,7 +241,12 @@ public class ImageUtils {
 			 * 图片裁剪区域。Rectangle 指定了坐标空间中的一个区域，通过 Rectangle 对象
 			 * 的左上顶点的坐标（x，y）、宽度和高度可以定义这个区域。
 			 */
-			Rectangle rect = new Rectangle((int)x, (int)y, (int)width, (int)height);
+
+			if(width == 0 || height == 0){
+				width = reader.getWidth(0);
+				height = reader.getHeight(0);
+			}
+			Rectangle rect = new Rectangle(x, y, width, height);
 			// 提供一个 BufferedImage，将其用作解码像素数据的目标。
 			param.setSourceRegion(rect);
 			/*
@@ -243,11 +256,11 @@ public class ImageUtils {
 			BufferedImage bi = reader.read(0, param);
 			// 保存新图片
 			Log.print(path);
-			File folder = new File(baseRealPath + path);
+			File folder = new File(path);
 			if(!folder.exists()){
 				folder.mkdir();
 			}
-			sourcePath = baseRealPath + path + name+"."+picType;
+			sourcePath = path + name+"."+picType;
 			ImageIO.write(bi, picType, new File(sourcePath));
 		} finally {
 			if (is != null)
@@ -289,18 +302,19 @@ public class ImageUtils {
 		return  name + "." + simpleType;
 	}
 	public static String getSimpleType(String originType){
+		originType = originType.toLowerCase();
 		String simpleType="jpg";
-		if(originType.indexOf("png")>=0){
+		if(originType.indexOf(".png")>=0){
 			simpleType="png";
-		}else if(originType.indexOf("gif")>=0){
+		}else if(originType.indexOf(".gif")>=0){
 			simpleType="gif";
 
-		}else if(originType.indexOf("bmp")>=0){
+		}else if(originType.indexOf(".bmp")>=0){
 			simpleType="png";
 
-		}else if(originType.indexOf("ico")>=0){
+		}else if(originType.indexOf(".ico")>=0){
 			simpleType="ico";
-		}else if(originType.indexOf("jpeg")>=0){
+		}else if(originType.indexOf(".jpeg")>=0){
 			simpleType="jpeg";
 		}
 		return simpleType;

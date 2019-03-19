@@ -80,12 +80,12 @@
 				</s:iterator>
 				</div>
 				<!--/// essay-list end-->
-			<jsp:include page="../snippets/pagination.jsp" />
+			<%@ include file="../snippets/pagination.jsp" %>
 			</div>
 			<!--/// article end-->
 
 			<!-- aside-right start-->
-			<jsp:include page="../snippets/aside_right.jsp" />
+			<%@ include file="../snippets/aside_right.jsp" %>
 			<!--/// aside-right end-->
 
 		</div>

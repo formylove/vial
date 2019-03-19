@@ -54,7 +54,7 @@
 	    		<tr>
 	    			<td>朝代:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="dynasty" name="figure.dynasty.id" data-options="url:'/ajax/manager/dynasty/tree/',method:'get'" >
+	    			<input class="easyui-combotree" id="dynasty" name="figure.dynasty.id" data-options="url:'${base}ajax/manager/dynasty/tree/',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>
@@ -80,13 +80,13 @@
 	    		<tr>
 	    			<td>国家:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="nation" name="figure.nation.id" data-options="url:'ajax/manager/nation/tree',method:'get'" >
+	    			 <input class="easyui-combotree" id="nation" name="figure.nation.id" data-options="url:'${base}ajax/manager/nation/tree',method:'get'" >
 	    			<td>
 	    		</tr>
 	    		<tr>
 	    			<td>公司:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="corp" name="figure.corp.id" data-options="url:'/ajax/manager/corporation/tree/industry/',method:'get'"/>
+	    			<input class="easyui-combotree" id="corp" name="figure.corp.id" data-options="url:'${base}ajax/manager/corporation/tree/industry/',method:'get'"/>
 	    			<td>
 	    		</tr>
 	    		<tr>

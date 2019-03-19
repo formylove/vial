@@ -38,7 +38,7 @@ $(function(){
 				 commentData['comment.dev_name'] = $.cookie('device');
 				    $.ajax({ 
 				     type:"post", //表单提交类型 
-				     url:"/ajax/comment/add", //表单提交目标 
+				     url:baseUrl + "ajax/comment/add", //表单提交目标
 				     contentType:'application/x-www-form-urlencoded;charset=UTF-8',
 				     data:commentData, //表单数据
 				     success:function(msg){
@@ -81,7 +81,7 @@ function bindPageEvent(){
 		data.page = page;
 		data['comment.'+$("#append_id").data("type")+'.id'] = $("#append_id").val();
 		$.ajax({
-			url:"/ajax/comment/load",
+			url:baseUrl + "ajax/comment/load",
 			type:"post",
 			contentType:'application/x-www-form-urlencoded;charset=UTF-8',
 			data:data,

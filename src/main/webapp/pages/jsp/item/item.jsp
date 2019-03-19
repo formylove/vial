@@ -56,4 +56,3 @@ id:  ${nation !=null?nation.id:"" }
 <%@ include file="../snippets/footer.jsp" %>
 </body>
 </html>
-		`

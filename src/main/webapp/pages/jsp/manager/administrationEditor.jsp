@@ -31,7 +31,7 @@
 	    		<tr>
 	    			<td>首都:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="capital" name="nation.capital.id" data-options="url:'ajax/manager/city/tree',method:'get'" >
+	    			<input class="easyui-combotree" id="capital" name="nation.capital.id" data-options="url:'${base}ajax/manager/city/tree',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>
@@ -72,13 +72,13 @@
 	    		<tr>
 	    			<td>首脑:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="president" name="nation.president.id" data-options="url:'/ajax/manager/figure/tree/domain/政治圈',method:'get'" >
+	    			<input class="easyui-combotree" id="president" name="nation.president.id" data-options="url:'${base}ajax/manager/figure/tree/domain/政治圈',method:'get'" >
 	    			<td>
 	    		</tr>
 	    		<tr>
 	    			<td>国父:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="founder" name="nation.founder.id" data-options="url:'/ajax/manager/figure/tree/domain/政治圈',method:'get'" >
+	    			<input class="easyui-combotree" id="founder" name="nation.founder.id" data-options="url:'${base}ajax/manager/figure/tree/domain/政治圈',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>
@@ -160,11 +160,11 @@
 	    		<tr>
 	    			<td>省会:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="capital" name="state.capital.id" data-options="url:'ajax/manager/city/tree',method:'get'" >
+	    			 <input class="easyui-combotree" id="capital" name="state.capital.id" data-options="url:'${base}ajax/manager/city/tree',method:'get'" >
 	    			</td>
 					<td>国家:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="nation" name="state.nation.id" data-options="url:'ajax/manager/nation/tree',method:'get'" >
+	    			 <input class="easyui-combotree" id="nation" name="state.nation.id" data-options="url:'${base}ajax/manager/nation/tree',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>
@@ -224,13 +224,13 @@
 	    		<tr>
 	    			<td>省:</td>
 	    			<td>
-	    			<input class="easyui-combotree" id="state" name="city.state.id" data-options="url:'ajax/manager/state/tree',method:'get'" >
+	    			<input class="easyui-combotree" id="state" name="city.state.id" data-options="url:'${base}ajax/manager/state/tree',method:'get'" >
 	    			</td>
 	    			<td>国家:</td>
 	    			<td>
 	    			<input class="easyui-combotree" id="nation" name="city.nation.id" 
 	    			data-options="
-	    			url:'ajax/manager/nation/tree',
+	    			url:'${base}ajax/manager/nation/tree',
 	    			method:'get'" >
 	    			</td>
 	    		</tr>

@@ -18,11 +18,11 @@
 	    		<tr>
 	    			<td>首都:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="capital" name="dynasty.capital.id" data-options="url:'ajax/manager/city/tree',method:'get'" >
+	    			 <input class="easyui-combotree" id="capital" name="dynasty.capital.id" data-options="url:'${base}ajax/manager/city/tree',method:'get'" >
 	    			</td>
 	    			<td>国父:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="founder" name="dynasty.founder.id" data-options="url:'ajax/manager/figure/tree/domain/政治圈',method:'get'" >
+	    			 <input class="easyui-combotree" id="founder" name="dynasty.founder.id" data-options="url:'${base}ajax/manager/figure/tree/domain/政治圈',method:'get'" >
 	    			</td>
 	    			</tr>
 	    		<tr>
@@ -69,17 +69,17 @@
 	    		<tr>
 	    			<td>教主:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="founder" name="religion.founder.id" data-options="url:'ajax/manager/figure/tree/domain/宗教',method:'get'" >
+	    			 <input class="easyui-combotree" id="founder" name="religion.founder.id" data-options="url:'${base}ajax/manager/figure/tree/domain/宗教',method:'get'" >
 	    			</td>
 	    			<td>圣地:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="pilgrimplace" name="religion.pilgrimplace.id" data-options="url:'ajax/manager/city/tree',method:'get'" >
+	    			 <input class="easyui-combotree" id="pilgrimplace" name="religion.pilgrimplace.id" data-options="url:'${base}ajax/manager/city/tree',method:'get'" >
 	    			</td>
 	    		</tr>
 	    		<tr>
 	    			<td>国家:</td>
 	    			<td>
-	    			 <input class="easyui-combotree" id="birthplace" name="religion.birthplace.id" data-options="url:'ajax/manager/nation/tree',method:'get'" >
+	    			 <input class="easyui-combotree" id="birthplace" name="religion.birthplace.id" data-options="url:'${base}ajax/manager/nation/tree',method:'get'" >
 	    			</td>
 	    			<td>教众:</td>
 	    			<td><input id="votaryNum" name="religion.votaryNum" class="easyui-numberbox" value='${religion.votaryNum}'

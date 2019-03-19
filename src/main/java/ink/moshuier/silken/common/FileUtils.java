@@ -39,7 +39,7 @@ public class FileUtils {
 	}
 	
 	static public String getFileSuffix(String org_name){
-		 return org_name.substring(org_name.lastIndexOf("."), org_name.length());
+		 return org_name.substring(org_name.lastIndexOf("."));
 	 }
 	static public String getMime(String org_name) throws IOException{
 		String suffix = getFileSuffix(org_name);

@@ -49,7 +49,7 @@ function doSearch(value,name){
 	$('#dg').datagrid('gotoPage', options);
 }
 var defaultSetting = {
-		url:'/ajax/datagrid/',
+		url:baseUrl + 'ajax/datagrid/',
 		loadMsg:"数据加载中，请稍后……",
 		width: 760,  
 		height:400,               

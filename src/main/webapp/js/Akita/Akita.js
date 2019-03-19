@@ -47,7 +47,7 @@ function formatTime(date) {
 function clearForm(){
     $('form').form('clear');
 }
-
+//提交编辑的文章
 var submitForm = function(item,formName) {
     var reiterationFlag = false;
     var prefix;
@@ -78,6 +78,8 @@ var submitForm = function(item,formName) {
         confirm4easyui('标题为空！');
     }else if(item == 'title' && editor.document.getBody().getText().replace(/\s/g, '') == ''){
         confirm4easyui('内容为空！');
+    }else if(formName.indexOf("music")>=0 && $("#filebox_file_id_1").val() == ''){
+        confirm4easyui('请选择音乐！');
     }else{
         var form = document.getElementById(formName);
         var areas = $(form).find("input:hidden");
@@ -174,7 +176,7 @@ function showCoupleForCheckbox(me,she,val){
 }
 function deleteObj(type,id){
     $.ajax({
-        url:"/ajax/manager/" + type + "/delete/" + id,
+        url:baseUrl + "ajax/manager/" + type + "/delete/" + id,
         contentType:'application/x-www-form-urlencoded;charset=UTF-8',
         type:'post',
         success:function(data){
@@ -186,7 +188,7 @@ function deleteObj(type,id){
 }
 function recoverObj(type,id){
     $.ajax({
-        url:"/ajax/manager/" + type + "/recover/" + id,
+        url:baseUrl + "ajax/manager/" + type + "/recover/" + id,
         contentType:'application/x-www-form-urlencoded;charset=UTF-8',
         type:'post',
         success:function(data){
@@ -199,7 +201,7 @@ function recoverObj(type,id){
 
 function like(type,id){
     $.ajax({
-        url:"/ajax/manager/" + type + "/like/" + id,
+        url:baseUrl + "ajax/manager/" + type + "/like/" + id,
         contentType:'application/x-www-form-urlencoded;charset=UTF-8',
         type:'post',
         success:function(data){
@@ -212,7 +214,7 @@ function like(type,id){
 }
 function undoLike(type,id){
     $.ajax({
-        url:"/ajax/manager/" + type + "/undoLike/" + id,
+        url:baseUrl + "ajax/manager/" + type + "/undoLike/" + id,
         contentType:'application/x-www-form-urlencoded;charset=UTF-8',
         type:'post',
         success:function(data){

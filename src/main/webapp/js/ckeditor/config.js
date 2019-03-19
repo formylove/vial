@@ -20,7 +20,7 @@ CKEDITOR.editorConfig = function( config ) {
 [],
 []
 ];
-	config.filebrowserUploadUrl="ajax/upLoadImg4Editor";
+	config.filebrowserUploadUrl = baseUrl + "ajax/upLoadImg4Editor";
 	config.baseHref = baseUrl;
 	config.font_defaultLabel = 'Helvetica Neue';
 	config.keystrokes = [
