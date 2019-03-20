@@ -26,8 +26,32 @@
 		<global-exception-mappings>
 			<exception-mapping result="exception" exception="java.lang.Throwable" />
 		</global-exception-mappings>
-		
-		
+			<action name="essayAction" class="ink.moshuier.silken.action.EssayAction" >
+				<result name="display">/pages/jsp/essay/essay.jsp</result>
+				<result name="success">
+					<param name="location">/pages/jsp/manager/backEnd.jsp?type=eessay</param>
+				</result>
+				<result name="list">/pages/jsp/essay/essays.jsp</result>
+			</action>
+			<action name="musicAction" class="ink.moshuier.silken.action.MusicAction" >
+				<result name="display">/pages/jsp/music/music.jsp</result>
+				<result name="retrieve">//pages/jsp/manager/backEnd.jsp?type=retrieve</result>
+				<result name="success">
+					<param name="location">/pages/jsp/manager/backEnd.jsp?type=emusic</param>
+				</result>
+				<result name="OK" type="json">
+					<param name="root">id</param>
+					<param name="root">music.id</param>
+				</result>
+				<result name="list">/pages/jsp/music/musics.jsp</result>
+				<result name="done" type="json"><param name="root">tree</param></result>
+				<result name="datalist" type="json"><param name="root">datalist</param></result>
+				<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">audio/mpeg,audio/x-wav,audio/ogg</param>
+					<param name="maximumSize">20000000000000</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"/>
+			</action>
 		<action name="loginAction" class="ink.moshuier.silken.action.LoginAction">
 			<result name="activated" type="redirect">homepage/</result>
 			<result name="profile">pages/jsp/user/profile.jsp</result>
@@ -74,13 +98,7 @@
 		<action name="imageAction" class="ink.moshuier.silken.action.ImageAction">
 		</action>
 		
-		<action name="essayAction" class="ink.moshuier.silken.action.EssayAction" >
-			<result name="display">/pages/jsp/essay/essay.jsp</result>
-			<result name="success">
-			<param name="location">/pages/jsp/manager/backEnd.jsp?type=eessay</param>
-			</result>
-			<result name="list">/pages/jsp/essay/essays.jsp</result>
-		</action>
+
 		
 		<action name="noteAction" class="ink.moshuier.silken.action.NoteAction" >
 			<result name="success">
@@ -111,21 +129,7 @@
 			<result name="list">/pages/jsp/list/musics.jsp</result>
 			<result name="datagrid" type="json"><param name="root">datagrid</param></result>
 		</action>
-		<action name="musicAction" class="ink.moshuier.silken.action.MusicAction" >
-			<result name="display">/pages/jsp/music/music.jsp</result>
-			<result name="retrieve">//pages/jsp/manager/backEnd.jsp?type=retrieve</result>
-			<result name="success">
-			<param name="location">/pages/jsp/manager/backEnd.jsp?type=emusic</param>
-			</result>
-			<result name="list">/pages/jsp/music/musics.jsp</result>
-			<result name="done" type="json"><param name="root">tree</param></result>
-			<result name="datalist" type="json"><param name="root">datalist</param></result>
-			<interceptor-ref name="fileUpload">
-			<param name="allowedTypes">audio/mpeg,audio/x-wav,audio/ogg</param>
-			<param name="maximumSize">20000000000000</param>
-			</interceptor-ref>
-			<interceptor-ref name="defaultStack"/>
-		</action>
+
 		<action name="downloadAction" class="ink.moshuier.silken.action.DownloadAction" >
 			<result type="stream">
 			<param name="contentType">${mime}</param>

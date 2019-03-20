@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.json.annotations.JSON;
 
@@ -34,6 +35,7 @@ public class MusicAction {
 	private String musicFileContentType;
 	private String musicFileFileName;
 	private JSONArray tree;
+	private JSONObject newAddedMusic;
 	public String list() {
 		musics = musicService.list(100, 1, "precedence desc", null);
 		styles = musicService.getAllStyles();

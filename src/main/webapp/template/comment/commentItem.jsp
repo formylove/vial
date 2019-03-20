@@ -1,4 +1,9 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="ink.moshuier.silken.common.MessageUtils" %>
+<base href="<%=MessageUtils.getMessageFromUrl("base")%>"/>
+<s:set name="imageUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("img.url")'/>
+<s:set name="base" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("base")'/>
 <s:if test="!good">
 confirm('${message}');
 </s:if>

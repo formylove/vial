@@ -21,7 +21,8 @@
             <div class="player-ct" id="playerCt" style="display: block;">
                 <div class="clearfix">
                     <a href="javascript:;" rel="nofollow" class="icon-lyric"></a>
-                    <a href="javascript:;" rel="nofollow" class="btn-action-share icon-share PLShare" data-app="single"></a>
+                    <%--todox--%>
+                    <%--<a href="javascript:;" rel="nofollow" class="btn-action-share icon-share PLShare" data-app="single"></a>--%>
                 </div>
                 <div class="trackname">
                     <p class="PLTrackname" title="${musics[0].name }">${musics[0].name }</p>
@@ -65,7 +66,8 @@
                         <p class="artist PLArtist" title="${musics[0].singer.name }">${musics[0].singer.name }</p>
                     </div>
                     <a href="javascript:;" rel="nofollow" class="icon-lyric-active"></a>
-                    <a href="javascript:;" rel="nofollow" class="btn-action-share icon-share PLShare" data-app="single"></a>
+                    <%--todox--%>
+                    <%--<a href="javascript:;" rel="nofollow" class="btn-action-share icon-share PLShare" data-app="single"></a>--%>
                 </div>
 
                 <div class="lyric-ct" id="lyricCt">${musics[0].lyric }</div>
@@ -79,7 +81,7 @@
 		<s:if test="#st.first">
 		<audio src="${musicUrl}${m.url }" id = "music_${st.index}"  preload="auto"
 		<%if((User)request.getAttribute("loginedUser") == null || ((User)request.getAttribute("loginedUser")).isAutoplay()){%>autoplay<%} %>
-		 data-index = "${st.index}" data-name="${m.name}" data-lyric="${m.lyric}" data-cover="${m.bcover}" data-singer = "${m.singer.name}"></audio>
+               data-index = "${st.index}" data-index = "${st.motto}" data-name="${m.name}" data-lyric="${m.lyric}" data-cover="${m.bcover}" data-singer = "${m.singer.name}"></audio>
 		</s:if>
 		<s:else>
 		<audio src="${musicUrl}${m.url }" id="music_${st.index}" data-lyric="${m.lyric}" data-index = "${st.index}"  data-index = "${st.index}" data-name="${m.name}" data-cover="${m.bcover}" data-singer = "${m.singer.name}"></audio>
@@ -91,8 +93,8 @@
 								</span>
                 <a href="javascript:;" rel="nofollow" class="trackname btn-play">${st.index<9?"0":""}${1 + st.index}. ${m.name}</a>
                 <span class="artist btn-play">${m.singer.name}</span>
-
-                <a href="javascript:;" rel="nofollow" class="btn-action-share icon-share" ></a>
+                <%--todox--%>
+                <%--<a href="javascript:;" rel="nofollow" class="btn-action-share icon-share" ></a>--%>
 
             </div>
             <div class="track-detail-wrapper" >
@@ -126,7 +128,8 @@
                 <p class="name" id="PFName" title="${musics[0].name}">${musics[0].name}</p>
                 <p class="artist" id="PFArtist" title="${musics[0].singer.name}">${musics[0].singer.name}</p>
                 <p class="sns" id="PFSns">
-                    <a href="javascript:;" rel="nofollow" class="btn-action-share icon-follow-share PFShare" data-app="single"></a>
+                    <%--todox--%>
+                    <%--<a href="javascript:;" rel="nofollow" class="btn-action-share icon-follow-share PFShare" data-app="single"></a>--%>
                 </p>
             </div>
             <a href="javascript:;" rel="nofollow" class="jp-previous">

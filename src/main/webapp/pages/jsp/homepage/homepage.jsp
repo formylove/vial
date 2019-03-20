@@ -12,9 +12,9 @@
 <jsp:include page="../snippets/hidden_box.jsp"/>
 
 <div class="container index-ct" style="min-height: 221px;">	
-<jsp:include page="../homepage/poster.jsp" />
+<%@ include file="../homepage/poster.jsp" %>
 <%@ include file="../homepage/musicColumn.jsp" %>
-<jsp:include page="../homepage/articleColumn.jsp" />
+<%@ include file="../homepage/articleColumn.jsp" %>
 <%-- <jsp:include page="../homepage/somniloquismColumn.jsp" /> --%>
 <%-- <jsp:include page="../homepage/criticismColumn.jsp" /> --%>
 </div>

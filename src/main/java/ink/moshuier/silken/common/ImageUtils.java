@@ -2,12 +2,7 @@ package ink.moshuier.silken.common;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
@@ -125,7 +120,57 @@ public class ImageUtils {
 		String realPath = baseRealPath + tempPath;
 		return ImageUtils.saveImage(image, org_name, realPath);
 	}
+    static public String cut(String cover,float w,float h,float x,float y,String type){
+	    int width = (int)w;
+	    int height = (int)h;
 
+        if(width == 0 || height == 0){
+            width = getImgWidth(baseRealPath + tempPath + cover)[0];
+            height = getImgWidth(baseRealPath + tempPath + cover)[1];
+        }
+        String processedName =  cut( cover, width, height, (int)x, (int)y);
+        deleteTemp(cover);
+        try {
+            if(FileUtils.getFileSuffix(processedName).equalsIgnoreCase(".gif")){
+				bufferedReaderWriterCopyFile(depotPath + processedName, depotPath + generateIsoName(processedName,THUMBNAIL));
+				bufferedReaderWriterCopyFile(depotPath + processedName, depotPath + generateIsoName(processedName,BIG));
+            }else if(type.equals(POSTER)){
+                Thumbnails.of(depotPath+processedName)
+                        .scale(1000.0/width)
+                        .toFile(depotPath+processedName);
+            }else if(type.equals(PORTRAIT)){//正方形
+                Thumbnails.of(depotPath+processedName)
+                        .scale(110.0/width)
+                        .toFile(depotPath+processedName);
+            }else if(type.equals(NHORIZONTAL)){
+                Thumbnails.of(depotPath + processedName)
+                        .scale(220.0/width)
+                        .toFile(depotPath + processedName);
+            }else if(type.equals(NVERTICAL)){
+                Thumbnails.of(depotPath+processedName)
+                        .scale(120.0/width)
+                        .toFile(depotPath+processedName);
+            }else if(type.equals(MUSIC)){
+                Thumbnails.of(depotPath+processedName)
+                        .scale(1f)
+                        .toFile(depotPath+generateIsoName(processedName,BIG));
+                Thumbnails.of(depotPath+processedName)
+                        .scale(60.0/width)
+                        .toFile(depotPath+generateIsoName(processedName,THUMBNAIL));
+                Thumbnails.of(depotPath+processedName)
+                        .scale(220.0/width)
+                        .toFile(depotPath+processedName);
+            }else if(type.equals(CATEGORY)){
+                Thumbnails.of(depotPath+processedName)
+                        .scale(50.0/width)
+                        .toFile(depotPath+generateIsoName(processedName,THUMBNAIL));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return processedName;
+    }
 	static public String cut(String cover,int width,int height,int x,int y) {
 		String simpleType = getSimpleType(cover);
 		String processedName = null;
@@ -158,57 +203,8 @@ public class ImageUtils {
 		return null;
 	}
 
-	static public String cut(String cover,float w,float h,float x,float y,String type){
-	    float width =(int)w;
-		String processedName =  cut( cover, (int)w, (int)h, (int)x, (int)y);
-		if(width == 0){
-		    File img= new File(baseRealPath + tempPath + cover);
-            width = getImgWidth(img)[0];
-        }
-		deleteTemp(cover);
-		try {
-			if(FileUtils.getFileSuffix(processedName).equalsIgnoreCase(".gif")){
 
-			}else if(type.equals(POSTER)){
-				Thumbnails.of(depotPath+processedName)
-						.scale(1000/width)
-						.toFile(depotPath+processedName);
-			}else if(type.equals(PORTRAIT)){//正方形
-				Thumbnails.of(depotPath+processedName)
-						.scale(110/width)
-						.toFile(depotPath+processedName);
-			}else if(type.equals(NHORIZONTAL)){
-				Thumbnails.of(depotPath + processedName)
-						.scale(220/width)
-						.toFile(depotPath + processedName);
-			}else if(type.equals(NVERTICAL)){
-				Thumbnails.of(depotPath+processedName)
-						.scale(120/width)
-						.toFile(depotPath+processedName);
-			}else if(type.equals(MUSIC)){
-				Thumbnails.of(depotPath+processedName)
-						.scale(1f)
-						.toFile(depotPath+generateIsoName(processedName,BIG));
-				Thumbnails.of(depotPath+processedName)
-						.scale(60/width)
-						.toFile(depotPath+generateIsoName(processedName,THUMBNAIL));
-				Thumbnails.of(depotPath+processedName)
-						.scale(220/width)
-						.toFile(depotPath+processedName);
-			}else if(type.equals(CATEGORY)){
-				Thumbnails.of(depotPath+processedName)
-						.scale(50/width)
-						.toFile(depotPath+generateIsoName(processedName,THUMBNAIL));
-			}
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return processedName;
-	}
-	static public String generateIsoName(String processedName,String suffix){
-		return processedName.substring(0, processedName.lastIndexOf("."))+"-"+suffix+FileUtils.getFileSuffix(processedName);
-	}
 	static public String cut(BufferedInputStream image,String picType,int width,int height,int x,int y) throws IOException{
 		String sourcePath = null;
 		BufferedInputStream is = null;
@@ -242,10 +238,10 @@ public class ImageUtils {
 			 * 的左上顶点的坐标（x，y）、宽度和高度可以定义这个区域。
 			 */
 
-			if(width == 0 || height == 0){
-				width = reader.getWidth(0);
-				height = reader.getHeight(0);
-			}
+//			if(width == 0 || height == 0){
+//				width = reader.getWidth(0);
+//				height = reader.getHeight(0);
+//			}
 			Rectangle rect = new Rectangle(x, y, width, height);
 			// 提供一个 BufferedImage，将其用作解码像素数据的目标。
 			param.setSourceRegion(rect);
@@ -276,7 +272,7 @@ public class ImageUtils {
 		String name=UUID.randomUUID().toString();
 		String path=depotPath;
 		String simpleType = getSimpleType(sourcePath);
-		String targetPath = baseRealPath + path + name + "." + simpleType;
+		String targetPath = path + name + "." + simpleType;
 		GifDecoder decoder = new GifDecoder();
 		int status = decoder.read(sourcePath);
 		if (status != GifDecoder.STATUS_OK) {
@@ -332,31 +328,73 @@ public class ImageUtils {
 		data.put("create_time", TimeManager.getTime());
 		return SqlUtils.executeInsert(data, "photo");
 	}
-	static public int[] getImgWidth(File img){
-		int[] a ={0,0};
-		BufferedImage bi = null;
-		boolean imgwrong=false;
-		try {
-			//读取图片
-			bi = javax.imageio.ImageIO.read(img);
-			try{
-				//判断文件图片是否能正常显示,有些图片编码不正确
-				int i = bi.getType();
-				imgwrong=true;
-			}catch(Exception e){
-				imgwrong=false;
-			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-		if(imgwrong){
-			a[0] = bi.getWidth(); //获得 宽度
-			a[1] = bi.getHeight(); //获得 高度
-		}else{
-			a=null;
-		}
-		//删除文件
-		img.delete();
+	private static void bufferedReaderWriterCopyFile(String src, String des)  throws IOException {
+		File srcFile = new File(src);
+		File desFile = new File(des);
+		         // 使用带缓冲区的高效字符流进行文件复制
+				 BufferedInputStream br = new BufferedInputStream(new FileInputStream(srcFile));
+				 BufferedOutputStream bw = new BufferedOutputStream(new FileOutputStream(desFile));
+
+		         byte[] b = new byte[1024];
+		         Integer len = 0;
+		         while((len = br.read(b)) != -1) {
+			             bw.write(b, 0, len);
+			         }
+
+		         /*String s = null;
+14         while((s = br.readLine()) != null) {
+15             bw.write(s);
+16             bw.newLine();
+17         }*/
+		         br.close();
+		         bw.close();
+		     }
+	static public int[] getImgWidth(String  imgPath){
+        String picType = getSimpleType(imgPath);
+        int[] a ={0,0};
+
+        FileInputStream fis = null;
+        try {
+        File image = new File(imgPath);
+        fis = new FileInputStream(image);
+        BufferedInputStream bis = new BufferedInputStream(fis);
+        Iterator<ImageReader> it = ImageIO.getImageReadersByFormatName(picType);
+        ImageReader reader = it.next();
+        ImageInputStream iis = ImageIO.createImageInputStream(bis);
+        reader.setInput(iis, true);
+        ImageReadParam param = reader.getDefaultReadParam();
+        a[0] = reader.getWidth(0);
+        a[1] = reader.getHeight(0);
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+//        BufferedImage bi = null;
+//        boolean imgwrong=false;
+
+//		try {
+//			//读取图片
+//			bi = javax.imageio.ImageIO.read(img);
+//			try{
+//				//判断文件图片是否能正常显示,有些图片编码不正确
+//				int i = bi.getType();
+//				imgwrong=true;
+//			}catch(Exception e){
+//				imgwrong=false;
+//			}
+//		} catch (IOException ex) {
+//			ex.printStackTrace();
+//		}
+//		if(imgwrong){
+//			a[0] = bi.getWidth(); //获得 宽度
+//			a[1] = bi.getHeight(); //获得 高度
+//		}else{
+//			a=null;
+//		}
+//		//删除文件
+//		img.delete();
 		return a;
 	}
 	static public void deleteImg(String name){
@@ -368,4 +406,7 @@ public class ImageUtils {
 	static public void deleteTemp(String name){
 		FileUtils.deleteFile(tempPath+name);
 	}
+    static public String generateIsoName(String processedName,String suffix){
+        return processedName.substring(0, processedName.lastIndexOf("."))+"-"+suffix+FileUtils.getFileSuffix(processedName);
+    }
 }

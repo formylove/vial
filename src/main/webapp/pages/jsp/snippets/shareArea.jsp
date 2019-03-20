@@ -6,7 +6,8 @@
 					<span id="favorcnt">${essay.favor_cnt}</span>
 				</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="javascript:;" class="btn-share btn-action-share"  >
-					<span class="icon-essay-share"></span>
-				</a>
+					<%--todo--%>
+				<%--<a href="javascript:;" class="btn-share btn-action-share" >--%>
+					<%--<span class="icon-essay-share"></span>--%>
+				<%--</a>--%>
 			</div>	

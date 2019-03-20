@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="player-large rounded clearfix">
 <audio src="${musicUrl}${music.url }" autoplay></audio>
             <div class="cover-wrapper">
@@ -6,9 +7,11 @@
             </div>
 
             <div class="player-ct" id="playerCt" style="display: block;">
-                <div class="clearfix">
+                <%--todo--%>
+                <div class="clearfix" style="visibility: hidden">
                     <a href="javascript:;" rel="nofollow" class="icon-lyric"></a>
-                    <a href="javascript:;" rel="nofollow" class="btn-action-share icon-share PLShare" data-app="single"></a>
+                    <%--todox--%>
+                    <%--<a href="javascript:;" rel="nofollow" class="btn-action-share icon-share PLShare" data-app="single"></a>--%>
                     <a href="javascript:;" rel="nofollow" class="btn-action-like icon-fav PLFav" data-type="single" data-cback="single_like_callback"></a>
                 </div>
                 <div class="trackname">
@@ -66,7 +69,8 @@
                         <p class="artist PLArtist" title="Lucy Wainwright Roche">Lucy Wainwright Roche</p>
                     </div>
                     <a href="javascript:;" rel="nofollow" class="icon-lyric-active"></a>
-                    <a href="javascript:;" rel="nofollow" class="btn-action-share icon-share PLShare" data-app="single"></a>
+                    <%--todox--%>
+                    <%--<a href="javascript:;" rel="nofollow" class="btn-action-share icon-share PLShare" data-app="single"></a>--%>
                     <a href="javascript:;" rel="nofollow" class="btn-action-like icon-fav PLFav" data-type="single" data-cback="single_like_callback"></a>
                 </div>
 
