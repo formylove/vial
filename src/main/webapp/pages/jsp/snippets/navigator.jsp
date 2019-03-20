@@ -64,7 +64,12 @@
 				</a>
 				<div class="account-more">
 					<a href="javascript:;" rel="nofollow" class="ln-account" id="lnAccountMore">
-					<img src="${imageUrl}<%=loginedUser.getPortrait()%>" alt="<%=loginedUser.getNick_name()%>" class="avatar">
+						<c:if test="${loginedUser.portrait == 'avatar.gif'}">
+							<img src="${pageScope.defaultAvatar}" alt="<%=loginedUser.getNick_name()%>" class="avatar"/>
+						</c:if>
+						<c:if test="${loginedUser.portrait != 'avatar.gif'}">
+							<img src="${imageUrl}<%=loginedUser.getPortrait()%>" alt="<%=loginedUser.getNick_name()%>" class="avatar"/>
+						</c:if>
 					&nbsp;<span><%=loginedUser.getNick_name()%></span>
 					</a>
 				</div>

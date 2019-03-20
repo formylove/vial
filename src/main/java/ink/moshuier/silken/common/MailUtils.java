@@ -20,6 +20,7 @@ import com.opensymphony.xwork2.ActionContext;
 public class MailUtils {
 	static private String MyMail = MessageUtils.getConfig("mail.addr");
 	static private String SiteName = MessageUtils.getConfig("site.name");
+	static private String MailLogo = MessageUtils.getConfig("base") + MessageUtils.getConfig("mail.logo");
 	static private String PASSWORD = MessageUtils.getConfig("mail.password");
 	static private final String SUBJECT = MessageUtils.getConfig("mail.title");
 	static private final String Salutation_Reg="(?<=id=\"salutation\">)[^<]+(?=</p>)";
@@ -71,8 +72,9 @@ public class MailUtils {
 	public String sendActivateEmail(String recipient,String nick_name,String token){
 		String content = StrUtils.fileToString(template);
 		content = content.replaceAll("\\{nickname\\}", nick_name);
+		content = content.replaceAll("\\{mail\\.logo\\}", MailLogo);
 		content = content.replaceAll(Href_Reg, base + "activate/" + token +"/");
-		content = content.replaceAll("\\{webname\\}", SiteName);
+		content = content.replaceAll("\\{sitename\\}", SiteName);
 		content = content.replaceAll("\\{year\\}", TimeManager.getCurrentYear());
 //		try {
 //			sendEmail(recipient, new String(SUBJECT.getBytes("GBK"),"GBK"), content);

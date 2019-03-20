@@ -12,10 +12,10 @@
 <body style="position:relative;">
 <style>
 	.footer{
-		margin-top: 100px;
+		margin-top: 70px;
 	}
-	.Pagination{
-		margin-top: 150px;
+	.paginator{
+		margin-top: 180px;
 	}
 </style>
 <%@ include file="../snippets/navigator.jsp" %>

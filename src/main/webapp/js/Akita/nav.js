@@ -156,7 +156,7 @@ $(function(){
 				//给表单绑定提交事件
 				if(!hasBinded){
 					$('form[name=login_form]').submit(function() {
-						$(".qtip #login_submit").text('登陆中，请耐心等待...');
+						$(".qtip #register_submit").val('登陆中，请耐心等待...');
 						$(this).ajaxSubmit({
 							type:"post",
 							dataType:'json',
@@ -174,11 +174,12 @@ $(function(){
 									$(".qtip span[name=error_placement]").hide();
 									$(".qtip #login_submit").show();
 								}
+								$(".qtip #register_submit").val('注册');
 							} });
 						return false;
 					});
 					$('form[name=register_form]').submit(function(event) {
-						$(".qtip #login_submit").text('注册中，请耐心等待...');
+						$(".qtip #register_submit").val('注册中，请耐心等待...');
 						$(this).ajaxSubmit({
 							type:"post",
 							dataType:'json',
@@ -194,6 +195,7 @@ $(function(){
 									confirm("注册成功,登录邮箱激活");
 									window.open($("base").attr("href") + "user/prompt/"+data.email+"/"+data.nick_name+"/",'_blank')
 								}
+						$(".qtip #register_submit").val('注册');
 							} });
 						return false;
 					});

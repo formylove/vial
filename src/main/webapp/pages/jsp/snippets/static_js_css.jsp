@@ -1,5 +1,6 @@
 <%@ page import="ink.moshuier.silken.common.MessageUtils" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <base href="<%=MessageUtils.getMessageFromUrl("base")%>"/>
 <link rel="SHORTCUT ICON" href="img/icon/favicon.ico"  type="image/x-ico"/>
@@ -15,6 +16,7 @@
 <s:set name="weibo" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("weibo")'/>
 <s:set name="imageUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("img.url")'/>
 <s:set name="musicUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("music.url")'/>
+<s:set name="defaultAvatar" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("img.avatar")'/>
 <s:set name="base" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("base")'/>
 <%String importParams=(String)request.getAttribute("importParams");
 if(importParams!=null){

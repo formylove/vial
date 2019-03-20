@@ -144,7 +144,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String registerDetect(String nick_name,String email,String password,String psw_conf,String rule){
 		email = email.trim();
-		if(!StringUtils.isNotEmpty(valiName(nick_name))){
+		if(StringUtils.isNotEmpty(valiName(nick_name))){
 			return  valiName(nick_name);
 		}
 		if(!StrUtils.valiEmail(email)){

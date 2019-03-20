@@ -1,8 +1,6 @@
 package ink.moshuier.silken.common;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,7 +37,11 @@ static public String fileToString(String filePath){
 	String line = "";
 	StringBuffer sb = new StringBuffer();
 	try {
-	BufferedReader br = new BufferedReader(new FileReader(filePath));
+//		文件读入时是按OS的默认字符集即GBK解码的，我先用默认字符集GBK编码str.getBytes(“GBK”)，此时应该还原为文件中的字节序列了，然后再按UTF-8解码，生成的字符串按理说应该就应该是正确的。
+//		为什么结果中还是有部分乱码呢？
+//		问题出在FileReader读取文件的过程中，FileReader继承了InputStreamReader，但并没有实现父类中带字符集参数的构造函数，所以FileReader只能按系统默认的字符集来解码，然后在UTF-8 -> GBK -> UTF-8的过程中编码出现损失，造成结果不能还原最初的字符。
+//		原因明确了，用InputStreamReader代替FileReader，InputStreamReader isr=new InputStreamReader(new FileInputStream(fileName),"UTF-8");这样读取文件就会直接用UTF-8解码，不用再做编码转换。
+	BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
 	while(null != (line = br.readLine())){
 		sb.append(line);
 	}
