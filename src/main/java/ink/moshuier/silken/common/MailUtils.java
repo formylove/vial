@@ -20,7 +20,7 @@ import com.opensymphony.xwork2.ActionContext;
 public class MailUtils {
 	static private String MyMail = MessageUtils.getConfig("mail.addr");
 	static private String SiteName = MessageUtils.getConfig("site.name");
-	static private String MailLogo = MessageUtils.getConfig("base") + MessageUtils.getConfig("mail.logo");
+	static private String MailLogo = MessageUtils.getMessageFromUrl("base") + MessageUtils.getMessageFromUrl("mail.logo");
 	static private String PASSWORD = MessageUtils.getConfig("mail.password");
 	static private final String SUBJECT = MessageUtils.getConfig("mail.title");
 	static private final String Salutation_Reg="(?<=id=\"salutation\">)[^<]+(?=</p>)";
