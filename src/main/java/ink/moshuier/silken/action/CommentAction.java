@@ -50,94 +50,94 @@ public class CommentAction {
 		if(user != null){
 			comment.setPublisher(user);
 			good = commentService.add(comment);
-			message = (good?"":"�ظ��Ķ�������ѱ�ɾ��");
+			message = (good?"":"回复的对象可能已被删除");
 		}else{
-			message="����δ��¼";
+			message="请先未登录";
 			good = false;
 		}
 		return MsgConstants.SUCCESS;
 	}
 
-public String load(){
-	jComments = commentService.getPage(page,comment);
-	System.out.println(jComments);
-	return MsgConstants.DONE;
-}
+	public String load(){
+		jComments = commentService.getPage(page,comment);
+		System.out.println(jComments);
+		return MsgConstants.DONE;
+	}
 
-public String deleteComments(){
-	return "conveycomments";
-}
+	public String deleteComments(){
+		return "conveycomments";
+	}
 
-public JSONObject getJComments() {//get ��������һ��Ҫ���������� ��
-	return jComments;
-}
-public void setJComments(JSONObject jComments) {
-	this.jComments = jComments;
-}
-public String getContent() {
-	return content;
-}
-public void setContent(String content) {
-	this.content = content;
-}
-public List<Comment> getComments() {
-	return comments;
-}
+	public JSONObject getJComments() {//get 函数命名一定要讲究啊啊啊 啊
+		return jComments;
+	}
+	public void setJComments(JSONObject jComments) {
+		this.jComments = jComments;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public List<Comment> getComments() {
+		return comments;
+	}
 
-public void setComments(List<Comment> comments) {
-	this.comments = comments;
-}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
-public Comment getComment() {
-	return comment;
-}
+	public Comment getComment() {
+		return comment;
+	}
 
-public void setComment(Comment comment) {
-	this.comment = comment;
-}
+	public void setComment(Comment comment) {
+		this.comment = comment;
+	}
 
-public User getUser() {
-	return user;
-}
-public void setUser(User user) {
-	this.user = user;
-}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-public boolean isGood() {
-	return good;
-}
-public void setGood(boolean good) {
-	this.good = good;
-}
+	public boolean isGood() {
+		return good;
+	}
+	public void setGood(boolean good) {
+		this.good = good;
+	}
 
-public int getPage() {
-	return page;
-}
-public void setPage(int page) {
-	this.page = page;
-}
-@JSON(serialize=false)
-public UserService getUserService() {
-	return userService;
-}
-@JSON(serialize=false)
-public CommentService getCommentService() {
-	return commentService;
-}
-public String getMessage() {
-	return message;
-}
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page = page;
+	}
+	@JSON(serialize=false)
+	public UserService getUserService() {
+		return userService;
+	}
+	@JSON(serialize=false)
+	public CommentService getCommentService() {
+		return commentService;
+	}
+	public String getMessage() {
+		return message;
+	}
 
-public void setMessage(String message) {
-	this.message = message;
-}
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
-public void setUserService(UserService userService) {
-	this.userService = userService;
-}
-public void setCommentService(CommentService commentService) {
-	this.commentService = commentService;
-}
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+	public void setCommentService(CommentService commentService) {
+		this.commentService = commentService;
+	}
 
 
 

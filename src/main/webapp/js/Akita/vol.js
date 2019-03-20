@@ -1,5 +1,5 @@
 var id ;
-var curIndex;
+var curIndex = 0;
 $.fn.extend({
 	stop:function(){
 		if(this.is("audio")){
@@ -48,12 +48,7 @@ function setPlayer(){
 	$lPlayer.find(".PLCover").attr("src",imageUrl + cover);
 	$lPlayer.find(".lyric-ct").html($.isNotEmpty(lyric)?lyric:"<div class='margin-t-20'><p style='margin: 60px auto; text-align: center;'><a href='javascript:;' class='btn btn-positive btn-add-lyric'>未添加歌词</a></p></div>");//
 	$sPlayer.find("#PFName").attr("title",name).text(name);
-	if(motto == ''){
-		$('.motto').addClass('hide');
-	}else {
-		$('.motto').removeClass('hide');
-	$sPlayer.find(".PLAlbum").attr("title",motto).text(motto);
-	}
+
 	$sPlayer.find("#PFCover").attr("src",imageUrl + cover);
 	if($.isNotEmpty(artist)){
 		$lPlayer.find(".PLArtist").attr("title",artist).text(artist).show();
@@ -62,6 +57,12 @@ function setPlayer(){
 		$lPlayer.find(".PLArtist").hide();
 		$sPlayer.find("#PFArtist").hide();
 	}
+	if(motto == ''){
+		$('.motto').addClass('hide');
+	}else {
+		$('.motto').removeClass('hide');
+	}
+	$lPlayer.find(".PLAlbum").attr("title",motto).text(motto);
 }
 function toggle(){
 	var $audio =$("#music_"+curIndex);

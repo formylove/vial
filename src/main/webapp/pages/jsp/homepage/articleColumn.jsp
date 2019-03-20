@@ -8,7 +8,7 @@
 				</div>
 				<div class="section-ct">
 					<div class="clearfix">
-						<img src="${imageUrl}${essays[0].cover }"  class="cover rounded">
+						<a href="essay/${essays[0].id }"><img src="${imageUrl}${essays[0].cover }"  class="cover rounded"></a>
 						<div class="title">
 							<div class="align-fix">
 								<div>

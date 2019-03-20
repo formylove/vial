@@ -78,7 +78,7 @@
 						版权声明
 					</p>
 					<div class="copyright-ct">
-						「夜网」专栏文章，如有侵权，立即删除
+						「${pageScope.sitename}网」专栏文章，如有侵权，立即删除
 					</div>
 				</div>
 			</div>

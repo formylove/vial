@@ -192,7 +192,7 @@ $(function(){
 									$(".qtip #register_submit").show();
 									$('form[name=register_form] input:not(:submit)').val("");
 									confirm("注册成功,登录邮箱激活");
-									window.open($("base").attr("href") + "user/prompt/"+data.email+"/"+data.nick_Name+"/",'_blank')
+									window.open($("base").attr("href") + "user/prompt/"+data.email+"/"+data.nick_name+"/",'_blank')
 								}
 							} });
 						return false;

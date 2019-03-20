@@ -97,18 +97,19 @@
 						${user.device }
 					</div>
 					</c:if>
-					<c:if test="${not empty user.register_ip }">
-					<div class="setting-row">
-						<span class="label">地址</span>
-						${user.register_ip }
-					</div>
-					</c:if>
-					<c:if test="${not empty user.city }">
-					<div class="setting-row">
-						<span class="label">城市</span>
-						${user.city }
-					</div>
-					</c:if>
+						<%--todox--%>
+					<%--<c:if test="${not empty user.register_ip }">--%>
+					<%--<div class="setting-row">--%>
+						<%--<span class="label">地址</span>--%>
+						<%--${user.register_ip }--%>
+					<%--</div>--%>
+					<%--</c:if>--%>
+					<%--<c:if test="${not empty user.city }">--%>
+					<%--<div class="setting-row">--%>
+						<%--<span class="label">城市</span>--%>
+						<%--${user.city }--%>
+					<%--</div>--%>
+					<%--</c:if>--%>
 					<div class="setting-row">
 						<span class="label">权限</span>
 						<input type="text" name="level" style="width: 70px;" class="rounded input-listener" value="${user.authority }">

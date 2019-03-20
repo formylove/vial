@@ -30,34 +30,40 @@ $(function(){
 					$item = $items.first();
 				}
 				var $editor = $(this).parents(".editor-wrapper").find("textarea").first();
-				var commentData = {'comment.content':$editor.val()};
-				commentData['comment.'+$("#append_id").data("type")+'.id'] = $("#append_id").val();
-				if("dataset" in this && "target" in this.dataset ){//typeof this.dataset.target == "undefined"智能判断是否声明
-					commentData['comment.target.id'] = this.dataset.target;
+				var content = $editor.val().trim();
+				if(content == ""){
+					confirm4easyui('评论内容不能为空')
+				}else{
+					var commentData = {'comment.content':content};
+					commentData['comment.'+$("#append_id").data("type")+'.id'] = $("#append_id").val();
+					if("dataset" in this && "target" in this.dataset ){//typeof this.dataset.target == "undefined"智能判断是否声明
+						commentData['comment.target.id'] = this.dataset.target;
+					}
+					commentData['comment.dev_name'] = $.cookie('device');
+					$.ajax({
+						type:"post", //表单提交类型
+						url:baseUrl + "ajax/comment/add", //表单提交目标
+						contentType:'application/x-www-form-urlencoded;charset=UTF-8',
+						data:commentData, //表单数据
+						success:function(msg){
+							if(msg.indexOf("confirm") >0){
+								eval(msg);
+							}else if($(msg).data("floor") == '1'){
+								$('#commentItems').prepend($(msg));
+								$editor.val("");
+								confirm("发布成功");
+							}else{
+								$editor.val("");
+								$('.item[data-unit="'+$(msg).data('unit')+'"]').find(".items").append($(msg));
+								confirm("发布成功");
+							}
+							if($items != undefined){
+								toggleTextBox($item);
+							}
+						}
+					});
 				}
-				 commentData['comment.dev_name'] = $.cookie('device');
-				    $.ajax({ 
-				     type:"post", //表单提交类型 
-				     url:baseUrl + "ajax/comment/add", //表单提交目标
-				     contentType:'application/x-www-form-urlencoded;charset=UTF-8',
-				     data:commentData, //表单数据
-				     success:function(msg){
-				    	 if(msg.indexOf("confirm") >0){
-				    		 eval(msg);
-				    	 }else if($(msg).data("floor") == '1'){
-				    		 $('#commentItems').prepend($(msg));
-				    		 $editor.val("");
-				    		 confirm("发布成功");
-				    	 }else{
-				    		 $editor.val("");
-				    		 $('.item[data-unit="'+$(msg).data('unit')+'"]').find(".items").append($(msg));
-				    		 confirm("发布成功");
-				    	 }
-				    	 if($items != undefined){
-				    		 toggleTextBox($item);
-				    	 }
-				     } 
-			    });
+
 	
 			
 			});

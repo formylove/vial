@@ -178,7 +178,7 @@ public class MusicServiceImpl implements MusicService {
 
 	@Override
 	public List<Music> getHomepageList() {
-		String hql ="from Music order by precedence desc";
+		String hql ="from Music order by precedence desc,music_id desc";
 		Session s = musicDao.getSession();
 		List<Music> musics = (List<Music>)s.createQuery(hql).setMaxResults(3).list();
 		return musics;

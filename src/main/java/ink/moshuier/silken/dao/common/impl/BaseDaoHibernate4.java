@@ -14,83 +14,83 @@ import javax.annotation.Resource;
 
 @Repository("baseDaoHibernate4")
 public class BaseDaoHibernate4<T> implements BaseDao<T>
-{	
-	// DAO������г־û������ײ�������SessionFactory���
+{
+	// DAO组件进行持久化操作底层依赖的SessionFactory组件
 	@Resource(name = "sessionFactory")
 	protected SessionFactory sessionFactory;
 	public BaseDaoHibernate4() {
 	}
-	// ����ע��SessionFactory�����setter����
-	// ����ID����ʵ��
+	// 依赖注入SessionFactory所需的setter方法
+	// 根据ID加载实体
 	@SuppressWarnings("unchecked")
 	public T get(Class<T> entityClazz , int id)
 	{
 		Session s = sessionFactory.getCurrentSession();
-		//load����һ�����񣬲���������
+		//load返回一个镜像，不加载数据
 		T rvt = (T)s.get(entityClazz , id);
 		return  rvt;
 	}
-	// ����ʵ��
+	// 保存实体
 	public int save(T entity)
 	{
 //		getSessionFactory().getCurrentSession().refresh(entity);
 		int cnt = (int) getSessionFactory().getCurrentSession()
-			.save(entity);
+				.save(entity);
 		return cnt;
 	}
-	// ����ʵ��
+	// 保存实体
 	public void persist(T entity)
 	{
-	getSessionFactory().getCurrentSession()
+		getSessionFactory().getCurrentSession()
 				.persist(entity);
 	}
-	// ����ʵ��
+	// 更新实体
 	public void update(T entity)
 	{
 		getSessionFactory().getCurrentSession().saveOrUpdate(entity);
 	}
-	// ɾ��ʵ��
+	// 删除实体
 	public void delete(T entity)
 	{
 		getSessionFactory().getCurrentSession().delete(entity);
-//		���������Ҫflush
+//		事务管理不需要flush
 //		s.flush();
 	}
 	@Override
 	public Session getSession()
-	{  
+	{
 		Session s = sessionFactory.openSession();
 		return s;
 	}
-	// ����IDɾ��ʵ��
+	// 根据ID删除实体
 	public void delete(Class<T> entityClazz , int id)
 	{
 		getSessionFactory().getCurrentSession()
-			.createQuery("delete " + entityClazz.getSimpleName()
-				+ " en where en.id = ?0")
-			.setParameter("0" , id)
-			.executeUpdate();
+				.createQuery("delete " + entityClazz.getSimpleName()
+						+ " en where en.id = ?0")
+				.setParameter("0" , id)
+				.executeUpdate();
 	}
-	// ��ȡ����ʵ��
+	// 获取所有实体
 	public List<T> findAll(Class<T> entityClazz)
 	{
 		return find("from "+ entityClazz.getSimpleName() + " en");
 	}
-	// ����HQL����ѯʵ��
+	// 根据HQL语句查询实体
 	@SuppressWarnings("unchecked")
 	protected List<T> find(String hql)
 	{
 		Session s = getSession();
 		return (List<T>)s
-			.createQuery(hql)
-			.list();
+				.createQuery(hql)
+				.list();
 	}
-	// ��ȡʵ������
+	// 获取实体总数
 	public long findCount(Class<T> entityClazz)
 	{
 		List<?> l = find("select count(*) from "
-			+ entityClazz.getSimpleName());
-		// ���ز�ѯ�õ���ʵ������
+				+ entityClazz.getSimpleName());
+		// 返回查询得到的实体总数
 		if (l != null && l.size() == 1 )
 		{
 			return (Long)l.get(0);
@@ -99,75 +99,75 @@ public class BaseDaoHibernate4<T> implements BaseDao<T>
 	}
 
 
-	// ���ݴ�ռλ������HQL����ѯʵ��
+	// 根据带占位符参数HQL语句查询实体
 	@SuppressWarnings("unchecked")
 	protected List<T> find(String hql , Object... params)
 	{
-		// ������ѯ
+		// 创建查询
 		Query query = getSessionFactory().getCurrentSession()
-			.createQuery(hql);
-		// Ϊ����ռλ����HQL������ò���
+				.createQuery(hql);
+		// 为包含占位符的HQL语句设置参数
 		for(int i = 0 , len = params.length ; i < len ; i++)
 		{
 			query.setParameter(i + "" , params[i]);
 		}
 		return (List<T>)query.list();
 	}
-		// ������ѯ
-		public List<T> list(String name,int maxSize,int pageNum,String order,String conditions){
-			String hql = "from " + name + (conditions!=null?" where "+conditions:" ") + (order!=null?" order by " + order:"");
-			Session s = getSession();
-			List<T> objs = s.createQuery(hql).setMaxResults(maxSize).setFirstResult((pageNum-1)*maxSize).list();
-			return objs;
-			}
-		public Integer getCnt(String name,String order,String conditions){
-			String hql = "select count(*) from " + name + (conditions!=null?" where "+conditions:" ") + (order!=null?" order by ":"") + order;
-			Session s = getSession();
-			Integer cnt = Integer.parseInt(((Long)s.createQuery(hql).uniqueResult()).toString());
-			return cnt;
-		}
+	// 创建查询
+	public List<T> list(String name,int maxSize,int pageNum,String order,String conditions){
+		String hql = "from " + name + (conditions!=null?" where "+conditions:" ") + (order!=null?" order by " + order:"");
+		Session s = getSession();
+		List<T> objs = s.createQuery(hql).setMaxResults(maxSize).setFirstResult((pageNum-1)*maxSize).list();
+		return objs;
+	}
+	public Integer getCnt(String name,String order,String conditions){
+		String hql = "select count(*) from " + name + (conditions!=null?" where "+conditions:" ") + (order!=null?" order by ":"") + order;
+		Session s = getSession();
+		Integer cnt = Integer.parseInt(((Long)s.createQuery(hql).uniqueResult()).toString());
+		return cnt;
+	}
 	/**
-	 * ʹ��hql �����з�ҳ��ѯ����
-	 * @param hql ��Ҫ��ѯ��hql���
-	 * @param pageNo ��ѯ��pageNoҳ�ļ�¼
-	 * @param pageSize ÿҳ��Ҫ��ʾ�ļ�¼��
-	 * @return ��ǰҳ�����м�¼
+	 * 使用hql 语句进行分页查询操作
+	 * @param hql 需要查询的hql语句
+	 * @param pageNo 查询第pageNo页的记录
+	 * @param pageSize 每页需要显示的记录数
+	 * @return 当前页的所有记录
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> findByPage(String hql,int pageNo, int pageSize)
 	{
-		// ������ѯ
+		// 创建查询
 		return getSessionFactory().getCurrentSession()
-			.createQuery(hql)
-			// ִ�з�ҳ
-			.setFirstResult((pageNo - 1) * pageSize)
-			.setMaxResults(pageSize)
-			.list();
+				.createQuery(hql)
+				// 执行分页
+				.setFirstResult((pageNo - 1) * pageSize)
+				.setMaxResults(pageSize)
+				.list();
 	}
 	/**
-	 * ʹ��hql �����з�ҳ��ѯ����
-	 * @param hql ��Ҫ��ѯ��hql���
-	 * @param params ���hql��ռλ��������params���ڴ���ռλ������
-	 * @param pageNo ��ѯ��pageNoҳ�ļ�¼
-	 * @param pageSize ÿҳ��Ҫ��ʾ�ļ�¼��
-	 * @return ��ǰҳ�����м�¼
+	 * 使用hql 语句进行分页查询操作
+	 * @param hql 需要查询的hql语句
+	 * @param params 如果hql带占位符参数，params用于传入占位符参数
+	 * @param pageNo 查询第pageNo页的记录
+	 * @param pageSize 每页需要显示的记录数
+	 * @return 当前页的所有记录
 	 */
 	@SuppressWarnings("unchecked")
 	protected List<T> findByPage(String hql , int pageNo, int pageSize
-		, Object... params)
+			, Object... params)
 	{
-		// ������ѯ
+		// 创建查询
 		Query query = getSessionFactory().getCurrentSession()
-			.createQuery(hql);
-		// Ϊ����ռλ����HQL������ò���
+				.createQuery(hql);
+		// 为包含占位符的HQL语句设置参数
 		for(int i = 0 , len = params.length ; i < len ; i++)
 		{
 			query.setParameter(i + "" , params[i]);
 		}
-		// ִ�з�ҳ�������ز�ѯ���
+		// 执行分页，并返回查询结果
 		return query.setFirstResult((pageNo - 1) * pageSize)
-			.setMaxResults(pageSize)
-			.list();
+				.setMaxResults(pageSize)
+				.list();
 	}
 	public void setSessionFactory(SessionFactory sessionFactory)
 	{

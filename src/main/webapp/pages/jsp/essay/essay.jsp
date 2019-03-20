@@ -39,7 +39,7 @@
 			<!-- 作者信息 -->		 
 					 
 			<s:if test="essay.author != null && essay.author != '' ">
-			<jsp:include page="../snippets/userColumn.jsp"/>
+			<%@ include file="../snippets/userColumn.jsp"%>
 			</s:if>
 	</div>	
 <%@ include file="../snippets/comments.jsp"%>

@@ -10,8 +10,16 @@
 <jsp:include page="../snippets/static_js_css.jsp"/>
 </head>
 <body style="position:relative;">
+<style>
+	.footer{
+		margin-top: 100px;
+	}
+	.Pagination{
+		margin-top: 150px;
+	}
+</style>
 <%@ include file="../snippets/navigator.jsp" %>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp" %>
 <div class="container" style="min-height: 221px;">	
 		
 				<div class="essay-banner clearfix">

@@ -10,7 +10,7 @@
  var defaultProfilePath ="<%=MessageUtils.getMessageFromUrl("img.profile")%>";
  var domain = baseUrl.substring(7);
 </script>
-<s:set name="sitename" value='@ink.moshuier.silken.common.MessageUtils@getConfig("web.name")'/>
+<s:set name="sitename" value='@ink.moshuier.silken.common.MessageUtils@getConfig("site.name")'/>
 <s:set name="zhihu" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("zhihu")'/>
 <s:set name="weibo" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("weibo")'/>
 <s:set name="imageUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("img.url")'/>

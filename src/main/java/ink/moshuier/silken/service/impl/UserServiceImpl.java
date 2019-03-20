@@ -162,9 +162,10 @@ public class UserServiceImpl implements UserService {
 		if(!password.equals(psw_conf)){
 			return "两次输入密码不同";
 		}
-		if(StringUtils.isEmpty(rule)){
-			return "请先阅读并同意夜网使用协议";
-		}
+//		todox
+//		if(StringUtils.isEmpty(rule)){
+//			return "请先阅读并同意夜网使用协议";
+//		}
 		return null;
 	}
 	@Override
@@ -185,7 +186,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUserByMail(String email){
 		email = email.trim();
-		String hql = "from User where email = :email and del_flag <> 1";
+		String hql = "from User where email = :email and del_flag <> 1 and email_val_flag = 1";
 		User user = (User)userDao.getSession().createQuery(hql)
 				.setString("email", email)
 				.setMaxResults(1)
@@ -306,7 +307,7 @@ public class UserServiceImpl implements UserService {
 	public void activate(String token) {
 		token = token.trim();
 		String hql = "update User set email_val_flag = 1 where token = :token ";
-		userDao.getSession().createQuery("").setString("token", token).executeUpdate();
+		userDao.getSession().createQuery(hql).setString("token", token).executeUpdate();
 	}
 
 }

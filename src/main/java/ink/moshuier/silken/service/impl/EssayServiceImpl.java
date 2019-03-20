@@ -73,9 +73,9 @@ public class EssayServiceImpl implements EssayService {
 	}
 	@Override
 	public List<Essay> getOnePage(int page,int category) {
-		String hql = "from Essay ";
+		String hql = "from Essay where del_flag=0 ";
 		if(category != 0){
-			hql +="where category = " + category;
+			hql +=" and category = " + category;
 		}
 		List<Essay> essays = essayDao.findByPage(hql, page, MAXSIZE);
 		return essays;

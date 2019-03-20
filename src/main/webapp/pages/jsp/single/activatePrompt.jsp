@@ -17,7 +17,7 @@
 <br>
 <div>系统已发送了一封激活邮件到您的邮箱：<a style="color:red">${param.email}</a></div>
 <br>
-<div><a href="<%=WebUtils.getMailLoginUrl(request.getParameter("email"))%>" target="_blank"><u>点击链接登录邮箱（gmail建议使用YoMail客户端）</a></u></div>
+<div><a href="<%=WebUtils.getMailLoginUrl(request.getParameter("email"))%>" target="_blank"><u>点击链接登录邮箱</a></u></div>
 <br>
 <div>请在24小时内激完成帐号激活</a></div>
 </div>
