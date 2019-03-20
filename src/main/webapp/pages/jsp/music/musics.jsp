@@ -28,7 +28,7 @@
                     <p class="PLTrackname" title="${musics[0].name }">${musics[0].name }</p>
                 </div>
                 <p class="track-meta ${empty musics[0].singer.name?'hide':''}">Artist: <span class="PLArtist" title="${musics[0].singer.name }">${musics[0].singer.name }</span></p>
-                <p class="track-meta ${empty musics[0].motto?'hide':''}">Motto: <span class="PLAlbum" title="${musics[0].motto }">${musics[0].motto }</span></p>
+                <p class="track-meta motto ${empty musics[0].motto?'hide':''}">Motto: <span class="PLAlbum" title="${musics[0].motto }">${musics[0].motto }</span></p>
                 <div class="btn-wrapper">
                     <a href="javascript:;" rel="nofollow" class="jp-previous" title="上一曲">
                         <span class="icon-prev-lg"></span>
@@ -81,7 +81,7 @@
 		<s:if test="#st.first">
 		<audio src="${musicUrl}${m.url }" id = "music_${st.index}"  preload="auto"
 		<%if((User)request.getAttribute("loginedUser") == null || ((User)request.getAttribute("loginedUser")).isAutoplay()){%>autoplay<%} %>
-               data-index = "${st.index}" data-index = "${st.motto}" data-name="${m.name}" data-lyric="${m.lyric}" data-cover="${m.bcover}" data-singer = "${m.singer.name}"></audio>
+               data-index = "${st.index}" data-motto= "${m.motto}" data-name="${m.name}" data-lyric="${m.lyric}" data-cover="${m.bcover}" data-singer = "${m.singer.name}"></audio>
 		</s:if>
 		<s:else>
 		<audio src="${musicUrl}${m.url }" id="music_${st.index}" data-lyric="${m.lyric}" data-index = "${st.index}"  data-index = "${st.index}" data-name="${m.name}" data-cover="${m.bcover}" data-singer = "${m.singer.name}"></audio>

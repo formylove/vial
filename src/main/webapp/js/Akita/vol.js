@@ -37,7 +37,7 @@ function setPlayer(){
 	var $lPlayer =$(".player-large");
 	var $sPlayer =$(".player-follow");
 	var name =$curSong.data("name");
-	var name =$curSong.data("motto");
+	var motto =$curSong.data("motto");
 	var artist =$curSong.data("singer");
 	var cover =$curSong.data("cover");
 	var index =$curSong.data("index");
@@ -48,7 +48,12 @@ function setPlayer(){
 	$lPlayer.find(".PLCover").attr("src",imageUrl + cover);
 	$lPlayer.find(".lyric-ct").html($.isNotEmpty(lyric)?lyric:"<div class='margin-t-20'><p style='margin: 60px auto; text-align: center;'><a href='javascript:;' class='btn btn-positive btn-add-lyric'>未添加歌词</a></p></div>");//
 	$sPlayer.find("#PFName").attr("title",name).text(name);
-	$sPlayer.find(".PLAlbum").attr("title",name).text(name);
+	if(motto == ''){
+		$('.motto').addClass('hide');
+	}else {
+		$('.motto').removeClass('hide');
+	$sPlayer.find(".PLAlbum").attr("title",motto).text(motto);
+	}
 	$sPlayer.find("#PFCover").attr("src",imageUrl + cover);
 	if($.isNotEmpty(artist)){
 		$lPlayer.find(".PLArtist").attr("title",artist).text(artist).show();

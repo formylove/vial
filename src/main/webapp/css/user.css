@@ -1117,7 +1117,7 @@ input::-moz-selection,textarea::-moz-selection,.btn-positive::-moz-selection {
 .footer {
     background: #222;
     border-top: 1px solid #111;
-    margin-top: 300px;
+    margin-top: 250px;
     padding: 35px 0;
     width: 100%
 }

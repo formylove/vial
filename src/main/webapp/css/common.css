@@ -1053,7 +1053,7 @@ input::-moz-selection,textarea::-moz-selection,.btn-positive::-moz-selection {
 }
 
 .ajax-loading {
-    background: url(../img/loading.png);
+    background: url(../img/loading.gif);
     display: inline-block;
     width: 14px;
     height: 14px;
@@ -1547,7 +1547,7 @@ input::-moz-selection,textarea::-moz-selection,.btn-positive::-moz-selection {
 .footer {
     background: #222;
     border-top: 1px solid #111;
-    margin-top: 300px;
+    margin-top: 250px;
     padding: 35px 0;
     width: 100%
 }
@@ -2257,7 +2257,7 @@ table.aui_border,table.aui_dialog {
     text-align: left;
     text-indent: -999em;
     overflow: hidden;
-    background: url(../js/artDialog/skins/icons/loading.gif) no-repeat center center
+    background: url(../img/loading.gif) no-repeat center center
 }
 
 .aui_icon {

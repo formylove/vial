@@ -4,7 +4,7 @@
 <s:if test="opus == null">
 <p class="essay-meta">
 <%if((User)request.getAttribute("loginedUser")!=null && ((User)request.getAttribute("loginedUser")).getAuthority() == 0) {%>
-				<span class="cursor-pointer" onclick="window.open('/manager/essay/edit/${essay.id}')">修改</span>・
+				<span class="cursor-pointer" onclick="window.open('${base}manager/essay/edit/${essay.id}')">修改</span>・
 				<s:if test="essay.del_flag==false"><span id="delete" onclick="deleteObj('essay','${essay.id}');" class="cursor-pointer">删除</span><span id="recover" class="hidden cursor-pointer" onclick="recoverObj('essay','${essay.id}');">恢复</span></s:if>
 				<s:else><span id="delete" class="hidden cursor-pointer" onclick="deleteObj('essay','${essay.id}');">删除</span><span id="recover" onclick="recoverObj('essay','${essay.id}');" class="cursor-pointer">恢复</span></s:else>
 				・
@@ -18,7 +18,7 @@
 <s:else>
 <p class="margin-b-25" style="margin-top: 0;  padding: 0;">
 <%if((User)request.getAttribute("loginedUser") !=null && ((User)request.getAttribute("loginedUser")).getAuthority() == 0) {%>
-				<span class="cursor-pointer" onclick="window.open('/manager/note/edit/${essay.id}')'">修改</span>・
+				<span class="cursor-pointer" onclick="window.open('${base}manager/note/edit/${essay.id}')'">修改</span>・
 				<s:if test="essay.del_flag==false"><span id="delete" onclick="deleteObj('note','${essay.id}');" class="cursor-pointer">删除</span><span id="recover" class="hidden cursor-pointer" onclick="recoverObj('note','${essay.id}');">恢复</span></s:if>
 				<s:else><span id="delete" class="hidden" onclick="deleteObj('note','${essay.id}');">删除</span><span id="recover" onclick="recoverObj('note','${essay.id}');" class="cursor-pointer">恢复</span></s:else>
 				・
