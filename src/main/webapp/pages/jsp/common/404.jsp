@@ -8,11 +8,11 @@
 <title>页面丢失_404</title>
 <%request.setAttribute("importParams", "jquery|Akita.js|qtip|form|validate|common.css|end"); %>
 
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 </head>
 <body style="background-color:#daecee">
 <%@ include file="../snippets/navigator.jsp" %>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp"%>
 <div style="text-align:center;">
 <img src="img/404/404_1.png" alt="404 page not found"/>
 </div>

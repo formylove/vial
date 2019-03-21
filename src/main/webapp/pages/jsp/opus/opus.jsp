@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${opus.name} - 作品</title>
 <%request.setAttribute("importParams", "jquery|note.css|end"); %>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 </head>
 <body>
 <%@ include file="../snippets/navigator.jsp" %>

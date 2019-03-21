@@ -6,12 +6,12 @@
 <html>
 <head>
 <s:set name="importParams" value="'general|common.css|easyui|manager.js|editor|Jcrop|upload.js|end'" scope="request"/>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 <title><s:property value="#sitename"/>网后台管理系统</title>
 </head>
 <body> 
 <%@ include file="../snippets/navigator.jsp" %>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp"%>
 <div class="container index-ct" style="min-height: 1000px;">	
 <div style='float:left'>
 <%@ include file="../manager/nav.jsp" %>

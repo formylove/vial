@@ -7,10 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${param.message}</title>
 <%request.setAttribute("importParams", "jquery|Akita.js|qtip|form|validate|common.css|agent|end"); %>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 </head>
 <body>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp"%>
 <%@ include file="../snippets/navigator.jsp" %>
 <div style="text-align:center;">
 <font size="15px"> ${param.message}</font><br>

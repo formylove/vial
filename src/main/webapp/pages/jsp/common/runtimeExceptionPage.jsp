@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>嚯!</title>
 <s:set name="importParams" value="'general|ZeroClipboard.js|common.css|end'" scope="request"/>
-<jsp:include page="../snippets/static_js_css.jsp"/>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
+<%@ include file="../snippets/hidden_box.jsp"%>
 </head>
 <body onload="clipboard('clip_button')">
 	<%@ include file="../snippets/navigator.jsp"%>

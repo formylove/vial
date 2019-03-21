@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>那些文字</title>
 <s:set name="importParams" value="'general|essay.css|end'" scope="request"/>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 </head>
 <body style="position:relative;">
 <style>
@@ -20,8 +20,8 @@
 </style>
 <%@ include file="../snippets/navigator.jsp" %>
 <%@ include file="../snippets/hidden_box.jsp" %>
-<div class="container" style="min-height: 221px;">	
-		
+<div class="container" style="min-height: 221px;">
+
 				<div class="essay-banner clearfix">
 					<img src="${imageUrl}${cat.cover }" alt="${cat.desc }" class="cover">
 					<div class="meta">
@@ -40,7 +40,7 @@
 								<a href="essay/${ess.id}/" target="_blank" class="cover-wrapper">
 									<img class="cover rounded" src="${imageUrl}${ess.cover}" alt="${ess.title }"/>
 								</a>
-								<div class="essay-wrapper">									
+								<div class="essay-wrapper">
 									<a href="essay/${ess.id}/" title="<s:property value="#ess.title"/>" class="title"  target="_blank" style="margin-top:0;">
 										<s:property value='#ess.title'/>
 									</a>
@@ -71,7 +71,7 @@
 										}else{
 											subtitle = StrUtils.truncate(subtitle, 100);
 										}%>
-									<%=subtitle%><% 
+									<%=subtitle%><%
 									}else{
 										String content = e.getContent();
 										content = StrUtils.removeTag(content);

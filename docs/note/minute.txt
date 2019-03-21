@@ -109,7 +109,7 @@ public JSONObject getJComments() //get 函数命名一定要讲究啊啊啊 啊,
 			c.setPath("/");//不设置路径无法保存设置的cookie
 	essay 包含	<%@ include file="../snippets/comments.jsp"%> 包含<jsp:include page="./PlainEditor.jsp"/>,相对位置以essay为准
 	<%@ include file以当前为准,<jsp:include page以当顶层
-	<jsp:include page="../snippets/hidden_box.jsp"/>
+	<%@ include file="../snippets/hidden_box.jsp"%>
 <%@ include file="../snippets/navigator.jsp" %> 不要弄反,变量定义有顺序
 <c:if test="${not empty str}"> 判断字符串为空
 ((Long)essayDao.getSession().createQuery(hql).uniqueResult()).intValue();

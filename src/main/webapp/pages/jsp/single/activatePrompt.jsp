@@ -7,10 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>邮箱激活</title>
 <%request.setAttribute("importParams", "general|common.css|end"); %>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 </head>
 <body>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp"%>
 <%@ include file="../snippets/navigator.jsp" %>
 <div style="text-align:center;margin-top: 100px">
 <div>亲爱的<a style="color:red">${param.nick_name}</a>，还差一步，请激活你的帐号</div>

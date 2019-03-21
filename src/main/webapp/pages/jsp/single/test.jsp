@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>测试页面</title>
 <%request.setAttribute("importParams", "general|common.css|end"); %>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 <jsp:include page="../snippets/hidden_box.jsp" />
 </head>
 <body>

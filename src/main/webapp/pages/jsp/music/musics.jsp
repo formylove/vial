@@ -6,11 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>声音</title>
 <s:set name="importParams" value="'general|sticky.js|vol|end'" scope="request"/>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 </head>
 <body>
 <%@ include file="../snippets/navigator.jsp" %>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp"%>
 <div class="container ct-sm note-detail-wrapper" style="min-height: 221px;">	
 <div class="vol-tracklist" id="luooPlayerPlaylist">
         <div class="player-large rounded clearfix" data-index="0">

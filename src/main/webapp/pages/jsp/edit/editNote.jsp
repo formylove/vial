@@ -20,7 +20,7 @@ height:23px;
 </style>
 </head>
 <body style="position:relative;">
-	<jsp:include page="../snippets/hidden_box.jsp"/>
+	<%@ include file="../snippets/hidden_box.jsp"%>
 	<%@ include file="../snippets/navigator.jsp"%>
 	<div class="container index-ct round-container" style="min-height: 221px;">
 	<form id="form" action="<s:url action='noteAction.action?method:saveNote'/>" method="post">

@@ -1,5 +1,4 @@
  var dg;
- var wsUrl = "ws://"+domain+"/websocket/chat";
  var websocket;
  var $mb ;
  websocket  = new WebSocket(wsUrl);

@@ -11,7 +11,7 @@
 	request.setAttribute("importParams", "jquery|common.css|Akita.js|qtip|upload.js|Jcrop|ckeditor.js|end");
 
 %>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 <style type="text/css">
 select{
 height:27px;
@@ -20,7 +20,7 @@ width:100px;
 </style>
 </head>
 <body style="position:relative;">
-	<jsp:include page="../snippets/hidden_box.jsp"/>
+	<%@ include file="../snippets/hidden_box.jsp"%>
 	<%@ include file="../snippets/navigator.jsp"%>
  <div class="overlay hidden"></div>
 	<div class="container index-ct round-container clearfix" style="min-height: 221px;">

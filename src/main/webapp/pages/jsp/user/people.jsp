@@ -7,11 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${user.nick_name}</title>
 <%request.setAttribute("importParams", "general|user.css|end"); %>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 </head>
 <body>
 <%@ include file="../snippets/navigator.jsp" %>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp"%>
 <div class="container ct-sm" style="min-height: 221px;">
 <input type="hidden" id="userId" value="${user.id}">	
 <!-- uc-head -->

@@ -64,10 +64,10 @@
 				</a>
 				<div class="account-more">
 					<a href="javascript:;" rel="nofollow" class="ln-account" id="lnAccountMore">
-						<c:if test="${loginedUser.portrait == 'avatar.gif'}">
+						<c:if test="${loginedUser.portrait == pageScope.avatarName}">
 							<img src="${pageScope.defaultAvatar}" alt="<%=loginedUser.getNick_name()%>" class="avatar"/>
 						</c:if>
-						<c:if test="${loginedUser.portrait != 'avatar.gif'}">
+						<c:if test="${loginedUser.portrait != pageScope.avatarName}">
 							<img src="${imageUrl}<%=loginedUser.getPortrait()%>" alt="<%=loginedUser.getNick_name()%>" class="avatar"/>
 						</c:if>
 					&nbsp;<span><%=loginedUser.getNick_name()%></span>

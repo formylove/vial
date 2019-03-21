@@ -4,12 +4,12 @@
 <html>
 <head>
 <s:set name="importParams" value="'general|common.css|easyui|manager|editor|Jcrop|upload.js|end'" scope="request"/>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 <title>元素展示</title>
 </head>
 <body> 
 <%@ include file="../snippets/navigator.jsp" %>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp"%>
 <div class="container index-ct" style="min-height: 1000px;">	
 <<<<<<<<<<<<<<<a onClick="history.go(-1);">back</a><<<<<<<<<<<<<<<<
 ${nation!=null?"item :  NATION":""}

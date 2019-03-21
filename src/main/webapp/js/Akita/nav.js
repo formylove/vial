@@ -4,7 +4,13 @@ function showSiblings($me){
 	$myFather.siblings().show();
 }
 function setNav(data){
-	$(".logged-in-wrapper .ln-account").html("<img src='" + imageUrl + data.portrait + "' alt='" + data.nick_name+"' class='avatar'>&nbsp;<span>" + data.nick_name+"</span>");
+	var portraitUrl = ''
+	if(data.portrait == avatarName){
+		portraitUrl = baseUrl + defaultAvatar;
+	}else {
+		portraitUrl = imageUrl + data.portrait;
+	}
+	$(".logged-in-wrapper .ln-account").html("<img src='" + portraitUrl + "' alt='" + data.nick_name+"' class='avatar'>&nbsp;<span>" + data.nick_name+"</span>");
 	$(".link-uc").attr("href",defaultProfilePath+data.id);
 	if(data.level == 0){
 		$(".link-setting").removeClass("hidden");

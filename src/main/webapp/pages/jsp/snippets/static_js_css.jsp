@@ -6,16 +6,19 @@
 <link rel="SHORTCUT ICON" href="img/icon/favicon.ico"  type="image/x-ico"/>
 <script type="text/javascript">
  var baseUrl = '<%=MessageUtils.getMessageFromUrl("base")%>'
+ var avatarName = '<%=MessageUtils.getMessageFromUrl("avatar.name")%>'
  var imageUrl ="<%=MessageUtils.getMessageFromUrl("img.url")%>";
  var defaultAvatar ="<%=MessageUtils.getMessageFromUrl("img.avatar")%>";
  var defaultProfilePath ="<%=MessageUtils.getMessageFromUrl("img.profile")%>";
  var domain = baseUrl.substring(7);
+ var wsUrl = "ws://"+domain+"/websocket/chat";
 </script>
 <s:set name="sitename" value='@ink.moshuier.silken.common.MessageUtils@getConfig("site.name")'/>
 <s:set name="zhihu" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("zhihu")'/>
 <s:set name="weibo" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("weibo")'/>
 <s:set name="imageUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("img.url")'/>
 <s:set name="musicUrl" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("music.url")'/>
+<s:set name="avatarName" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("avatar.name")'/>
 <s:set name="defaultAvatar" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("img.avatar")'/>
 <s:set name="base" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("base")'/>
 <%String importParams=(String)request.getAttribute("importParams");
@@ -130,18 +133,18 @@ if(importParams.indexOf("agent.js")>=0){ %>
 if(session.getAttribute("hasDeviceDetail") == null){%>
 <script src="js/agent/ua-parser.min.js"></script>
 <script>
-  $(function(){ 
-  	var parser = new UAParser();//atool网方法 
-  		if(parser != null){ 
-  		r = parser.getResult(); 
-  		$.ajax({ 
+  $(function(){
+  	var parser = new UAParser();//atool网方法
+  		if(parser != null){
+  		r = parser.getResult();
+  		$.ajax({
   			url:baseUrl + 'ajax/ua/',
-  			type:'post', 
-  			data:{"browser":r.browser.name + ' ' + r.browser.major,"device":r.device.model + ' ' + r.device.type + ' ' + r.device.vendor,"os":r.os.name + ' ' + r.os.version,} 
-  		}); 
-  	} 
-  }); 
- </script> 
+  			type:'post',
+  			data:{"browser":r.browser.name + ' ' + r.browser.major,"device":r.device.model + ' ' + r.device.type + ' ' + r.device.vendor,"os":r.os.name + ' ' + r.os.version,}
+  		});
+  	}
+  });
+ </script>
 
 <%
 }

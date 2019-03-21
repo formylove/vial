@@ -9,19 +9,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${user.nick_name}</title>
 <%request.setAttribute("importParams", "general|user.js|user.css|datapicker|Jcrop|upload.js|end"); %>
-<jsp:include page="../snippets/static_js_css.jsp"/>
+<%@ include file="../snippets/static_js_css.jsp"%>
 </head>
 <body>
 <%@ include file="../snippets/navigator.jsp" %>
-<jsp:include page="../snippets/hidden_box.jsp"/>
+<%@ include file="../snippets/hidden_box.jsp"%>
 <div class="container ct-sm" style="min-height: 221px;">
 <input type="hidden" id="userId" value="${user.id}">	
 <!-- uc-head -->
+	<script>
+		var hasRight = <c:if test="${user.id == loginedUser.id}">true</c:if><c:if test="${user.id != loginedUser.id}">false</c:if>;
+	$(function (){
+		if(!hasRight){
+			$("input").attr("disabled","disabled");
+			$("#setting-pwd").remove();
+			$(".ln-setting-edit,#chkAutoplay,#btnBasicSubmit,#lnEditMood,.ln-edit-avatar").remove();
+		}
+
+
+	})
+
+
+	</script>
 <div class="uc-head clearfix">
 	<div class="avatar-wrapper" id="avatarEditWrapper">
 		<input type="file" onchange="ajaxUpload('file');" id="file" name="file" accept=".jpg,.jpeg,.png,.gif" style="display:none;">
 		<%@ include file="../snippets/cropPortrait.jsp" %>
+		<c:if test="${user.portrait == pageScope.avatarName}">
+		<img src="${pageScope.defaultAvatar}" alt="${user.nick_name}" class="avatar">
+		</c:if>
+		<c:if test="${user.portrait != pageScope.avatarName}">
 		<img src="${imageUrl}${user.portrait}" alt="${user.nick_name}" class="avatar">
+		</c:if>
 		<a href="javascript:;" rel="nofollow" class="ln-edit-avatar" id="lnEditAvatar" onclick="$(file).click();">修改头像</a>
 	</div>
 	<div class="uinfo">
@@ -91,12 +110,12 @@
 						${user.email }
 					</div>
 					</c:if>
-					<c:if test="${not empty user.device}">
-					<div class="setting-row">
-						<span class="label">设备</span>
-						${user.device }
-					</div>
-					</c:if>
+					<%--<c:if test="${not empty user.device}">--%>
+					<%--<div class="setting-row">--%>
+						<%--<span class="label">设备</span>--%>
+						<%--${user.device }--%>
+					<%--</div>--%>
+					<%--</c:if>--%>
 						<%--todox--%>
 					<%--<c:if test="${not empty user.register_ip }">--%>
 					<%--<div class="setting-row">--%>
