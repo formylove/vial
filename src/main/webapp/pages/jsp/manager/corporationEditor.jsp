@@ -11,7 +11,7 @@
 			<div class="fleft">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>行业:</td>
+	    			<td>行业:</td>
 	    			<td>
 	    			<input id="industry" class="easyui-effect-input" type = "text" name="corporation.industry" class="" value='${corporation.industry}' list='industries'/>
       				<datalist id='industries'>
@@ -22,7 +22,7 @@
 	    			</td>
 	    		</tr>
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td><input id="name" name="corporation.name" class="easyui-textbox" value='${corporation.name}'>
 	    			</td>
 	    		</tr>

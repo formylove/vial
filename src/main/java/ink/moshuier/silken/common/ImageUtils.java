@@ -16,6 +16,8 @@ import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -26,7 +28,8 @@ import net.coobird.thumbnailator.Thumbnails;
 
 public class ImageUtils {
 	static public String baseRealPath = ((HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST)).getRealPath("/");
-	static public String tempPath = MessageUtils.getMessageFromUrl("img.temp");
+	static public String tempPath = MessageUtils.getMessageFromUrl("img.temp.slash");
+	static public String tempPathWithoutSlash = MessageUtils.getMessageFromUrl("img.temp");
 	static public String depotPath = MessageUtils.getMessageFromUrl("img.path");
 	static public final String MIDDLE = "middle";
 	static public final String THUMBNAIL = "thumb";
@@ -38,6 +41,8 @@ public class ImageUtils {
 	static public final String CATEGORY = "category";
 	static public final String POSTER = "poster";
 	static public final String MUSIC = "music";
+	private static Logger logger = LogManager.getLogger(ImageUtils.class.getName());
+
 	static public String saveImageFromUrl(String imgUrl){
 		imgUrl = imgUrl.toLowerCase();
 		String localName = null;
@@ -54,7 +59,7 @@ public class ImageUtils {
 			localName = UUID.randomUUID().toString();
 			localName = localName + "." + getSimpleType(imgUrl);
 			String realPath = baseRealPath + tempPath;
-			File folder = new File(realPath);
+			File folder = new File(baseRealPath + tempPathWithoutSlash);
 			if(!folder.exists()){
 				folder.mkdir();//写文件操作不会自动生成目录
 			}

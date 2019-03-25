@@ -13,7 +13,7 @@
 			<div class="fleft">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>领域:</td>
+	    			<td>领域:</td>
 	    			<td>
 	    			<input id="domain" class="easyui-effect-input" type = "text" name="figure.domain" class="" value='${figure.domain}' list='domains'/>
       				<datalist id='domains'>
@@ -24,7 +24,7 @@
 	    			</td>
 	    		</tr>
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td><input id="name" name="figure.name" class="easyui-textbox" value='${figure.name}'>
 	    			</td>
 	    		</tr>

@@ -13,7 +13,7 @@
 			<div class="fleft">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td><input id="name" name="nation.name" class="easyui-textbox" value='${nation.name}'>
 	    			</td>
 	    		</tr>
@@ -141,7 +141,7 @@
 			<input type="hidden" name="state.id" id="id"  value="<s:if test='state==null'>0</s:if><s:else>${state.id}</s:else>">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td><input id="name" name="state.name" class="easyui-textbox" value='${state.name}'>
 	    			</td>
 	    			<td>英文:</td>
@@ -184,7 +184,7 @@
 			<input type="hidden" name="city.id" id="id"  value="<s:if test='city==null'>0</s:if><s:else>${city.id}</s:else>">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td><input id="name" name="city.name" class="easyui-textbox" value='${city.name}'>
 	    			</td>
 	    			<td>英文:</td>

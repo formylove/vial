@@ -9,7 +9,7 @@
 			<input type="hidden" name="dynasty.id" id="id"  value="<s:if test='dynasty==null'>0</s:if><s:else>${dynasty.id}</s:else>">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td><input id="name" name="dynasty.name" class="easyui-textbox" value='${dynasty.name}'>
 	    			</td>
 	    			<td>英文:</td>
@@ -60,7 +60,7 @@
 			<input type="hidden" name="religion.id" id="id"  value="<s:if test='religion==null'>0</s:if><s:else>${religion.id}</s:else>">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td><input id="name" name="religion.name" class="easyui-textbox" value='${religion.name}'>
 	    			</td>
 	    			<td>英文:</td>
@@ -107,7 +107,7 @@
 			<input type="hidden" name="people.id" id="id"  value="<s:if test='people==null'>0</s:if><s:else>${people.id}</s:else>">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td><input id="name" name="people.name" class="easyui-textbox" value='${people.name}'>
 	    			</td>
 	    			<td>英文:</td>

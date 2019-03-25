@@ -1,6 +1,6 @@
 <%@ taglib prefix="s"  uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="ink.moshuier.silken.entity.User" %>
+<%@ page import="ink.moshuier.silken.entity.User" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
@@ -17,20 +17,20 @@
 <div class="container ct-sm" style="min-height: 221px;">
 <input type="hidden" id="userId" value="${user.id}">	
 <!-- uc-head -->
-	<script>
-		var hasRight = <c:if test="${user.id == loginedUser.id}">true</c:if><c:if test="${user.id != loginedUser.id}">false</c:if>;
-	$(function (){
-		if(!hasRight){
-			$("input").attr("disabled","disabled");
-			$("#setting-pwd").remove();
-			$(".ln-setting-edit,#chkAutoplay,#btnBasicSubmit,#lnEditMood,.ln-edit-avatar").remove();
-		}
+	<%--<script>--%>
+		<%--var hasRight = <c:if test="${user.id == loginedUser.id}">true</c:if><c:if test="${user.id != loginedUser.id}">false</c:if>;--%>
+	<%--$(function (){--%>
+		<%--if(!hasRight){--%>
+			<%--$("input").attr("disabled","disabled");--%>
+			<%--$("#setting-pwd").remove();--%>
+			<%--$(".ln-setting-edit,#chkAutoplay,#btnBasicSubmit,#lnEditMood,.ln-edit-avatar").remove();--%>
+		<%--}--%>
 
 
-	})
+	<%--})--%>
 
 
-	</script>
+	<%--</script>--%>
 <div class="uc-head clearfix">
 	<div class="avatar-wrapper" id="avatarEditWrapper">
 		<input type="file" onchange="ajaxUpload('file');" id="file" name="file" accept=".jpg,.jpeg,.png,.gif" style="display:none;">

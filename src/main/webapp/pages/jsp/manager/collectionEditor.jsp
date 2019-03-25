@@ -13,7 +13,7 @@
 			<div class="fleft">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td><input id="name" name="category.name" class="easyui-textbox" value='${category.name}'>
 	    			</td>
 	    		</tr>
@@ -68,7 +68,7 @@
 			<input type="hidden" name="genre.id" id="id"  value="<s:if test='genre==null'>0</s:if><s:else>${genre.id}</s:else>">
 	    	<table cellpadding="5">
 	    		<tr>
-	    			<td>名称:</td>
+	    			<td>名称:</td>
 	    			<td>
 	    			<input id="name" name="genre.name"  class="easyui-textbox" value='${genre.name}'>
 	    			</td>

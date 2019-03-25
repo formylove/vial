@@ -98,7 +98,7 @@ public class UserServiceImpl implements UserService {
 	}
 	@Override
 	public boolean hasUsed(String nick_name){
-		String hql = "from User where nick_name = :nick_name and del_flag <> 1";
+		String hql = "from User where nick_name = :nick_name and del_flag <> 1 and email_val_flag = 1";
 		User user = (User)userDao.getSession().createQuery(hql)
 				.setString("nick_name", nick_name)
 				.setMaxResults(1)
@@ -223,6 +223,11 @@ public class UserServiceImpl implements UserService {
 				.uniqueResult();
 		return duration;
 	}
+	public User login(String email,String remember){
+		User user = getUserByMail(email);
+		login(user, remember);
+		return user;
+	}
 	@Override
 	public boolean login(User user,String remember){
 		if(remember == null){
@@ -235,11 +240,6 @@ public class UserServiceImpl implements UserService {
 			res.addCookie(c);
 		}
 		return true;
-	}
-	public User login(String email,String remember){
-		User user = getUserByMail(email);
-		login(user, remember);
-		return user;
 	}
 	@Override
 	public User logout(){

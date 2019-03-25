@@ -1,5 +1,6 @@
 <%@ taglib prefix="s"  uri="/struts-tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,12 @@
 <!-- uc-head -->
 <div class="uc-head clearfix" style="border-bottom: 1px solid #E5E5E5; padding-bottom: 25px;">
 	<div class="avatar-wrapper" id="avatarEditWrapper">
-		<img src="${imageUrl}${user.portrait}" alt="${user.nick_name}" title="${user.nick_name}" class="avatar">
+		<c:if test="${user.portrait == pageScope.avatarName}">
+			<img src="${pageScope.defaultAvatar}" alt="${user.nick_name}" class="avatar">
+		</c:if>
+		<c:if test="${user.portrait != pageScope.avatarName}">
+			<img src="${imageUrl}${user.portrait}" alt="${user.nick_name}" class="avatar">
+		</c:if>
 	</div>
 	<div class="uinfo">
 		<div class="clearfix">
