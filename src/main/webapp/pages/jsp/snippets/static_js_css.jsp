@@ -11,7 +11,7 @@
  var defaultAvatar ="<%=MessageUtils.getMessageFromUrl("img.avatar")%>";
  var defaultProfilePath ="<%=MessageUtils.getMessageFromUrl("img.profile")%>";
  var domain = baseUrl.substring(7);
- var wsUrl = "ws://"+domain+"/websocket/chat";
+ var wsUrl = '<%=MessageUtils.getMessageFromUrl("websocket.url")%>';
 </script>
 <s:set name="sitename" value='@ink.moshuier.silken.common.MessageUtils@getConfig("site.name")'/>
 <s:set name="zhihu" value='@ink.moshuier.silken.common.MessageUtils@getMessageFromUrl("zhihu")'/>

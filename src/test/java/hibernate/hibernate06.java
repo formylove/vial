@@ -1,6 +1,5 @@
 package hibernate;
 
-import org.apache.log4j.Logger;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
@@ -14,7 +13,6 @@ public class hibernate06 {
 
 	public static void main(String[] args) {
 		System.out.println("OOO");
-		Logger l = Logger.getLogger("loog");
 		AbstractApplicationContext ctx = new FileSystemXmlApplicationContext(
 				new String[]{"C:/Users/Administrator/git/iBlog/WebContent/WEB-INF/applicationContext.xml"
 						,"C:/Users/Administrator/git/iBlog/WebContent/WEB-INF/daoContext.xml"
@@ -31,7 +29,6 @@ public class hibernate06 {
 		c = cs.get(1);
 		c.setProfile("http://t12.baidu.com/it/u=4214312156,64162565&fm=58");
 		e.setCategory(c);
-		l.info("xxxxxxxxxxxxxxxxxxxxxxxx");
 //		System.out.println(e.getCategory().isDel_flag());
 		es.save(e);
 //		UserDaoHibernate4 ud = ctx.getBean("userDaoHibernate4",UserDaoHibernate4.class);

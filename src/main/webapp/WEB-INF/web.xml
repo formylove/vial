@@ -54,9 +54,6 @@
 		<location>/pages/jsp/common/404.jsp</location>
 	</error-page>
 
-	<session-config>
-    <session-timeout>15</session-timeout>
-	</session-config>
 
 	<jsp-config>
 	<jsp-property-group>

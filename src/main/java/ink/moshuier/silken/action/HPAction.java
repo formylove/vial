@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.json.annotations.JSON;
 
 import ink.moshuier.silken.common.MsgConstants;
@@ -24,11 +26,11 @@ public class HPAction {
 	List<Poster> posters;
 	List<Essay> essays;
 	List<Music>  musics;
+	private static Logger logger = LogManager.getLogger(HPAction.class.getName());
 	public String load(){
 		posters = posterService.list();
 		essays = essayService.getHomepageList();
 		musics = musicService.getHomepageList();
-		System.out.println("hp action");
 		return MsgConstants.HOMEPAGE;
 	}
 	@JSON(serialize=false)

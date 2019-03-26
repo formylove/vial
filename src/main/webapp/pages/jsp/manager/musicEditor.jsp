@@ -59,7 +59,7 @@
                 </tr>
 	    		<tr>
                     <td>歌词:</td>
-                    <td><input class="easyui-textbox" name="music.lyric" id='lyric' data-options="multiline:true" style="height:120px;width:400px" value='${music.lyric}'/></td>
+                    <td><input class="easyui-textbox" name="music.lyric" id='lyric' data-options="multiline:true" style="height:320px;width:600px" value='${music.lyric}'/></td>
                 </tr>
 	    		<tr>
                     <td>上传:</td>

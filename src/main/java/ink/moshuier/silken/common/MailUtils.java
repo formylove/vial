@@ -13,6 +13,9 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
 import javax.servlet.http.HttpServletRequest;
 
+import ink.moshuier.silken.action.LoginAction;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -25,10 +28,10 @@ public class MailUtils {
 	static private final String SUBJECT = MessageUtils.getConfig("mail.title");
 	static private final String Salutation_Reg="(?<=id=\"salutation\">)[^<]+(?=</p>)";
 	static private final String Href_Reg = "(?<=href=\")[^\"]*(?=\")";
-	//static public String baseRealPath = ((HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST)).getRealPath("/");
-	static public String baseRealPath = "O:\\Java\\blog\\iBlog\\src\\main\\webapp\\";
-	static public String template = baseRealPath + MessageUtils.getMessageFromUrl("template.email") + "activateMail.html";
+	static public String baseRealPath = ((HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST)).getRealPath("/");
+	static public String template = baseRealPath +  MessageUtils.getMessageFromUrl("template.email") + "activateMail.html";
 	static public String base = MessageUtils.getMessageFromUrl("base");
+	private static Logger logger = LogManager.getLogger(MailUtils.class.getName());
 	/**
 	 * 发送邮件的props文件
 	 */
@@ -44,9 +47,25 @@ public class MailUtils {
 	private transient Session session;
 	public MailUtils(String Sender,String password){
 		this.MyMail = Sender;
+		logger.error(MyMail);
 		this.PASSWORD = password;
 	}
 	public MailUtils(){
+	}
+	public String sendActivateEmail(String recipient,String nick_name,String token){
+		String content = StrUtils.fileToString(template);
+		content = content.replaceAll("\\{nickname\\}", nick_name);
+		content = content.replaceAll("\\{mail\\.logo\\}", MailLogo);
+		content = content.replaceAll(Href_Reg, base + "activate/" + token +"/");
+		content = content.replaceAll("\\{sitename\\}", SiteName);
+		content = content.replaceAll("\\{year\\}", TimeManager.getCurrentYear());
+//		try {
+//			sendEmail(recipient, new String(SUBJECT.getBytes("GBK"),"GBK"), content);
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		}
+		sendEmail(recipient,SUBJECT, content);
+		return null;
 	}
 	public String sendEmail(String recipient,String subject,String content){
 		init();
@@ -61,41 +80,40 @@ public class MailUtils {
 			message.setSubject(subject);
 			// 设置邮件内容
 			message.setContent(content.toString(), "text/html;charset=utf-8");
+		logger.error("set 发送前");
 			// 发送
 			Transport.send(message);
+		logger.error("set 发送后 " );
+		logger.error("Transport.send" + message);
 		} catch (MessagingException e) {
+		logger.error(e.getMessage());
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
-	public String sendActivateEmail(String recipient,String nick_name,String token){
-		String content = StrUtils.fileToString(template);
-		content = content.replaceAll("\\{nickname\\}", nick_name);
-		content = content.replaceAll("\\{mail\\.logo\\}", MailLogo);
-		content = content.replaceAll(Href_Reg, base + "activate/" + token +"/");
-		content = content.replaceAll("\\{sitename\\}", SiteName);
-		content = content.replaceAll("\\{year\\}", TimeManager.getCurrentYear());
-//		try {
-//			sendEmail(recipient, new String(SUBJECT.getBytes("GBK"),"GBK"), content);
-//		} catch (UnsupportedEncodingException e) {
-//			e.printStackTrace();
-//		}
-			sendEmail(recipient,SUBJECT, content);
-		return null;
-	}
+
 	private void init() {
 		final String smtpHostName = "smtp." + MyMail.split("@")[1];
 		// 初始化props
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.host", smtpHostName);
-		// 验证
+        final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+        props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
+        props.setProperty("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.socketFactory.port", "465");
+        props.setProperty("mail.smtp.port", "465");
+        props.put("mail.transport.protocol","smtp");
+        props.put("mail.smtp.starttls.enable", "true");// 使用 STARTTLS安全连接
+
+        // 验证
 		authenticator = new MailAuthenticator(MyMail, PASSWORD);
 		// 创建session
 		session = Session.getInstance(props, authenticator);
 	}
 public static void main(String[] s){
 	try {
+	    System.out.println(baseRealPath);
 		System.out.println(new String("卧槽".getBytes("UTF-8"),"UTF-8"));
 		System.out.println("卧槽");
 	} catch (UnsupportedEncodingException e) {

@@ -6,7 +6,7 @@
 					</p>
 						<div class="clearfix">
 							<a href="${essay.author_link}" target="_blank" class="avatar-wrapper">
-								<img src="${imageUrl}${essay.portrait}" alt="${essay.author}" class="avatar rounded"/>
+								<img src="${essay.portrait}" alt="${essay.author}" class="avatar rounded"/>
 							</a>
 							<div class="essay-author-info">
 								<div class="cell">

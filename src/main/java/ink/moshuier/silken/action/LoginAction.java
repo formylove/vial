@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.json.annotations.JSON;
 
@@ -62,6 +64,7 @@ public class LoginAction {
 	private float x;
 	private float y;
 	private String portrait;
+	private static Logger logger = LogManager.getLogger(LoginAction.class.getName());
 	public String login(){
 		message = userService.loginDetect(email, password);
 		if(message != null){
@@ -87,12 +90,16 @@ public class LoginAction {
 		message = "注册成功！";
 		user = new User(nick_name, email.toLowerCase(), password,req);
 		userService.save(user);
+		logger.error("begin mailSender");
 		MailUtils mailSender = new MailUtils();
+		logger.error("end mailSender");
 		mailSender.sendActivateEmail(user.getEmail().toLowerCase(), user.getNick_name(), user.getToken());
+		logger.error("setNick_name ");
 		setNick_name(user.getNick_name());
 		setEmail(user.getEmail());
 		user = null;
 		isGood = true;
+		logger.error("good ");
 		return MsgConstants.DONE;
 	}
 	public String activate() {

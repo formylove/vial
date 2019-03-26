@@ -8,11 +8,11 @@
 				</div>
 				<div class="section-ct">
 					<div class="clearfix">
-						<a href="essay/${essays[0].id }" target="_blank"><img src="${imageUrl}${essays[0].cover }"  class="cover rounded"></a>
+						<a href="essay/${essays[0].id }" target="_blank"><img src="${imageUrl}square-${essays[0].cover }"  class="cover rounded"></a>
 						<div class="title">
 							<div class="align-fix">
 								<div>
-									<a href="essay/${essays[0].id }" class="single-name">${essays[0].id }</a>
+									<a href="essay/${essays[0].id }" class="single-name">${essays[0].title }</a>
 									<p class="pubdate">${essays[0].create_date}</p>
 								</div>
 							</div>

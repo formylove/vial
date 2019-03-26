@@ -12,6 +12,8 @@ import javax.websocket.EndpointConfig;
 import javax.websocket.Session;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.StrutsStatics;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.StandardBasicTypes;
@@ -32,7 +34,7 @@ public class UserServiceImpl implements UserService {
 	private final int Max_Length = 10;
 	@Resource(name = "userDaoHibernate4")
 	private UserDao userDao;
-
+	private static Logger logger = LogManager.getLogger(UserServiceImpl.class.getName());
 	public UserServiceImpl() {
 	}
 
@@ -231,7 +233,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean login(User user,String remember){
 		if(remember == null){
+			logger.error("begin logined_user" + user.getId());
 			ActionContext.getContext().getSession().put("logined_user", user.getId());
+			logger.error("end logined_user" + user.getId());
 		}else{
 			HttpServletResponse res = (HttpServletResponse) ActionContext.getContext().get(StrutsStatics.HTTP_RESPONSE);
 			Cookie c = new Cookie("night_user_id",String.valueOf(user.getId()));

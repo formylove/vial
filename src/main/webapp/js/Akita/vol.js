@@ -1,5 +1,6 @@
 var id ;
 var curIndex = 0;
+var initialPlay = true;
 $.fn.extend({
 	stop:function(){
 		if(this.is("audio")){
@@ -97,11 +98,14 @@ $(function ()
     $("audio").map(function(){
     	this.addEventListener("play",function(){
     		var now = $(this).data("index");
-    		if(now != curIndex){
+    		if(now != curIndex ){
     			$(".total-time").text($(this).data("duration"));
     			curIndex = now;
     			setPlayer();
-    		}
+    		}else if(initialPlay){
+				initialPlay = false;
+    			$(".total-time").text($(this).data("duration"));
+			}
     		toggle();
     	},false);
     });

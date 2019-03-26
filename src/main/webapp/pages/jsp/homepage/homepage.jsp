@@ -10,8 +10,7 @@
 <body>
 <%@ include file="../snippets/navigator.jsp" %>
 <%@ include file="../snippets/hidden_box.jsp" %>
-
-<div class="container index-ct" style="min-height: 221px;">	
+<div class="container index-ct" style="min-height: 221px;">
 <%@ include file="../homepage/poster.jsp" %>
 <%@ include file="../homepage/musicColumn.jsp" %>
 <%@ include file="../homepage/articleColumn.jsp" %>
