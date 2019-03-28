@@ -23,7 +23,7 @@
 						版权声明
 					</p>
 					<div class="copyright-ct">
-						「${pageScope.sitename}网」专栏文章，如果侵权，立即删除
+						「${pageScope.sitename}网」专栏文章，版权所有
 					</div>
 				</div>
 			</div>

@@ -52,7 +52,6 @@ int pages;
 User user;
 boolean loginStatus;
 public String list(){
-	HttpServletRequest request=ServletActionContext.getRequest();
 	categories = categoryService.list();
 	if(category == 0){
 		if(!categories.isEmpty()){
