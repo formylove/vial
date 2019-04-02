@@ -4,6 +4,7 @@ package ink.moshuier.silken.action;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -51,6 +52,7 @@ List<Category> categories;
 int pages;
 User user;
 boolean loginStatus;
+final AtomicInteger rc = new AtomicInteger();
 public String list(){
 	categories = categoryService.list();
 	if(category == 0){
