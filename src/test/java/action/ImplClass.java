@@ -2,7 +2,7 @@ package action;
 
 import java.math.BigDecimal;
 
-public interface InterfaceA {
+ interface InterfaceA {
     default String f(){
         return"this is InterfaceA";
     }
